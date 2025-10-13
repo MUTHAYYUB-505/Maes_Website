@@ -1,192 +1,313 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>M. Advanced Energy Systems (MAES)</title>
-  <meta name="description" content="MAES — CCTV, Power Quality, Energy Management, Automation & SCADA solutions in Saudi Arabia." />
-  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-  <!-- Simple custom styling (responsive, modern) -->
-  <style>
-    :root{--accent:#0b76d1;--dark:#0b2540;--muted:#6b7280}
-    *{box-sizing:border-box}
-    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; color:#10223a}
-    header{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;border-bottom:1px solid #e6eef7;background:linear-gradient(90deg,#ffffff,#f7fbff)}
-    .brand{display:flex;gap:12px;align-items:center}
-    .logo{width:46px;height:46px;background:var(--accent);display:flex;align-items:center;justify-content:center;border-radius:8px;color:#fff;font-weight:700}
-    nav{display:flex;gap:16px}
-    nav a{color:var(--dark);text-decoration:none;font-weight:600}
-    .cta{background:var(--accent);color:#fff;padding:10px 14px;border-radius:8px;text-decoration:none}
-    .hamburger{display:none}
-
-    .hero{display:grid;grid-template-columns:1fr 420px;gap:36px;padding:56px 28px;align-items:center}
-    .hero h1{font-size:34px;margin:0 0 12px}
-    .lead{color:var(--muted);line-height:1.6}
-    .card{background:#fff;padding:20px;border-radius:12px;box-shadow:0 8px 30px rgba(17,24,39,0.06);border:1px solid #eef6ff}
-
-    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:40px 28px}
-    .services h3{margin:0 0 8px}
-    .services p{color:var(--muted)}
-
-    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:36px 28px}
-    .principals ul{columns:2;list-style:none;padding:0;margin:0;color:var(--muted)}
-
-    footer{background:#072036;color:#cfe9ff;padding:28px;text-align:center;margin-top:28px}
-
-    /* Contact form */
-    form{display:grid;gap:10px}
-    input,textarea{padding:10px;border-radius:8px;border:1px solid #dbeaf8;font-size:15px}
-    button{background:var(--accent);color:#fff;border:none;padding:12px;border-radius:10px;font-weight:700}
-
-    /* Responsive */
-    @media (max-width:900px){
-      .hero{grid-template-columns:1fr;}
-      .services{grid-template-columns:1fr}
-      .two-col{grid-template-columns:1fr}
-      nav{display:none}
-      .hamburger{display:block}
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M. Advanced Energy Systems (MAES) - Critical Power & Security Solutions</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Lucide Icons for professional symbols -->
+    <script type="module">
+        import { createIcons, Power, ShieldCheck, Zap, Server, Phone, Mail, MapPin } from 'https://cdn.skypack.dev/lucide@latest';
+        createIcons({ icons: { Power, ShieldCheck, Zap, Server, Phone, Mail, MapPin } });
+    </script>
+    <style>
+        /* Custom Tailwind Configuration (Primary/Secondary Colors based on MAES Logo) */
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'maes-primary': '#38761d', /* Dark Green */
+                        'maes-secondary': '#f1c232', /* Gold/Yellow */
+                        'maes-bg': '#f9f9f9', /* Light background */
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+        /* Base styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            scroll-behavior: smooth;
+        }
+        /* Sticky Header for Navigation */
+        #header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        /* Custom styling for section titles */
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: #f1c232; /* maes-secondary */
+            border-radius: 9999px;
+        }
+    </style>
 </head>
-<body>
-  <header>
-    <div class="brand">
-      <div class="logo">MA</div>
-      <div>
-        <div style="font-weight:700">M. ADVANCED ENERGY SYSTEMS</div>
-        <div style="font-size:12px;color:var(--muted)">Power · Automation · Energy Efficiency · Security</div>
-      </div>
-    </div>
+<body class="text-gray-800">
 
-    <nav aria-label="Main navigation">
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#principals">Products</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <!-- Header & Navigation Bar -->
+    <header id="header" class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-2">
+                    <!-- Placeholder for Logo Image -->
+                    <div class="w-8 h-8 bg-maes-primary rounded-full flex items-center justify-center font-bold text-white text-xl">M</div>
+                    <span class="text-2xl font-extrabold text-maes-primary tracking-tight">MAES</span>
+                    <span class="text-xl font-medium text-gray-600 hidden sm:block">Power & Energy</span>
+                </a>
+                
+                <!-- Navigation Links (Hidden on mobile by default) -->
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#about" class="text-gray-600 hover:text-maes-primary font-medium transition duration-150">About Us</a>
+                    <a href="#services" class="text-gray-600 hover:text-maes-primary font-medium transition duration-150">Services</a>
+                    <a href="#certifications" class="text-gray-600 hover:text-maes-primary font-medium transition duration-150">Partners</a>
+                    <a href="#contact" class="px-4 py-2 bg-maes-secondary text-maes-primary font-bold rounded-lg shadow-md hover:bg-opacity-90 transition duration-150">Contact Us</a>
+                </nav>
 
-    <div style="display:flex;gap:12px;align-items:center">
-      <a class="cta" href="tel:+966138175786">+966 13 817 5786</a>
-      <button class="hamburger" aria-label="Open menu" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div>
-        <h1>Reliable power, secure facilities — engineered for uptime</h1>
-        <p class="lead">MAES provides end-to-end solutions in CCTV & security, power quality, energy management and automation — serving oil & gas, petrochemical, industrial, commercial and public sectors across Saudi Arabia.</p>
-
-        <div style="display:flex;gap:12px;margin-top:20px">
-          <a class="cta" href="#contact">Get a Quote</a>
-          <a href="#principals" style="padding:10px 14px;border-radius:8px;border:1px solid #e6eef7;text-decoration:none">Our Products</a>
+                <!-- Mobile Menu Button (Placeholder) -->
+                <button class="md:hidden p-2 text-gray-600 hover:text-maes-primary focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
         </div>
+    </header>
 
-        <div style="margin-top:28px;display:grid;grid-template-columns:repeat(2,1fr);gap:12px">
-          <div class="card">
-            <strong>Office</strong>
-            <div style="font-size:13px;color:var(--muted);margin-top:6px">3rd Floor Al-Mutlaq Complex Bldg.3, Bandariyah, Al Khobar, KSA</div>
-          </div>
-          <div class="card">
-            <strong>Email & Phone</strong>
-            <div style="font-size:13px;color:var(--muted);margin-top:6px">mail@maes-wll.com · +966 13 817 5786</div>
-          </div>
+    <!-- Hero Section -->
+    <section id="hero" class="bg-maes-primary text-white py-24 md:py-32 rounded-b-xl shadow-inner">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="text-maes-secondary font-semibold uppercase tracking-widest block mb-4 text-lg">M. Advanced Energy Systems (MAES)</span>
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
+                Critical Power, Automation, <br class="hidden sm:inline-block"> and Security Solutions
+            </h1>
+            <p class="text-xl md:text-2xl font-light max-w-4xl mx-auto mb-10">
+                Your trusted Saudi-owned partner delivering secured facilities, reliable power, and energy conservation across the Kingdom.
+            </p>
+            <div class="flex justify-center space-x-4">
+                <a href="#services" class="px-8 py-3 bg-maes-secondary text-maes-primary font-bold rounded-full text-lg shadow-xl hover:bg-opacity-80 transition duration-300 transform hover:scale-105">
+                    Explore Solutions
+                </a>
+                <a href="#contact" class="px-8 py-3 bg-white text-maes-primary border-2 border-maes-secondary font-bold rounded-full text-lg shadow-xl hover:bg-gray-100 transition duration-300 transform hover:scale-105">
+                    Request a Quote
+                </a>
+            </div>
         </div>
-      </div>
-
-      <aside class="card">
-        <h3 style="margin-top:0">What we do</h3>
-        <p class="lead">Design, supply, installation and commissioning services for CCTV, access control, power monitoring, SCADA, EPMS, power quality mitigation and fiber splicing.</p>
-
-        <div style="margin-top:16px">
-          <strong>Branches</strong>
-          <div style="font-size:13px;color:var(--muted);margin-top:6px">Jubail · Riyadh · Jeddah</div>
-        </div>
-      </aside>
     </section>
 
-    <section id="services" class="services">
-      <div class="card">
-        <h3>CCTV & Security</h3>
-        <p>End-to-end surveillance, access control, IP telephony, smart home automation and remote monitoring solutions.</p>
-      </div>
-      <div class="card">
-        <h3>Power Quality & Energy</h3>
-        <p>Power quality audits, harmonic mitigation, power factor correction, UPS and energy efficiency services that reduce downtime and cost.</p>
-      </div>
-      <div class="card">
-        <h3>Automation & SCADA</h3>
-        <p>Power monitoring (EPMS/PMS), SCADA, substation automation and custom control solutions with IEC protocols support.</p>
-      </div>
-    </section>
+    <!-- About Us Section -->
+    <section id="about" class="py-20 bg-maes-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 section-title">Our Commitment to Excellence</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
+                
+                <!-- Introduction -->
+                <div class="lg:col-span-2 space-y-4 text-lg text-gray-600">
+                    <p class="font-semibold text-gray-800">
+                        MAES is a leading Saudi-owned group of companies based in Al Khobar, KSA, focused on delivering advanced technology solutions in **CCTV & Security Systems** and **Energy Efficiency**.
+                    </p>
+                    <p>
+                        Our specialized solutions are critical for the **Oil & Gas, Petrochemical, Power Generation, Industrial, and Commercial sectors**. We enhance facility security, ensure reliable power distribution, and drive significant energy conservation.
+                    </p>
+                    <p>
+                        We differentiate ourselves by offering **complete engineering packages** and specialized services, operating as a single, reliable point of contact for complex, multi-disciplinary projects.
+                    </p>
+                </div>
 
-    <section class="two-col" id="principals">
-      <div class="card principals">
-        <h3>Principals & Featured Products</h3>
-        <p style="color:var(--muted)">Schneider Electric, Survalent, COPA-DATA, Moxa, Advantech, Comar, Salicru and more.</p>
-        <ul style="margin-top:14px">
-          <li>Power Meters (ION, PM series)</li>
-          <li>EcoStruxure Power Monitoring</li>
-          <li>Active Harmonic Filters & PFC Panels</li>
-          <li>VFDs, Soft Starters, UPS Systems</li>
-          <li>Fiber optic splicing, termination & OTDR testing</li>
-        </ul>
-      </div>
+                <!-- Mission & Vision -->
+                <div class="space-y-6">
+                    <div class="p-6 bg-white rounded-xl shadow-lg border-t-4 border-maes-secondary">
+                        <h3 class="text-xl font-bold text-maes-primary mb-2">Our Mission</h3>
+                        <p class="text-gray-600 text-base">To provide high-quality services at the most competitive price, rigorously upholding standards of quality, safety, and environmental responsibility.</p>
+                    </div>
+                    <div class="p-6 bg-white rounded-xl shadow-lg border-t-4 border-maes-secondary">
+                        <h3 class="text-xl font-bold text-maes-primary mb-2">Our Vision</h3>
+                        <p class="text-gray-600 text-base">To deliver cost-effective and high-quality solutions for Power Quality, Automation, and Security, ensuring the **lowest Cost of Ownership** and **Highest Yield & Uptime** for our customers.</p>
+                    </div>
+                </div>
 
-      <div class="card">
-        <h3>Power Quality & Energy Audit</h3>
-        <p class="lead">We perform load profiling, logged-data analysis, PQ reporting and tailored mitigation plans. Full project delivery from supply to maintenance and training.</p>
-
-        <div style="margin-top:14px">
-          <a href="MAES Profile.pdf" style="text-decoration:none;padding:10px 12px;border-radius:8px;border:1px solid #e6eef7;display:inline-block">Download Company Profile (PDF)</a>
+            </div>
         </div>
-      </div>
     </section>
 
-    <section id="contact" style="padding:28px">
-      <div class="card" style="max-width:900px;margin:0 auto;">
-        <h3 style="margin-top:0">Contact & Enquiry</h3>
-        <p style="color:var(--muted)">Send us a message and we'll get back to you within 1 business day.</p>
+    <!-- Core Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 section-title">Our Expertise: Comprehensive Solutions</h2>
+            </div>
 
-        <form onsubmit="submitForm(event)">
-          <input type="text" id="name" placeholder="Your name" required />
-          <input type="email" id="email" placeholder="Your email" required />
-          <input type="text" id="subject" placeholder="Subject" />
-          <textarea id="message" placeholder="Your message" rows="5" required></textarea>
-          <div style="display:flex;gap:12px">
-            <button type="submit">Send Message</button>
-            <a href="mailto:mail@maes-wll.com?subject=Website%20Inquiry" style="align-self:center;text-decoration:none;color:var(--muted)">Or email us directly</a>
-          </div>
-        </form>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Service Card 1: Power Quality -->
+                <div class="bg-maes-bg p-6 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 border-t-4 border-maes-primary">
+                    <div class="text-maes-secondary mb-4">
+                        <i data-lucide="zap" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-maes-primary mb-3">Power Quality & Efficiency</h3>
+                    <p class="text-gray-600 mb-4 text-sm">Enhancing energy performance and reliability through specialized audits and mitigation systems.</p>
+                    <ul class="text-sm text-gray-600 space-y-1 list-disc list-inside">
+                        <li>Energy & Power Quality Audits and Studies.</li>
+                        <li>Power Factor Correction (PFC) Systems.</li>
+                        <li>Harmonics Mitigation (Active/Passive Filters).</li>
+                        <li>UPS Systems & Stabilizers.</li>
+                        <li>VFD (Variable Frequency Drives) & Soft Starters.</li>
+                    </ul>
+                </div>
 
-        <script>
-          function submitForm(e){
-            e.preventDefault();
-            const name=document.getElementById('name').value.trim();
-            const email=document.getElementById('email').value.trim();
-            const subject=document.getElementById('subject').value.trim()||'Website Inquiry';
-            const message=document.getElementById('message').value.trim();
-            const body = encodeURIComponent('Name: '+name+'\nEmail: '+email+'\n\n'+message);
-            // open user's mail client with prefilled message
-            window.location.href = `mailto:mail@maes-wll.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-          }
-        </script>
-      </div>
-    </section>
+                <!-- Service Card 2: Automation -->
+                <div class="bg-maes-bg p-6 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 border-t-4 border-maes-primary">
+                    <div class="text-maes-secondary mb-4">
+                        <i data-lucide="server" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-maes-primary mb-3">Energy Management & Automation</h3>
+                    <p class="text-gray-600 mb-4 text-sm">Implementing advanced SCADA and monitoring systems for total control and data visibility.</p>
+                    <ul class="text-sm text-gray-600 space-y-1 list-disc list-inside">
+                        <li>Power Monitoring Systems (PMS/EPMS).</li>
+                        <li>Substation Automation & SCADA (IEC 61850).</li>
+                        <li>Remote Switching Systems (RSMS).</li>
+                        <li>GPRS & Wireless Automation Networks.</li>
+                        <li>Supply of Power Meters (ION/PM series).</li>
+                    </ul>
+                </div>
 
-  </main>
-
-  <footer>
-    <div style="max-width:1000px;margin:0 auto">
-      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
-        <div>
-          <strong>MAES</strong>
-          <div style="font-size:13px;color:#cfe9ff">P.O. Box 2134, Al Khobar, 31952 · mail@maes-wll.com · +966 13 817 5786</div>
+                <!-- Service Card 3: Security & CCTV -->
+                <div class="bg-maes-bg p-6 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 border-t-4 border-maes-primary">
+                    <div class="text-maes-secondary mb-4">
+                        <i data-lucide="shield-check" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-maes-primary mb-3">CCTV, Security & Comms</h3>
+                    <p class="text-gray-600 mb-4 text-sm">Full-spectrum security solutions from design to commissioning for protected facilities.</p>
+                    <ul class="text-sm text-gray-600 space-y-1 list-disc list-inside">
+                        <li>CCTV Surveillance & Remote Monitoring.</li>
+                        <li>Security Alarm Systems (e.g., Paradox).</li>
+                        <li>Smart Home Automation.</li>
+                        <li>IP Telephone and Intercom Systems.</li>
+                        <li>Wired & Wireless IT & Networking.</li>
+                    </ul>
+                </div>
+                
+                <!-- Service Card 4: Specialized Services -->
+                <div class="bg-maes-bg p-6 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 border-t-4 border-maes-primary">
+                    <div class="text-maes-secondary mb-4">
+                        <i data-lucide="power" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-maes-primary mb-3">Specialized Electrical Services</h3>
+                    <p class="text-gray-600 mb-4 text-sm">Expert installation, testing, and supply of core electrical infrastructure components.</p>
+                    <ul class="text-sm text-gray-600 space-y-1 list-disc list-inside">
+                        <li>Supply of Electrical Panels (Distribution, ATS).</li>
+                        <li>Transformers & Electrical Panels Supply.</li>
+                        <li>Fiber Optic Splicing, Termination, & Testing (OTDR).</li>
+                        <li>Copper UTP Cable Termination and Testing.</li>
+                        <li>Custom Design, Engineering, and Installation.</li>
+                    </ul>
+                </div>
+                
+            </div>
         </div>
-        <div style="font-size:13px;color:#cfe9ff">© " + new Date().getFullYear() + " MAES. All rights reserved.</div>
-      </div>
-    </div>
-  </footer>
+    </section>
+
+    <!-- Certifications & Partners Section -->
+    <section id="certifications" class="py-20 bg-maes-primary text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white section-title" style="--tw-text-opacity: 1; color: white;">Trusted Certifications & Partners</h2>
+            </div>
+            <p class="text-xl mb-10 max-w-3xl mx-auto">
+                Our capability is verified by global leaders, ensuring we deliver world-class solutions and compliance.
+            </p>
+            
+            <div class="flex flex-wrap justify-center items-center space-x-8 md:space-x-16">
+                <!-- Certification 1: Schneider Electric -->
+                <div class="m-4">
+                    <p class="text-4xl font-extrabold text-maes-secondary">EcoXpert</p>
+                    <p class="text-xl font-semibold">Critical Power MASTER Certified</p>
+                    <p class="text-sm text-gray-300">by Schneider Electric</p>
+                </div>
+                
+                <!-- Partner 2: COPA-DATA (Zenon) -->
+                <div class="m-4">
+                    <p class="text-3xl font-bold">COPA-DATA</p>
+                    <p class="text-sm text-gray-300">Zenon SCADA Software</p>
+                </div>
+
+                <!-- Partner 3: Survalent -->
+                <div class="m-4">
+                    <p class="text-3xl font-bold">Survalent</p>
+                    <p class="text-sm text-gray-300">SCADA Solutions</p>
+                </div>
+
+                <!-- Partner 4: Advantech/Moxa (Comm Devices) -->
+                <div class="m-4">
+                    <p class="text-3xl font-bold">Advantech & Moxa</p>
+                    <p class="text-sm text-gray-300">Industrial Data Communication</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-maes-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 section-title">Get in Touch with MAES</h2>
+                <p class="mt-4 text-lg text-gray-600">Our team is ready to provide the expertise you need for your next critical project.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center max-w-4xl mx-auto">
+                
+                <!-- Item 1: Phone -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                    <i data-lucide="phone" class="w-8 h-8 mx-auto text-maes-primary mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Phone Support</h3>
+                    <a href="tel:+966138175786" class="text-lg text-maes-primary font-medium hover:underline block">+966 13 817 5786</a>
+                    <a href="tel:+966138022922" class="text-lg text-maes-primary font-medium hover:underline block">+966 13 802 2922</a>
+                </div>
+
+                <!-- Item 2: Email -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                    <i data-lucide="mail" class="w-8 h-8 mx-auto text-maes-primary mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">General Inquiry</h3>
+                    <a href="mailto:mail@maes-wll.com" class="text-lg text-maes-primary font-medium hover:underline">mail@maes-wll.com</a>
+                </div>
+
+                <!-- Item 3: Location -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                    <i data-lucide="map-pin" class="w-8 h-8 mx-auto text-maes-primary mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Head Office</h3>
+                    <p class="text-gray-600 text-base">Al-Mutlaq Complex Bldg.3, Bandariyah, Al Khobar, KSA</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <p class="text-gray-500 text-sm">Fax: +966 13 817 5761 | Branches in: Jubail, Riyadh, Jeddah</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-sm text-gray-400">&copy; 2025 M. Advanced Energy Systems (MAES). All Rights Reserved.</p>
+            <p class="text-xs mt-2 text-gray-500">Built with professionalism and precision for Power & Energy solutions.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
