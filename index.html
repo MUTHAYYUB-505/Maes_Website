@@ -1,330 +1,436 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>M. Advanced Energy Systems (MAES) — Power & Energy</title>
-  <meta name="description" content="MAES - Power & Energy Solutions. Automation, EPMS, SCADA, CCTV, Power Quality, VFDs, Panels. Based in Al Khobar, KSA." />
-  <style>
-    :root{
-      --primary:#1f5c40;      /* deep green from logo */
-      --accent:#f1c232;       /* yellow from logo */
-      --muted:#666;
-      --bg:#ffffff;
-      --card:#f7f8f6;
-      --dark:#222;
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%}
-    body{
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      color:var(--dark);
-      background:var(--bg);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.6;
-      scroll-behavior:smooth;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAES | M. Advanced Energy Systems - Power & Energy Solutions</title>
+    <style>
+        :root {
+            --primary-color: #38761d; /* Dark Green - from logo */
+            --secondary-color: #f1c232; /* Yellow/Gold - from logo */
+            --text-dark: #333;
+            --text-light: #f4f4f4;
+            --background-light: #ffffff;
+            --background-dark: #222;
+        }
 
-    .container{width:92%;max-width:1200px;margin:0 auto}
+        /* Base Reset and Typography */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    /* Header - compact (logo in hero per request) */
-    header{
-      background:transparent;
-      padding:12px 0;
-      position:sticky;
-      top:0;
-      z-index:900;
-      backdrop-filter: blur(4px);
-    }
-    header .nav {
-      display:flex;
-      justify-content:flex-end;
-      align-items:center;
-      gap:18px;
-    }
-    header .nav a{
-      color:var(--dark);
-      text-decoration:none;
-      font-weight:600;
-      text-transform:uppercase;
-      font-size:0.85rem;
-      padding:8px 10px;
-      border-radius:6px;
-      transition:background .18s,color .18s;
-    }
-    header .nav a:hover{background:rgba(0,0,0,0.04)}
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--background-light);
+            scroll-behavior: smooth;
+        }
 
-    /* Hero with large logo */
-    #hero{
-      background: linear-gradient(180deg, rgba(31,92,64,0.95) 0%, rgba(31,92,64,0.95) 50%, rgba(31,92,64,0.92) 100%);
-      color:#fff;
-      padding:80px 16px;
-      text-align:center;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      flex-direction:column;
-      gap:28px;
-    }
-    #hero .logo-wrap{
-      max-width:520px;
-      width:90%;
-      display:block;
-    }
-    #hero .logo-wrap img{
-      width:100%;
-      height:auto;
-      display:block;
-      object-fit:contain;
-      border-radius:8px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.35);
-      background:rgba(255,255,255,0.02);
-    }
-    #hero h1{
-      font-size:1.35rem;
-      letter-spacing:1px;
-      margin-top:6px;
-      color: #fff;
-      font-weight:700;
-    }
-    #hero p{
-      color: #f3f3f3;
-      max-width:900px;
-      font-size:1.05rem;
-    }
+        h1, h2, h3 {
+            margin-bottom: 0.5em;
+            font-weight: 600;
+        }
+        
+        h2 {
+            font-size: 2.2em;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 1.5em;
+        }
 
-    /* Sections */
-    section{padding:60px 0}
-    h2{
-      color:var(--primary);
-      font-size:1.9rem;
-      text-align:center;
-      margin-bottom:12px;
-    }
-    .lead{max-width:900px;margin:0 auto 26px;text-align:center;color:var(--muted)}
+        p {
+            margin-bottom: 1em;
+        }
 
-    /* About */
-    #about .split{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
-    #about img{width:100%;border-radius:10px;box-shadow:0 8px 20px rgba(0,0,0,0.08)}
-    #about .text p{ color:var(--dark); text-align:justify }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+        }
 
-    /* Services grid */
-    .services-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-      gap:20px;
-      margin-top:18px;
-    }
-    .service{
-      background:var(--card);
-      padding:24px;border-radius:10px;
-      box-shadow:0 6px 18px rgba(0,0,0,0.06);
-      transition:transform .22s, box-shadow .22s;
-    }
-    .service:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(0,0,0,0.09)}
-    .service h3{color:var(--primary);margin-bottom:10px}
-    .service p{color:var(--muted);font-size:0.95rem}
+        /* Header & Navigation */
+        #header {
+            background: var(--background-light);
+            color: var(--text-dark);
+            padding: 15px 0;
+            border-bottom: 3px solid var(--secondary-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-    /* Projects */
-    .projects-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:22px;
-      margin-top:22px;
-    }
-    .project{
-      background:#fff;border-radius:10px;overflow:hidden;
-      box-shadow:0 8px 26px rgba(0,0,0,0.06);transition:transform .22s,box-shadow .22s;
-    }
-    .project:hover{transform:translateY(-6px);box-shadow:0 14px 40px rgba(0,0,0,0.10)}
-    .project img{width:100%;height:170px;object-fit:cover;display:block}
-    .project .body{padding:18px}
-    .project h4{color:var(--primary);margin-bottom:8px}
-    .project p{color:var(--muted);font-size:0.95rem;text-align:justify}
+        #header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    /* Contact */
-    #contact .cols{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin-top:18px}
-    .contact-card{background:var(--card);padding:18px;border-radius:10px;min-width:220px;max-width:360px}
-    .contact-card h4{color:var(--primary);margin-bottom:6px}
-    .contact-card p{color:var(--dark);font-size:0.95rem}
+        #header .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-transform: uppercase;
+        }
+        
+        #header .logo span {
+            color: var(--secondary-color);
+        }
 
-    /* Footer */
-    footer{background:var(--primary);color:#fff;padding:18px 0;text-align:center}
-    footer a{color:var(--accent);text-decoration:none;font-weight:700}
+        #nav ul {
+            list-style: none;
+            display: flex;
+        }
 
-    /* Responsive */
-    @media (max-width:900px){
-      #about .split{grid-template-columns:1fr}
-      header .nav{justify-content:center}
-      .project img{height:150px}
-    }
+        #nav ul li a {
+            color: var(--text-dark);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            padding: 8px 15px;
+            transition: color 0.3s, border-bottom 0.3s;
+        }
 
-  </style>
+        #nav ul li a:hover {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        /* Hero Section */
+        #hero {
+            background: var(--primary-color);
+            color: var(--text-light);
+            text-align: center;
+            padding: 80px 20px;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 0.2em;
+        }
+
+        #hero p {
+            font-size: 1.5em;
+            font-style: italic;
+        }
+
+        /* General Section Styling */
+        section {
+            padding: 60px 0;
+        }
+
+        #about {
+            background: var(--background-light);
+        }
+
+        /* Services Section Specific Styles */
+        #services {
+            background: #f0f5ee; /* Light green tone */
+        }
+
+        /* Image for Services */
+        .service-image {
+            width: 100%;
+            max-width: 800px; /* Increased max width for better visibility */
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            margin: 20px auto 40px auto;
+            display: block;
+            object-fit: cover;
+        }
+        
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted min-width for more cards */
+            gap: 30px;
+            text-align: center;
+        }
+
+        .service-card {
+            background: var(--background-light);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            text-align: left; /* Align text left in the card for better list reading */
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-card h3 {
+            color: var(--primary-color);
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            text-align: center; /* Center title */
+        }
+        
+        .service-card > p {
+            text-align: center; /* Center paragraph */
+            font-style: italic;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+        }
+        
+        .service-card ul {
+            list-style-type: disc;
+            padding-left: 25px;
+            font-size: 0.95em;
+        }
+        
+        .service-card li {
+            margin-bottom: 8px;
+        }
+        
+        /* Contact Section */
+        #contact {
+            background: var(--background-dark);
+            color: var(--text-light);
+            text-align: center;
+        }
+        
+        #contact h2 {
+            color: var(--secondary-color);
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .contact-item {
+            margin: 20px;
+        }
+        
+        .contact-item h3 {
+            color: var(--secondary-color);
+            font-size: 1.2em;
+        }
+
+        /* Footer */
+        #footer {
+            background: var(--primary-color);
+            color: var(--text-light);
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.8em;
+        }
+
+        /* Added style for developer signature */
+        #footer .developer-credit {
+            display: block;
+            margin-top: 5px;
+            font-size: 0.9em;
+            opacity: 0.7;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            #header .container {
+                flex-direction: column;
+            }
+
+            #nav ul {
+                padding-top: 15px;
+            }
+            
+            #nav ul li a {
+                padding: 8px 10px;
+            }
+
+            #hero h1 {
+                font-size: 2.5em;
+            }
+
+            #hero p {
+                font-size: 1.2em;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr; /* Single column on mobile */
+            }
+            
+            .service-image {
+                max-width: 95%;
+            }
+        }
+
+    </style>
 </head>
 <body>
 
-  <!-- HEADER (minimal because logo is in hero) -->
-  <header>
-    <div class="container">
-      <nav class="nav" aria-label="Main navigation">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- HERO with large logo -->
-  <section id="hero" aria-label="Hero">
-    <div class="container">
-      <!-- Replace the path below if you move the logo; currently using uploaded image path from the container -->
-      <!-- Recommended: when you host, place the logo next to index.html and set src="logo.png" -->
-      <div class="logo-wrap" role="img" aria-label="MAES logo">
-        <img src="logo.png" alt="MAES - M. Advanced Energy Systems logo" />
-      </div>
-
-      <h1>M. Advanced Energy Systems (MAES)</h1>
-      <p>Your trusted partner for critical power, automation, and security solutions — delivering EPMS, PSA, SCADA, CCTV, VFDs, and energy efficiency projects across Saudi Arabia.</p>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="container">
-      <h2>About MAES</h2>
-      <p class="lead">Saudi-owned technology company based in Al Khobar, KSA. We specialize in CCTV & Security Systems, Power Automation, and Energy Efficiency serving Oil & Gas, Petrochemical, Power Generation, Industrial, and Commercial sectors.</p>
-
-      <div class="split">
-        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=60" alt="Automation engineering" />
-        <div class="text">
-          <h3 style="color:var(--primary);margin-bottom:10px">Mission & Vision</h3>
-          <p><strong>Mission:</strong> Provide high-quality services at competitive prices without compromising safety, quality, or the environment.<br><strong>Vision:</strong> Deliver cost-effective, reliable solutions for CCTV & Security, Power Automation, and Power Quality with the lowest total cost of ownership and maximum uptime.</p>
-
-          <h3 style="color:var(--primary);margin-top:18px">What sets us apart</h3>
-          <ul style="margin-top:10px;color:var(--muted);line-height:1.6">
-            <li>Schneider Electric EcoXpert Critical Power MASTER Certified</li>
-            <li>Turnkey engineering packages — single point of contact for multiple disciplines</li>
-            <li>Experienced staff delivering quality, safety, and integrity</li>
-          </ul>
+    <!-- Header & Navigation -->
+    <header id="header">
+        <div class="container">
+            <div class="logo">MAES <span>Power & Energy</span></div>
+            <nav id="nav">
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-      </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- SERVICES -->
-  <section id="services">
-    <div class="container">
-      <h2>Our Core Services & Solutions</h2>
-      <p class="lead">We deliver specialized services across power quality, automation, metering, security, and electrical infrastructure.</p>
-
-      <div class="services-grid" aria-hidden="false">
-        <div class="service">
-          <h3>Power Quality & Energy Savings</h3>
-          <p>Audits, PFC systems, harmonic mitigation, UPS, stabilizers, VFDs and energy optimization solutions.</p>
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <div>
+                <h1>M. Advanced Energy Systems (MAES)</h1>
+                <p>Your Trusted Partner for Critical Power, Automation, and Security Solutions</p>
+            </div>
         </div>
+    </section>
 
-        <div class="service">
-          <h3>Automation, Metering & EPMS</h3>
-          <p>EPMS, PMS, PSA (Aramco projects), SCADA, RSMS, smart metering, GPRS & cloud communication technologies.</p>
+    <!-- About Us Section with Image beside -->
+    <section id="about" class="container">
+        <h2>About MAES</h2>
+
+        <div style="display: flex; align-items: center; gap: 30px; flex-wrap: wrap;">
+            
+            <!-- Left Content -->
+            <div style="flex: 1; min-width: 300px;">
+                <p>M. Advanced Energy System (MAES) is a **Saudi-owned group of companies** based in Al Khobar, KSA. We are a technology company dedicated to enhancing competencies in **CCTV & Security Systems** and **Energy Efficiency** to provide secured facilities, reliable power, and energy conservation.</p>
+                <p>Our solutions and services are vital to the Oil & Gas, Petrochemical, Power Generation, Industrial, and Commercial sectors across the Kingdom of Saudi Arabia.</p>
+                
+                <h3 style="color: var(--primary-color); margin-top: 2em;">Mission & Vision</h3>
+                <p>**Mission:** Our mission is to provide high-quality services at the most competitive price without compromising quality, safety, and the environment.</p>
+                <p>**Vision:** Our vision is to consistently deliver cost-effective and high-quality solutions for CCTV & Security, Power Automation, Energy efficiency, and Power Quality, ensuring the lowest Cost of Ownership and Highest Yield & Uptime for our customers.</p>
+
+                <h3 style="color: var(--primary-color); margin-top: 2em;">What Sets Us Apart</h3>
+                <ul>
+                    <li>We are a **Schneider Electric EcoXpert Critical Power MASTER Certified** company.</li>
+                    <li>We offer complete engineering packages or specialized services, acting as a single point of contact for numerous disciplines.</li>
+                    <li>Our commitment is to deliver with the highest regard to quality, safety, honesty, integrity, and customer satisfaction.</li>
+                    <li>Our staff are highly qualified and experienced, enabling us to execute projects with quality and safety.</li>
+                </ul>
+            </div>
+
+            <!-- Right Image -->
+            <div style="flex: 1; min-width: 300px; text-align: center;">
+                <img src="add.jpg" alt="MAES Mission & Vision" style="width:100%; max-width:500px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.15);">
+            </div>
         </div>
+    </section>
 
-        <div class="service">
-          <h3>CCTV & Security Systems</h3>
-          <p>Surveillance systems, access control, IP telephony, intercom, and integrated security solutions.</p>
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <h2>Our Core Services & Solutions</h2>
+            
+            <img 
+                src="https://placehold.co/800x250/38761d/ffffff?text=MAES+Complete+Automation+Solution+Service" 
+                alt="Complete Automation Solution and Service" 
+                class="service-image" 
+                onerror="this.onerror=null;this.src='https://placehold.co/800x250/38761d/ffffff?text=MAES+Automation+Solutions';"
+            >
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Power Quality Enhancement & Energy Savings</h3>
+                    <p>Specialists in Power Quality and Energy Savings solutions, providing detailed assessments and implementation.</p>
+                    <ul>
+                        <li>Energy & Power Quality Audits, Studies and Analysis.</li>
+                        <li>Power Factor Correction (PFC) Systems.</li>
+                        <li>Harmonics Mitigation/Active & Passive Filters.</li>
+                        <li>Uninterruptible Power Supply (UPS) & Stabilizers.</li>
+                        <li>VFD (Variable Frequency Drives) & Soft Starters.</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Automation Solution, Metering & Services</h3>
+                    <p>Advanced power monitoring, control systems, and specialized solutions for Aramco and industrial sectors.</p>
+                    <ul>
+                        <li>Power Monitoring Systems (PMS)</li>
+                        <li>Electrical Power Monitoring Systems (EPMS)</li>
+                        <li>Power Systems Automation (PSA) – for Aramco projects</li>
+                        <li>Reduced Power Systems Automation (PSA) - for Aramco projects</li>
+                        <li>Remote Switching & Monitoring Systems (RSMS) – for Aramco projects</li>
+                        <li>SCADA (Supervisory Control and Data Acquisition)</li>
+                        <li>Billing System</li>
+                        <li>Tariff/Power Metering, PQ & Smart Metering, Power Totalizer</li>
+                        <li>GPRS & Wireless Automation Network</li>
+                        <li>Cloud Computing Communication Technology</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <h3>CCTV, Security & Communication Systems</h3>
+                    <p>Complete trading, design, and commissioning services for critical facility security.</p>
+                    <ul>
+                        <li>CCTV (Surveillance cameras and remote monitoring).</li>
+                        <li>Security Systems (e.g., Paradox security alarm system).</li>
+                        <li>Smart Home Automation.</li>
+                        <li>IP Telephone and Intercom Systems.</li>
+                        <li>Communication & Internet wired & wireless IT system products & Networking.</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Specialized & Electrical Services</h3>
+                    <p>Comprehensive support for electrical infrastructure and specialized testing services.</p>
+                    <ul>
+                        <li>Supply of Electrical Panels (Distribution, Synchronizing, ATS).</li>
+                        <li>Transformers & Electrical Panels supply.</li>
+                        <li>Fiber Optic Cable Splicing, Termination, and Testing (OTDR and Power Meter testing).</li>
+                        <li>Copper UTP cable termination and testing.</li>
+                        <li>Design, Engineering, and Installation services for all systems.</li>
+                    </ul>
+                </div>
+            </div>
         </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Contact M. Advanced Energy Systems</h2>
+            <p>Let's discuss how we can bring secured facility, reliable power and energy conservation to your operations.</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>Head Office</h3>
+                    <p>3rd Floor Al-Mutlaq Complex Bldg.3, Bandariyah, PO Box 2134, Al Khobar 31952, KSA</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Contact Details</h3>
+                    <p><strong>Phone:</strong> +966 13 817 5786 / 802 2922</p>
+                    <p><strong>Fax:</strong> +966 13 817 5761</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Email & Web</h3>
+                    <p><strong>General Inquiries:</strong> <a href="mailto:mail@maes-wll.com" style="color: white;">mail@maes-wll.com</a></p>
+                    <p><strong>Website:</strong> <a href="http://www.maes-wll.com" style="color: white;">www.maes-wll.com</a></p>
+                </div>
+            </div>
+            <p style="margin-top: 30px; font-size: 0.9em;">Branches also located in: Jubail, Riyadh, Jeddah</p>
 
-        <div class="service">
-          <h3>Electrical & Specialized Services</h3>
-          <p>Supply of panels, transformers, fiber optic & UTP testing, design, installation and commissioning.</p>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- PROJECTS -->
-  <section id="projects">
-    <div class="container">
-      <h2>Major Projects</h2>
-      <p class="lead">MAES has executed automation, power monitoring, and security projects for major clients including Saudi Aramco and SABIC, plus industrial facilities across the Kingdom.</p>
-
-      <div class="projects-grid">
-        <article class="project" aria-labelledby="proj1">
-          <img src="https://placehold.co/800x400/38761d/ffffff?text=ARAMCO+EPMS+Project" alt="Aramco EPMS project" />
-          <div class="body">
-            <h4 id="proj1">Saudi Aramco — EPMS & PSA</h4>
-            <p>Engineering, integration, and commissioning of Electrical Power Monitoring Systems (EPMS) and Power Systems Automation (PSA) for Aramco data centers and substations to ensure high availability and precise monitoring.</p>
-          </div>
-        </article>
-
-        <article class="project" aria-labelledby="proj2">
-          <img src="https://placehold.co/800x400/f1c232/ffffff?text=SABIC+Automation+Project" alt="Sabic automation project" />
-          <div class="body">
-            <h4 id="proj2">SABIC — Automation & Power Quality</h4>
-            <p>Deployment of power quality solutions, SCADA automation, and remote monitoring for manufacturing facilities — improving process visibility and reducing downtime.</p>
-          </div>
-        </article>
-
-        <article class="project" aria-labelledby="proj3">
-          <img src="https://placehold.co/800x400/38761d/ffffff?text=Industrial+Automation" alt="Industrial automation project" />
-          <div class="body">
-            <h4 id="proj3">Industrial Automation Projects</h4>
-            <p>Turnkey automation projects including PLC/HMI integration, VFD drives, panel manufacturing and commissioning across multiple industrial clients.</p>
-          </div>
-        </article>
-
-        <article class="project" aria-labelledby="proj4">
-          <img src="https://placehold.co/800x400/f1c232/ffffff?text=CCTV+and+Security" alt="CCTV and security project" />
-          <div class="body">
-            <h4 id="proj4">CCTV & Security Infrastructure</h4>
-            <p>Design and implementation of advanced CCTV, access control, and integrated security systems to meet critical facility standards and compliance.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="container">
-      <h2>Contact M. Advanced Energy Systems</h2>
-      <p class="lead">Let's discuss how we can bring secured facilities, reliable power, and energy conservation to your operations.</p>
-
-      <div class="cols">
-        <div class="contact-card">
-          <h4>Head Office</h4>
-          <p>3rd Floor Al-Mutlaq Complex Bldg.3, Bandariyah,<br>PO Box 2134, Al Khobar 31952, KSA</p>
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="container">
+            <p>&copy; 2025 M. Advanced Energy Systems (MAES). All Rights Reserved. | <a href="#" style="color: var(--secondary-color);">Privacy Policy</a></p>
+            <span class="developer-credit">Developed by Mohd_Muthayyub</span>
         </div>
+    </footer>
 
-        <div class="contact-card">
-          <h4>Phone & Fax</h4>
-          <p><strong>Phone:</strong> <a href="tel:+966138175786">+966 13 817 5786</a><br>
-             <strong>Fax:</strong> <a href="tel:+966138175761">+966 13 817 5761</a></p>
-        </div>
-
-        <div class="contact-card">
-          <h4>Email & Web</h4>
-          <p><strong>Email:</strong> <a href="mailto:mail@maes-wll.com">mail@maes-wll.com</a><br>
-             <strong>Website:</strong> <a href="http://www.maes-wll.com" target="_blank" rel="noopener">www.maes-wll.com</a></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <div style="font-size:0.95rem;margin-bottom:6px">&copy; 2025 M. Advanced Energy Systems (MAES). All Rights Reserved.</div>
-      <div style="font-size:0.9rem">3rd Floor Al-Mutlaq Complex Bldg.3, Bandariyah, Al Khobar — PO Box 2134</div>
-      <div class="developer" style="margin-top:10px;opacity:0.9">Developed by <strong>Mohd_Muthayyub</strong></div>
-    </div>
-  </footer>
-
-  <!-- NOTES:
-       • Replace the logo path in the hero img tag with "logo.png" (or your hosted logo path) when you deploy.
-       • You can replace the placeholder project images with your actual project photos or logos.
-  -->
 </body>
 </html>
