@@ -99,9 +99,8 @@
             border-bottom: 2px solid var(--primary-color);
         }
 
-        /* Hero Section - CORRECTED PATH IN CSS */
+        /* Hero Section - IMAGE PATH CORRECTED */
         #hero {
-            /* This line now correctly points to your uploaded image */
             background: url('hero_industrial_power.jpg') no-repeat center center/cover; 
             color: var(--text-light);
             text-align: center;
@@ -113,7 +112,7 @@
             position: relative; 
         }
 
-        /* Dark overlay for better text contrast (ADDED) */
+        /* Dark overlay for better text contrast */
         #hero::before {
             content: '';
             position: absolute;
@@ -214,7 +213,7 @@
             margin-bottom: 8px;
         }
         
-        /* Contact Section */
+        /* Contact Section Styles for Form */
         #contact {
             background: var(--background-dark);
             color: var(--text-light);
@@ -225,20 +224,29 @@
             color: var(--secondary-color);
         }
         
+        /* Contact Info/Details Grid */
         .contact-info {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
             margin-top: 30px;
+            text-align: center;
         }
         
         .contact-item {
             margin: 20px;
+            width: 300px; 
         }
         
         .contact-item h3 {
             color: var(--secondary-color);
             font-size: 1.2em;
+        }
+        
+        /* Form Button Hover Effect */
+        .form-submit-btn:hover {
+            background-color: var(--primary-color) !important;
+            color: var(--text-light) !important;
         }
 
         /* Footer */
@@ -408,25 +416,53 @@
     <section id="contact">
         <div class="container">
             <h2>Contact M. Advanced Energy Systems</h2>
-            <p>Let's discuss how we can bring secured facility, reliable power and energy conservation to your operations.</p>
+            <p>Ready to enhance your power, automation, or security systems? Send us a message, and we'll get back to you promptly.</p>
             
-            <div class="contact-info">
-                <div class="contact-item">
-                    <h3>Head Office</h3>
-                    <p>3rd Floor Al-Mutlaq Complex Bldg.3, Bandariyah, PO Box 2134, Al Khobar 31952, KSA</p>
-                </div>
-                <div class="contact-item">
-                    <h3>Contact Details</h3>
-                    <p><strong>Phone:</strong> +966 13 817 5786 / 802 2922</p>
-                    <p><strong>Fax:</strong> +966 13 817 5761</p>
-                </div>
-                <div class="contact-item">
-                    <h3>Email & Web</h3>
-                    <p><strong>General Inquiries:</strong> <a href="mailto:mail@maes-wll.com" style="color: white;">mail@maes-wll.com</a></p>
+            <div class="contact-form-container" style="max-width: 600px; margin: 30px auto 0 auto;">
+                
+                <form id="contactForm" action="https://formspree.io/f/meorprbl" method="POST" style="display: grid; gap: 20px; text-align: left;">
+                    
+                    <label for="name" style="font-weight: bold;">Your Name:</label>
+                    <input type="text" id="name" name="name" required 
+                           style="padding: 12px; border: 1px solid #ccc; border-radius: 4px; width: 100%; color: var(--text-dark);">
+                    
+                    <label for="email" style="font-weight: bold;">Your Email:</label>
+                    <input type="email" id="email" name="_replyto" required 
+                           style="padding: 12px; border: 1px solid #ccc; border-radius: 4px; width: 100%; color: var(--text-dark);">
+                    
+                    <label for="subject" style="font-weight: bold;">Subject:</label>
+                    <input type="text" id="subject" name="subject" 
+                           style="padding: 12px; border: 1px solid #ccc; border-radius: 4px; width: 100%; color: var(--text-dark);">
+                    
+                    <label for="message" style="font-weight: bold;">Message:</label>
+                    <textarea id="message" name="message" rows="5" required 
+                              style="padding: 12px; border: 1px solid #ccc; border-radius: 4px; width: 100%; resize: vertical; color: var(--text-dark);"></textarea>
+                    
+                    <button type="submit" class="form-submit-btn"
+                            style="background-color: var(--secondary-color); color: var(--text-dark); border: none; padding: 15px 30px; border-radius: 4px; cursor: pointer; font-size: 1.1em; font-weight: bold; transition: background-color 0.3s;">
+                        Send Message
+                    </button>
+                    
+                </form>
+
+                <div class="contact-info" style="margin-top: 50px;">
+                    <div class="contact-item">
+                        <h3 style="color: var(--secondary-color); font-size: 1.2em;">Head Office</h3>
+                        <p>3rd Floor Al-Mutlaq Complex Bldg.3, Bandariyah, PO Box 2134, Al Khobar 31952, KSA</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3 style="color: var(--secondary-color); font-size: 1.2em;">Call Us</h3>
+                        <p><strong>Phone:</strong> +966 13 817 5786 / 802 2922</p>
+                        <p><strong>Fax:</strong> +966 13 817 5761</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3 style="color: var(--secondary-color); font-size: 1.2em;">Email & Web</h3>
+                        <p><strong>Inquiries:</strong> <a href="mailto:mail@maes-wll.com" style="color: white;">mail@maes-wll.com</a></p>
+                      
+                    </div>
                 </div>
             </div>
             <p style="margin-top: 30px; font-size: 0.9em;">Branches also located in: Jubail, Riyadh, Jeddah</p>
-
         </div>
     </section>
 
@@ -436,6 +472,73 @@
             <span class="developer-credit">Developed by Mohd_Muthayyub</span>
         </div>
     </footer>
+
+    <script>
+        // This script handles the form submission using AJAX to prevent page redirect,
+        // clear the form, and show a success/error message on the same page.
+        
+        window.addEventListener("DOMContentLoaded", function() {
+            const form = document.getElementById("contactForm");
+
+            form.addEventListener("submit", async function (event) {
+                // Prevent the default form submission (which causes the redirect)
+                event.preventDefault(); 
+                
+                // Get the container to place the status message
+                const container = form.closest('.contact-form-container');
+                // Remove any previous status messages
+                const existingStatus = container.querySelector('.form-status');
+                if (existingStatus) existingStatus.remove();
+
+                const statusMessage = document.createElement("p");
+                statusMessage.classList.add('form-status');
+                statusMessage.style.textAlign = "center";
+                statusMessage.style.fontWeight = "bold";
+                statusMessage.style.marginTop = "15px";
+                
+                // Show a temporary message while submitting
+                statusMessage.textContent = "Sending message...";
+                statusMessage.style.color = "var(--secondary-color)";
+                container.appendChild(statusMessage);
+
+                try {
+                    const response = await fetch(form.action, {
+                        method: form.method,
+                        body: new FormData(form),
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        // Success! Clear the form and show a success message
+                        form.reset(); 
+                        statusMessage.textContent = "✅ Message sent successfully! Thank you for reaching out.";
+                        statusMessage.style.color = "var(--secondary-color)";
+                    } else {
+                        // Handle server errors (e.g., failed validation, bad endpoint)
+                        const data = await response.json();
+                        if (data.error) {
+                            statusMessage.textContent = `❌ Error: ${data.error}. Please check the form and try again.`;
+                        } else {
+                            statusMessage.textContent = "❌ Oops! There was a problem submitting your form. Please try again.";
+                        }
+                        statusMessage.style.color = "red";
+                    }
+                } catch (error) {
+                    // Handle network errors (e.g., no internet)
+                    statusMessage.textContent = "❌ Oops! Network error. Please check your connection and try again.";
+                    statusMessage.style.color = "red";
+                }
+                
+                // Make the status message fade out after 8 seconds
+                setTimeout(() => {
+                    const status = container.querySelector('.form-status');
+                    if(status) status.remove();
+                }, 8000); 
+            });
+        });
+    </script>
 
 </body>
 </html>
