@@ -103,6 +103,7 @@
 
         /* Hero Section - IMAGE PATH CORRECTED */
         #hero {
+            /* NOTE: Replace 'hero_industrial_power.jpg' with a real image path or a color/gradient */
             background: url('hero_industrial_power.jpg') no-repeat center center/cover; 
             color: var(--text-light);
             text-align: center;
@@ -113,7 +114,7 @@
             justify-content: center;
             position: relative; 
         }
-
+        
         /* Dark overlay for better text contrast */
         #hero::before {
             content: '';
@@ -250,6 +251,16 @@
             background-color: var(--primary-color) !important;
             color: var(--text-light) !important;
         }
+        
+        /* Form Input Styling */
+        #contactForm input, #contactForm textarea {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            color: var(--text-dark);
+            background-color: var(--background-light);
+        }
 
         /* Footer */
         #footer {
@@ -329,8 +340,8 @@
     <section id="about" class="container">
         <h2>About MAES</h2>
         <div style="max-width: 800px; margin: auto;">
-            <p> MAES, is a technology Company dedicated to continuously enhance its competencies in CCTV & Security System, Energy Efficiency to address the pressing needs of consumers to have secured facility, reliable power and to conserve energy. To achieve these objectives, theCompany provides solutions and services utilizing Power Quality, Energy Management, Power
-& Energy Monitoring, Power Automation & SCADA, Power Protection, and Fiber OpticSplicing, Termination, and Testing.</p>
+            <p> MAES, is a technology Company dedicated to continuously enhance its competencies in CCTV & Security System, Energy Efficiency to address the pressing needs of consumers to have secured facility, reliable power and to conserve energy. To achieve these objectives, the Company provides solutions and services utilizing Power Quality, Energy Management, Power
+& Energy Monitoring, Power Automation & SCADA, Power Protection, and Fiber Optic Splicing, Termination, and Testing.</p>
             <p>Our solutions and services are vital to the Oil & Gas, Petrochemical, Power Generation, Industrial, and Commercial sectors across the Kingdom of Saudi Arabia.</p>
             
             <h3 style="color: var(--primary-color); margin-top: 2em;">Mission & Vision</h3>
@@ -429,27 +440,22 @@ Yield & Uptime, thereby creating value for our Customers, Shareholders, & Employ
                 <form id="contactForm" action="https://formspree.io/f/meorprbl" method="POST" style="display: grid; gap: 20px; text-align: left;">
                     
                     <label for="name" style="font-weight: bold;">Your Name:</label>
-                    <input type="text" id="name" name="name" required 
-                           style="padding: 12px; border: 1px solid #ccc; border-radius: 4px; width: 100%; color: var(--text-dark);">
+                    <input type="text" id="name" name="name" required>
                     
                     <label for="email" style="font-weight: bold;">Your Email:</label>
-                    <input type="email" id="email" name="_replyto" required 
-                           style="padding: 12px; border: 1px solid #ccc; border-radius: 4px; width: 100%; color: var(--text-dark);">
+                    <input type="email" id="email" name="_replyto" required>
                     
                     <label for="subject" style="font-weight: bold;">Subject:</label>
-                    <input type="text" id="subject" name="subject" 
-                           style="padding: 12px; border: 1px solid #ccc; border-radius: 4px; width: 100%; color: var(--text-dark);">
+                    <input type="text" id="subject" name="subject">
                     
                     <label for="message" style="font-weight: bold;">Message:</label>
-                    <textarea id="message" name="message" rows="5" required 
-                              style="padding: 12px; border: 1px solid #ccc; border-radius: 4px; width: 100%; resize: vertical; color: var(--text-dark);"></textarea>
+                    <textarea id="message" name="message" rows="5" required></textarea>
                     
                     <button type="submit" class="form-submit-btn"
-                            style="background-color: var(--secondary-color); color: var(--text-dark); border: none; padding: 15px 30px; border-radius: 4px; cursor: pointer; font-size: 1.1em; font-weight: bold; transition: background-color 0.3s;">
+                             style="background-color: var(--secondary-color); color: var(--text-dark); border: none; padding: 15px 30px; border-radius: 4px; cursor: pointer; font-size: 1.1em; font-weight: bold; transition: background-color 0.3s;">
                         Send Message
                     </button>
-                    
-                </form>
+                    </form>
 
                 <div class="contact-info" style="margin-top: 50px;">
                     <div class="contact-item">
@@ -480,74 +486,83 @@ Yield & Uptime, thereby creating value for our Customers, Shareholders, & Employ
     </footer>
 
     <script>
-        // This script handles the form submission using AJAX to prevent page redirect,
-// clear the form, and show a success/error message on the same page.
+        // IIFE (Immediately Invoked Function Expression) to keep variables local
+        (function() {
+            // Function to handle the form submission via AJAX
+            window.addEventListener("DOMContentLoaded", function() {
+                const form = document.getElementById("contactForm");
 
-window.addEventListener("DOMContentLoaded", function() {
-    const form = document.getElementById("contactForm");
+                // Apply form input styles defined in the CSS section to the inputs here as they were inline
+                // and we're removing the inline styles for cleaner HTML.
+                // NOTE: This part is for better code organization, as the original had inline styles.
+                // Since the original provided HTML had inline styles, I'm removing those from the HTML
+                // and applying them directly in a small script to keep the CSS consolidated in the <style> block
+                // (which is outside this copy block) or applying them with a class (preferred).
+                // However, to keep it simple and directly copy-able, I'll rely on the existing inline styles
+                // which you did not include in the style block.
+                
+                // For the purpose of providing a directly copyable, single-block solution:
+                // I've moved the necessary input/textarea styles into the main <style> block above.
+                // The main change is the IIFE for the JS.
 
-    form.addEventListener("submit", async function (event) {
-        // Prevent the default form submission (which causes the redirect)
-        event.preventDefault();
+                form.addEventListener("submit", async function (event) {
+                    event.preventDefault();
 
-        // **CHANGE 1: Use the form itself as the container for the status message**
-        const container = form; 
-        
-        // Remove any previous status messages
-        const existingStatus = container.querySelector('.form-status');
-        if (existingStatus) existingStatus.remove();
+                    const container = form; 
+                    
+                    // Remove any previous status messages
+                    const existingStatus = container.querySelector('.form-status');
+                    if (existingStatus) existingStatus.remove();
 
-        const statusMessage = document.createElement("p");
-        statusMessage.classList.add('form-status');
-        statusMessage.style.textAlign = "center";
-        statusMessage.style.fontWeight = "bold";
-        statusMessage.style.marginTop = "15px";
-        statusMessage.style.fontSize = "1.1em"; // Make it a bit more prominent
+                    const statusMessage = document.createElement("p");
+                    statusMessage.classList.add('form-status');
+                    statusMessage.style.textAlign = "center";
+                    statusMessage.style.fontWeight = "bold";
+                    statusMessage.style.marginTop = "15px";
+                    statusMessage.style.fontSize = "1.1em"; // Make it a bit more prominent
+                    statusMessage.style.color = "var(--secondary-color)";
 
-        // Show a temporary message while submitting
-        statusMessage.textContent = "Sending message...";
-        statusMessage.style.color = "var(--secondary-color)";
-        
-        // **CHANGE 2: Append the status message directly to the form**
-        container.appendChild(statusMessage);
+                    // Show a temporary message while submitting
+                    statusMessage.textContent = "Sending message...";
+                    container.appendChild(statusMessage);
 
-        try {
-            const response = await fetch(form.action, {
-                method: form.method,
-                body: new FormData(form),
-                headers: {
-                    'Accept': 'application/json'
-                }
+                    try {
+                        const response = await fetch(form.action, {
+                            method: form.method,
+                            body: new FormData(form),
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        });
+
+                        if (response.ok) {
+                            // Success! Clear the form and show a success message
+                            form.reset();
+                            statusMessage.textContent = "✅ Message sent successfully! Thank you for reaching out.";
+                        } else {
+                            // Handle server errors
+                            const data = await response.json();
+                            if (data.error) {
+                                statusMessage.textContent = `❌ Error: ${data.error}. Please check the form and try again.`;
+                            } else {
+                                statusMessage.textContent = "❌ Oops! There was a problem submitting your form. Please try again.";
+                            }
+                            statusMessage.style.color = "red";
+                        }
+                    } catch (error) {
+                        // Handle network errors
+                        statusMessage.textContent = "❌ Oops! Network error. Please check your connection and try again.";
+                        statusMessage.style.color = "red";
+                    }
+
+                    // Make the status message fade out after 8 seconds
+                    setTimeout(() => {
+                        const status = container.querySelector('.form-status');
+                        if(status) status.remove();
+                    }, 8000);
+                });
             });
-
-            if (response.ok) {
-                // Success! Clear the form and show a success message
-                form.reset();
-                statusMessage.textContent = "✅ Message sent successfully! Thank you for reaching out.";
-                statusMessage.style.color = "var(--secondary-color)";
-            } else {
-                // Handle server errors (e.g., failed validation, bad endpoint)
-                const data = await response.json();
-                if (data.error) {
-                    statusMessage.textContent = `❌ Error: ${data.error}. Please check the form and try again.`;
-                } else {
-                    statusMessage.textContent = "❌ Oops! There was a problem submitting your form. Please try again.";
-                }
-                statusMessage.style.color = "red";
-            }
-        } catch (error) {
-            // Handle network errors (e.g., no internet)
-            statusMessage.textContent = "❌ Oops! Network error. Please check your connection and try again.";
-            statusMessage.style.color = "red";
-        }
-
-        // Make the status message fade out after 8 seconds
-        setTimeout(() => {
-            const status = container.querySelector('.form-status');
-            if(status) status.remove();
-        }, 8000);
-    });
-});
+        })();
     </script>
 
 </body>
