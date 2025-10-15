@@ -248,7 +248,43 @@
             margin-left: -1em; 
         }
         /* === MODIFIED SERVICE CARD STYLES END HERE === */
+
+        /* --- NEW PARTNER/CLIENT SECTION STYLES (Adjusted for list) --- */
+        #partners {
+            background: #f8f8f8; /* Light gray background */
+        }
+
+        .partner-list {
+            max-width: 900px;
+            margin: 40px auto;
+            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+        }
         
+        .partner-list li {
+            font-size: 1.1em;
+            font-weight: 500;
+            color: var(--text-dark);
+            background: var(--background-light);
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid var(--primary-color);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .partner-list li:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        /* --- END PARTNER/CLIENT SECTION STYLES --- */
+
+
         /* Contact Section Styles for Form */
         #contact {
             background: var(--background-dark);
@@ -344,6 +380,10 @@
             .service-card {
                 border-left-width: 5px; /* Thinner border on mobile */
             }
+            
+            .partner-list li {
+                width: 90%;
+            }
         }
 
     </style>
@@ -358,6 +398,7 @@
                     <li><a href="#hero">Home</a></li>
                     <li><a href="#about">About Us</a></li>
                     <li><a href="#services">Services</a></li>
+                    <li><a href="#partners">Partners</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -466,6 +507,25 @@ Yield & Uptime, thereby creating value for our Customers, Shareholders, & Employ
         </div>
     </section>
     
+    <section id="partners">
+        <div class="container">
+            <h2>Our Trusted Partners & Clients 🤝</h2>
+            <p style="text-align: center; max-width: 800px; margin: auto 0 40px auto;">
+                We are proud to work with leading technology partners and serve major clients across the Kingdom of Saudi Arabia, a testament to our quality and reliability.
+            </p>
+            
+            <ul class="partner-list">
+                <li>Schneider Electric (EcoXpert Master Partner)</li>
+                <li>Saudi Aramco</li>
+                <li>SABIC</li>
+                <li>Major Gas Distribution Companies</li>
+                <li>Large-Scale Petrochemical Complexes</li>
+                <li>Independent Power Generation Plants (IPP)</li>
+                <li>Commercial and Industrial Sector Leaders</li>
+            </ul>
+            
+        </div>
+    </section>
     <section id="contact">
         <div class="container">
             <h2>Contact M. Advanced Energy Systems</h2>
@@ -488,7 +548,7 @@ Yield & Uptime, thereby creating value for our Customers, Shareholders, & Employ
                     <textarea id="message" name="message" rows="5" required style="resize: vertical;"></textarea>
                     
                     <button type="submit" class="form-submit-btn"
-                             style="background-color: var(--secondary-color); color: var(--text-dark); border: none; padding: 15px 30px; border-radius: 4px; cursor: pointer; font-size: 1.1em; font-weight: bold; transition: background-color 0.3s;">
+                                  style="background-color: var(--secondary-color); color: var(--text-dark); border: none; padding: 15px 30px; border-radius: 4px; cursor: pointer; font-size: 1.1em; font-weight: bold; transition: background-color 0.3s;">
                         Send Message
                     </button>
                     
@@ -528,32 +588,32 @@ Yield & Uptime, thereby creating value for our Customers, Shareholders, & Employ
             // Consolidated form input styles into CSS for cleanliness (removed inline styles from HTML for name, email, subject, message)
             
             const form = document.getElementById("contactForm");
-        
+            
             form.addEventListener("submit", async function (event) {
                 // Prevent the default form submission (which causes the redirect)
                 event.preventDefault();
-        
+            
                 // Use the form itself as the container for the status message
                 const container = form; 
                 
                 // Remove any previous status messages
                 const existingStatus = container.querySelector('.form-status');
                 if (existingStatus) existingStatus.remove();
-        
+            
                 const statusMessage = document.createElement("p");
                 statusMessage.classList.add('form-status');
                 statusMessage.style.textAlign = "center";
                 statusMessage.style.fontWeight = "bold";
                 statusMessage.style.marginTop = "15px";
                 statusMessage.style.fontSize = "1.1em"; // Make it a bit more prominent
-        
+            
                 // Show a temporary message while submitting
                 statusMessage.textContent = "Sending message...";
                 statusMessage.style.color = "var(--secondary-color)";
                 
                 // Append the status message directly to the form
                 container.appendChild(statusMessage);
-        
+            
                 try {
                     const response = await fetch(form.action, {
                         method: form.method,
@@ -562,7 +622,7 @@ Yield & Uptime, thereby creating value for our Customers, Shareholders, & Employ
                             'Accept': 'application/json'
                         }
                     });
-        
+            
                     if (response.ok) {
                         // Success! Clear the form and show a success message
                         form.reset();
@@ -583,7 +643,7 @@ Yield & Uptime, thereby creating value for our Customers, Shareholders, & Employ
                     statusMessage.textContent = "❌ Oops! Network error. Please check your connection and try again.";
                     statusMessage.style.color = "red";
                 }
-        
+            
                 // Make the status message fade out after 8 seconds
                 setTimeout(() => {
                     const status = container.querySelector('.form-status');
