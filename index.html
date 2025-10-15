@@ -177,36 +177,35 @@
             text-align: center;
         }
 
-        /* === MODIFIED SERVICE CARD STYLES START HERE === */
+        /* === SERVICE CARD STYLES === */
         .service-card {
             background: var(--background-light);
             padding: 30px;
-            border-radius: 10px; /* Slightly more rounded */
-            border: 1px solid #e0e0e0; /* Subtle border */
-            border-left: 8px solid var(--primary-color); /* Left accent bar */
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08); /* More modern, softer shadow */
+            border-radius: 10px; 
+            border: 1px solid #e0e0e0; 
+            border-left: 8px solid var(--primary-color); 
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08); 
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-align: left; 
         }
         
         .service-card:hover {
-            transform: translateY(-8px); /* More noticeable lift */
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
-            border-left-color: var(--secondary-color); /* Change accent color on hover */
+            transform: translateY(-8px); 
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); 
+            border-left-color: var(--secondary-color); 
         }
 
         .service-card h3 {
-            color: var(--text-dark); /* Changed to dark text for better contrast */
-            font-size: 1.5em; /* Slightly larger title */
-            margin-bottom: 5px; /* Less space before icon/description */
-            text-align: left; /* Aligned left for flow */
+            color: var(--text-dark); 
+            font-size: 1.5em; 
+            margin-bottom: 5px; 
+            text-align: left; 
             position: relative;
-            padding-left: 35px; /* Space for the icon */
+            padding-left: 35px; 
         }
         
-        /* New style for an icon/visual element in the card header */
         .service-card h3::before {
-            content: '⚡'; /* Icon placeholder (you can replace with Font Awesome or image) */
+            content: '⚡'; 
             position: absolute;
             left: 0;
             top: 50%;
@@ -216,73 +215,78 @@
         }
 
         .service-card > p {
-            text-align: left; /* Aligned left */
-            font-style: normal; /* Removed italic */
+            text-align: left; 
+            font-style: normal; 
             font-size: 0.95em;
-            color: #666; /* Subdued color for descriptive text */
+            color: #666; 
             margin-bottom: 20px;
-            border-bottom: 1px dashed #eee; /* Separator line */
+            border-bottom: 1px dashed #eee; 
             padding-bottom: 15px;
         }
         
         .service-card ul {
-            list-style-type: none; /* Removed disc style */
-            padding-left: 0; /* Align list with card content */
+            list-style-type: none; 
+            padding-left: 0; 
             font-size: 0.95em;
         }
         
-        /* Custom List Style for a Checkmark/Dot */
         .service-card li {
             margin-bottom: 10px;
-            padding-left: 20px; /* Space for custom bullet */
+            padding-left: 20px; 
             position: relative;
             line-height: 1.4;
         }
 
         .service-card li::before {
-            content: '•'; /* Custom bullet point (or '✔' for checkmark) */
+            content: '•'; 
             color: var(--primary-color); 
             font-weight: bold; 
             display: inline-block; 
             width: 1em; 
             margin-left: -1em; 
         }
-        /* === MODIFIED SERVICE CARD STYLES END HERE === */
+        /* === END SERVICE CARD STYLES === */
 
-        /* --- NEW PARTNER/CLIENT SECTION STYLES (Adjusted for list) --- */
+        /* --- MODIFIED PARTNER/CLIENT SECTION STYLES for Grid Alignment and New Design --- */
         #partners {
             background: #f8f8f8; /* Light gray background */
         }
 
         .partner-list {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 40px auto;
-            text-align: center;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            list-style: none;
             padding: 0;
+            list-style: none;
+            
+            /* CSS Grid for uniform alignment */
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 20px; /* Space between grid items */
         }
         
         .partner-list li {
-            font-size: 1.1em;
-            font-weight: 500;
-            color: var(--text-dark);
-            background: var(--background-light);
-            padding: 10px 20px;
-            margin: 10px;
-            border-radius: 5px;
-            border: 1px solid var(--primary-color);
-            transition: background-color 0.3s ease, transform 0.3s ease;
+            /* Base Style */
+            font-size: 1.05em;
+            font-weight: 600; 
+            color: var(--primary-color); /* Primary color text */
+            background: var(--background-light); /* White background */
+            padding: 15px 20px; /* Increased padding */
+            border-radius: 8px; 
+            border: 2px solid var(--primary-color); /* Bolder primary border */
+            text-align: center;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+            transition: all 0.3s ease; /* Smooth transition */
         }
 
         .partner-list li:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-3px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* New Hover Design */
+            background-color: var(--primary-color); /* Dark Green background on hover */
+            color: var(--text-light); /* White text on hover */
+            transform: translateY(-5px); /* Lift up */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+            border-color: var(--secondary-color); /* Yellow border accent on hover */
         }
-        /* --- END PARTNER/CLIENT SECTION STYLES --- */
+        /* --- END MODIFIED PARTNER/CLIENT SECTION STYLES --- */
 
 
         /* Contact Section Styles for Form */
@@ -378,12 +382,10 @@
             }
             
             .service-card {
-                border-left-width: 5px; /* Thinner border on mobile */
+                border-left-width: 5px; 
             }
             
-            .partner-list li {
-                width: 90%;
-            }
+            /* partner-list li rules removed/handled by grid */
         }
 
     </style>
@@ -510,7 +512,7 @@ Yield & Uptime, thereby creating value for our Customers, Shareholders, & Employ
     <section id="partners">
         <div class="container">
             <h2>Our Trusted Partners & Clients 🤝</h2>
-            <p style="text-align: center; max-width: 800px; margin: auto 0 40px auto;">
+            <p style="text-align: center; max-width: 800px; margin: auto auto 40px auto;">
                 We are proud to work with leading technology partners and serve major clients across the Kingdom of Saudi Arabia, a testament to our quality and reliability.
             </p>
             
@@ -518,6 +520,7 @@ Yield & Uptime, thereby creating value for our Customers, Shareholders, & Employ
                 <li>Schneider Electric (EcoXpert Master Partner)</li>
                 <li>Saudi Aramco</li>
                 <li>SABIC</li>
+                <li>Siemens</li>
                 <li>Major Gas Distribution Companies</li>
                 <li>Large-Scale Petrochemical Complexes</li>
                 <li>Independent Power Generation Plants (IPP)</li>
