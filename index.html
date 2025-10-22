@@ -7,362 +7,410 @@
     <title>MAES | M. Advanced Energy Systems - Power & Energy Solutions</title>
     <link rel="icon" type="image/png" href="Maes.png">
     <style>
-        :root {
-            --primary-color: #38761d;
-            --secondary-color: #f1c232;
-            --text-dark: #333;
-            --text-light: #f4f4f4;
-            --background-light: #ffffff;
-            --background-dark: #222;
-        }
+    :root {
+        --primary-color: #38761d; /* Dark Green - from logo */
+        --secondary-color: #f1c232; /* Yellow/Gold - from logo */
+        --text-dark: #333;
+        --text-light: #f4f4f4;
+        --background-light: #ffffff;
+        --background-dark: #222;
+    }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    /* Base Reset and Typography */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background-color: var(--background-light);
-            scroll-behavior: smooth;
-        }
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--text-dark);
+        background-color: var(--background-light);
+        scroll-behavior: smooth;
+    }
 
-        h1, h2, h3 {
-            margin-bottom: 0.5em;
-            font-weight: 600;
-        }
+    h1, h2, h3 {
+        margin-bottom: 0.5em;
+        font-weight: 600;
+    }
+    
+    h2 {
+        font-size: 2.2em;
+        color: var(--primary-color);
+        text-align: center;
+        margin-bottom: 1.5em;
+    }
 
-        h2 {
-            font-size: 2.2em;
-            color: var(--primary-color);
-            text-align: center;
-            margin-bottom: 1.2em;
-        }
+    p {
+        margin-bottom: 1em;
+    }
 
-        p {
-            margin-bottom: 1em;
-        }
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+        overflow: hidden;
+    }
 
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: auto;
-            overflow: hidden;
-        }
+    /* Header & Navigation */
+    #header {
+        background: var(--background-light);
+        color: var(--text-dark);
+        /* **MODIFICATION 1: Reduced Vertical Padding for a Tighter Header** */
+        padding: 10px 0; /* Reduced from 15px 0 */
+        border-bottom: 3px solid var(--secondary-color);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
 
-        #header {
-            background: var(--background-light);
-            color: var(--text-dark);
-            padding: 15px 0;
-            border-bottom: 3px solid var(--secondary-color);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+    #header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        /* **MODIFICATION 2: Removed extra margin/padding from container for smaller screens** */
+    }
 
+    #header .logo {
+        font-size: 1.8em;
+        font-weight: bold;
+        color: var(--primary-color);
+        text-transform: uppercase;
+    }
+    
+    #header .logo span {
+        color: var(--secondary-color);
+    }
+
+    #nav ul {
+        list-style: none;
+        display: flex;
+    }
+
+    #nav ul li a {
+        color: var(--text-dark);
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 0.9em;
+        /* **MODIFICATION 3: Slightly reduced horizontal padding in navigation links** */
+        padding: 5px 12px; /* Reduced from 8px 15px */
+        transition: color 0.3s, border-bottom 0.3s;
+    }
+
+    #nav ul li a:hover {
+        color: var(--primary-color);
+        border-bottom: 2px solid var(--primary-color);
+    }
+
+    /* Hero Section */
+    #hero {
+        background: url('hero_industrial_power.jpg') no-repeat center center/cover; 
+        color: var(--text-light);
+        text-align: center;
+        padding: 80px 20px;
+        min-height: 70vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative; 
+    }
+
+    /* Dark overlay for better text contrast */
+    #hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4); 
+        z-index: 1;
+    }
+    
+    #hero .container {
+        position: relative;
+        z-index: 2;
+    }
+
+    #hero h1 {
+        font-size: 3.5em;
+        margin-bottom: 0.2em;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    }
+
+    #hero p {
+        font-size: 1.5em;
+        font-style: italic;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    }
+
+    /* General Section Styling */
+    section {
+        /* **MODIFICATION 4: Slightly reduced section padding to tighten overall page content** */
+        padding: 50px 0; /* Reduced from 60px 0 */
+    }
+
+    #about {
+        background: var(--background-light);
+    }
+
+    /* Services Section Specific Styles */
+    #services {
+        background: #f0f5ee; /* Light green tone */
+    }
+
+    /* Image for Services */
+    .service-image {
+        width: 100%;
+        max-width: 800px; 
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        /* **MODIFICATION 5: Reduced margin below service image** */
+        margin: 20px auto 30px auto; /* Reduced bottom margin from 40px */
+        display: block;
+        object-fit: cover;
+    }
+    
+    /* Services Grid */
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+        /* **MODIFICATION 6: Slightly reduced gap between service cards** */
+        gap: 20px; /* Reduced from 30px */
+        text-align: center;
+    }
+
+    /* === SERVICE CARD STYLES === */
+    .service-card {
+        background: var(--background-light);
+        padding: 30px; 
+        border-radius: 10px; 
+        border: 1px solid #e0e0e0; 
+        border-left: 8px solid var(--primary-color); 
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08); 
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-align: left; 
+    }
+    
+    .service-card:hover {
+        transform: translateY(-8px); 
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); 
+        border-left-color: var(--secondary-color); 
+    }
+
+    .service-card h3 {
+        color: var(--text-dark); 
+        font-size: 1.5em; 
+        /* **MODIFICATION 7: Reduced margin below service card title for tighter space** */
+        margin-bottom: 2px; /* Reduced from 5px */
+        text-align: left; 
+        position: relative;
+        padding-left: 35px; 
+    }
+    
+    .service-card h3::before {
+        content: '⚡'; 
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.2em;
+        color: var(--primary-color);
+    }
+
+    .service-card > p {
+        text-align: left; 
+        font-style: normal; 
+        font-size: 0.95em;
+        color: #666; 
+        /* **MODIFICATION 8: Reduced margin and padding around the description** */
+        margin-bottom: 15px; /* Reduced from 20px */
+        border-bottom: 1px dashed #eee; 
+        padding-bottom: 10px; /* Reduced from 15px */
+    }
+    
+    .service-card ul {
+        list-style-type: none; 
+        padding-left: 0; 
+        font-size: 0.95em;
+    }
+    
+    .service-card li {
+        /* **MODIFICATION 9: Reduced vertical spacing between list items** */
+        margin-bottom: 8px; /* Reduced from 10px */
+        padding-left: 20px; 
+        position: relative;
+        line-height: 1.4;
+    }
+
+    .service-card li::before {
+        content: '•'; 
+        color: var(--primary-color); 
+        font-weight: bold; 
+        display: inline-block; 
+        width: 1em; 
+        margin-left: -1em; 
+    }
+    /* === END SERVICE CARD STYLES === */
+
+    /* --- MODIFIED PARTNER/CLIENT SECTION STYLES for Grid Alignment and New Design --- */
+    #partners {
+        background: #f8f8f8; /* Light gray background */
+    }
+
+    .partner-list {
+        max-width: 1000px;
+        /* **MODIFICATION 10: Reduced vertical margin around partner list** */
+        margin: 30px auto; /* Reduced top margin from 40px */
+        padding: 0;
+        list-style: none;
+        
+        /* CSS Grid for uniform alignment */
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+        /* **MODIFICATION 11: Reduced gap between partner items** */
+        gap: 15px; /* Reduced from 20px */
+    }
+    
+    .partner-list li {
+        /* Base Style */
+        font-size: 1.05em;
+        font-weight: 600; 
+        color: var(--primary-color); /* Primary color text */
+        background: var(--background-light); /* White background */
+        padding: 15px 20px; 
+        border-radius: 8px; 
+        border: 2px solid var(--primary-color); 
+        text-align: center;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05); 
+        transition: all 0.3s ease; 
+    }
+
+    .partner-list li:hover {
+        /* New Hover Design */
+        background-color: var(--primary-color); 
+        color: var(--text-light); 
+        transform: translateY(-5px); 
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+        border-color: var(--secondary-color); 
+    }
+    /* --- END MODIFIED PARTNER/CLIENT SECTION STYLES --- */
+
+
+    /* Contact Section Styles for Form */
+    #contact {
+        background: var(--background-dark);
+        color: var(--text-light);
+        text-align: center;
+    }
+    
+    #contact h2 {
+        color: var(--secondary-color);
+    }
+    
+    /* Contact Info/Details Grid */
+    .contact-info {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin-top: 30px;
+        text-align: center;
+    }
+    
+    .contact-item {
+        /* **MODIFICATION 12: Reduced margin around contact items** */
+        margin: 15px; /* Reduced from 20px */
+        width: 300px; 
+    }
+    
+    .contact-item h3 {
+        color: var(--secondary-color);
+        font-size: 1.2em;
+    }
+    
+    /* Form Button Hover Effect */
+    .form-submit-btn:hover {
+        background-color: var(--primary-color) !important;
+        color: var(--text-light) !important;
+    }
+
+    /* Footer */
+    #footer {
+        background: var(--primary-color);
+        color: var(--text-light);
+        text-align: center;
+        /* **MODIFICATION 13: Reduced footer padding** */
+        padding: 15px 0; /* Reduced from 20px 0 */
+        font-size: 0.8em;
+    }
+
+    /* Added style for developer signature */
+    #footer .developer-credit {
+        display: block;
+        margin-top: 5px;
+        font-size: 0.9em;
+        opacity: 0.7;
+    }
+    
+    /* Consolidated Form Styles */
+    #contact form input, #contact form textarea {
+        padding: 12px; 
+        border: 1px solid #ccc; 
+        border-radius: 4px; 
+        width: 100%; 
+        color: var(--text-dark);
+    }
+
+    /* Responsiveness */
+    @media (max-width: 768px) {
         #header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        #header .logo {
-            font-size: 1.8em;
-            font-weight: bold;
-            color: var(--primary-color);
-            text-transform: uppercase;
-        }
-
-        #header .logo span {
-            color: var(--secondary-color);
+            /* This still makes the logo stack above the navigation bar */
+            flex-direction: column;
         }
 
         #nav ul {
-            list-style: none;
-            display: flex;
+            padding-top: 15px;
+            /* REVERTED: Removing the 'flex-direction: column' and 'align-items: center' */
+        }
+        
+        #nav ul li {
+            /* REVERTED: Removing the full width and center text */
         }
 
         #nav ul li a {
-            color: var(--text-dark);
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 0.9em;
-            padding: 8px 15px;
-            transition: color 0.3s, border-bottom 0.3s;
-        }
-
-        #nav ul li a:hover {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--primary-color);
-        }
-
-        #hero {
-            background: url('hero_industrial_power.jpg') no-repeat center center/cover;
-            color: var(--text-light);
-            text-align: center;
-            padding: 80px 20px;
-            min-height: 70vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        #hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.4);
-            z-index: 1;
-        }
-
-        #hero .container {
-            position: relative;
-            z-index: 2;
+            /* Reverting padding to save space for horizontal layout */
+            padding: 8px 10px; 
+            /* REVERTED: Removing 'display: block' */
         }
 
         #hero h1 {
-            font-size: 3.5em;
-            margin-bottom: 0.2em;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            font-size: 2.5em;
         }
 
         #hero p {
-            font-size: 1.5em;
-            font-style: italic;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-        }
-
-        section {
-            padding: 40px 0;
-        }
-
-        #about {
-            background: var(--background-light);
-        }
-
-        #services {
-            background: #f0f5ee;
-        }
-
-        .service-image {
-            width: 100%;
-            max-width: 800px;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            margin: 10px auto 30px auto;
-            display: block;
-            object-fit: cover;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px; /* reduced from 30px */
-            text-align: center;
-        }
-
-        .service-card {
-            background: var(--background-light);
-            padding: 25px;
-            border-radius: 10px;
-            border: 1px solid #e0e0e0;
-            border-left: 8px solid var(--primary-color);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-align: left;
-        }
-
-        .service-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 22px rgba(0, 0, 0, 0.12);
-            border-left-color: var(--secondary-color);
-        }
-
-        .service-card h3 {
-            color: var(--text-dark);
-            font-size: 1.4em;
-            margin-bottom: 5px;
-            text-align: left;
-            position: relative;
-            padding-left: 35px;
-        }
-
-        .service-card h3::before {
-            content: '⚡';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
             font-size: 1.2em;
-            color: var(--primary-color);
         }
+        
+        .services-grid {
+            grid-template-columns: 1fr; 
+        }
+        
+        .service-image {
+            max-width: 95%;
+        }
+        
+        .service-card {
+            border-left-width: 5px; 
+        }
+        
+        /* partner-list li rules removed/handled by grid */
+    }
 
-        .service-card > p {
-            text-align: left;
-            font-style: normal;
-            font-size: 0.95em;
-            color: #666;
-            margin-bottom: 15px;
-            border-bottom: 1px dashed #eee;
-            padding-bottom: 10px;
-        }
-
-        .service-card ul {
-            list-style-type: none;
-            padding-left: 0;
-            font-size: 0.95em;
-        }
-
-        .service-card li {
-            margin-bottom: 8px;
-            padding-left: 20px;
-            position: relative;
-            line-height: 1.4;
-        }
-
-        .service-card li::before {
-            content: '•';
-            color: var(--primary-color);
-            font-weight: bold;
-            display: inline-block;
-            width: 1em;
-            margin-left: -1em;
-        }
-
-        #partners {
-            background: #f8f8f8;
-        }
-
-        .partner-list {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 0;
-            list-style: none;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .partner-list li {
-            font-size: 1.05em;
-            font-weight: 600;
-            color: var(--primary-color);
-            background: var(--background-light);
-            padding: 15px 20px;
-            border-radius: 8px;
-            border: 2px solid var(--primary-color);
-            text-align: center;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-        }
-
-        .partner-list li:hover {
-            background-color: var(--primary-color);
-            color: var(--text-light);
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            border-color: var(--secondary-color);
-        }
-
-        #contact {
-            background: var(--background-dark);
-            color: var(--text-light);
-            text-align: center;
-        }
-
-        #contact h2 {
-            color: var(--secondary-color);
-        }
-
-        /* ---------- UPDATED CONTACT FORM STYLING ---------- */
-        #contact form {
-            max-width: 700px; /* wider form */
-            margin: 30px auto;
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-        }
-
-        #contact form label {
-            text-align: left;
-            font-size: 1.05em;
-            margin-bottom: 5px;
-            color: var(--secondary-color);
-        }
-
-        #contact form input,
-        #contact form textarea {
-            width: 100%;
-            padding: 14px 16px;
-            border-radius: 6px;
-            border: none;
-            font-size: 1.05em;
-            outline: none;
-            resize: none;
-        }
-
-        #contact form input:focus,
-        #contact form textarea:focus {
-            border: 2px solid var(--secondary-color);
-            background-color: #333;
-            color: white;
-        }
-
-        #contact form button {
-            width: 100%;
-            padding: 15px;
-            font-size: 1.1em;
-            background-color: var(--secondary-color);
-            color: var(--text-dark);
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        #contact form button:hover {
-            background-color: var(--primary-color);
-            color: var(--text-light);
-        }
-        /* --------------------------------------------------- */
-
-        #footer {
-            background: var(--primary-color);
-            color: var(--text-light);
-            text-align: center;
-            padding: 20px 0;
-            font-size: 0.8em;
-        }
-
-        @media (max-width: 768px) {
-            .services-grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-        }
-    </style>
+</style>
 </head>
-
-<body>
-<!-- SAME HTML CONTENT AS YOUR VERSION BELOW -->
-<!-- no content structure changed, only spacing improved -->
-</body>
-</html>
-
-
-
-<body>
-<!-- SAME HTML CONTENT AS YOUR VERSION BELOW -->
-<!-- no content structure changed, only spacing improved -->
-
 <body>
 
     <header id="header">
@@ -522,7 +570,7 @@ Yield & Uptime, thereby creating value for our Customers, Shareholders, & Employ
                     <textarea id="message" name="message" rows="5" required style="resize: vertical;"></textarea>
                     
                     <button type="submit" class="form-submit-btn"
-                                  style="background-color: var(--secondary-color); color: var(--text-dark); border: none; padding: 15px 30px; border-radius: 4px; cursor: pointer; font-size: 1.1em; font-weight: bold; transition: background-color 0.3s;">
+                                     style="background-color: var(--secondary-color); color: var(--text-dark); border: none; padding: 15px 30px; border-radius: 4px; cursor: pointer; font-size: 1.1em; font-weight: bold; transition: background-color 0.3s;">
                         Send Message
                     </button>
                     
@@ -548,20 +596,13 @@ Yield & Uptime, thereby creating value for our Customers, Shareholders, & Employ
             <p style="margin-top: 30px; font-size: 0.9em;">Branches also located in: Jubail, Riyadh, Jeddah</p>
         </div>
     </section>
-<footer id="footer">
-        <div class="container">
-            <p>&copy; 2025 M. Advanced Energy Systems (MAES). All Rights Reserved. | <a href="#" style="color: var(--secondary-color);">Privacy Policy</a></p>
-          <span class="owner-credit" style="display: block; margin-top: 10px; font-size: 0.9em; opacity: 0.9; color: var(--secondary-color);">
-    Founded by IssaTaher
-</span>
-<span class="developer-credit" style="display: block; margin-top: 25px; font-size: 0.9em; opacity: 0.85; color: var(--text-light);">
-    Designed & Developed by Mohd_Muthayyub
-</span>
 
-
-        </div>
-    </footer>
-
+    <footer id="footer">
+        <div class="container">
+            <p>&copy; 2025 M. Advanced Energy Systems (MAES). All Rights Reserved. | <a href="#" style="color: var(--secondary-color);">Privacy Policy</a></p>
+            <span class="developer-credit">Design & Developed by Mohd_Muthayyub</span>
+        </div>
+    </footer>
 
     <script>
         // IIFE for scope isolation and for better practice (previous JS was already here, just wrapped it)
