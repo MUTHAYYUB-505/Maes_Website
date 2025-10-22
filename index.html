@@ -8,14 +8,15 @@
     <link rel="icon" type="image/png" href="Maes.png">
     <style>
         :root {
-            --primary-color: #38761d;
-            --secondary-color: #f1c232;
-            --text-dark: #333;
+            --primary-color: #38761d; /* Dark Green - from logo */
+            --secondary-color: #f1c232; /* Yellow/Gold - from logo */
+            --text-dark: #212529; /* MODIFIED: Softer black for better readability/modern feel */
             --text-light: #f4f4f4;
             --background-light: #ffffff;
             --background-dark: #222;
         }
 
+        /* Base Reset and Typography */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -32,14 +33,22 @@
 
         h1, h2, h3 {
             margin-bottom: 0.5em;
-            font-weight: 600;
         }
-
+        
+        h1 {
+            font-weight: 900; /* MODIFIED: Stronger weight for impact */
+        }
+        
         h2 {
             font-size: 2.2em;
             color: var(--primary-color);
             text-align: center;
-            margin-bottom: 1.2em;
+            margin-bottom: 1.5em;
+            font-weight: 700; /* MODIFIED: Bolder font weight */
+        }
+        
+        h3 {
+             font-weight: 600; /* MODIFIED: Standard h3 weight */
         }
 
         p {
@@ -53,6 +62,7 @@
             overflow: hidden;
         }
 
+        /* Header & Navigation */
         #header {
             background: var(--background-light);
             color: var(--text-dark);
@@ -61,6 +71,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* MODIFIED: Added subtle shadow */
         }
 
         #header .container {
@@ -75,7 +86,7 @@
             color: var(--primary-color);
             text-transform: uppercase;
         }
-
+        
         #header .logo span {
             color: var(--secondary-color);
         }
@@ -99,8 +110,9 @@
             border-bottom: 2px solid var(--primary-color);
         }
 
+        /* Hero Section */
         #hero {
-            background: url('hero_industrial_power.jpg') no-repeat center center/cover;
+            background: url('hero_industrial_power.jpg') no-repeat center center/cover;	
             color: var(--text-light);
             text-align: center;
             padding: 80px 20px;
@@ -108,9 +120,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
+            position: relative;	
         }
 
+        /* Dark overlay for better text contrast */
         #hero::before {
             content: '';
             position: absolute;
@@ -118,10 +131,10 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.4);	
             z-index: 1;
         }
-
+        
         #hero .container {
             position: relative;
             z-index: 2;
@@ -139,64 +152,69 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
         }
 
+        /* General Section Styling */
         section {
-            padding: 40px 0;
+            padding: 60px 0;
         }
 
         #about {
             background: var(--background-light);
         }
 
+        /* Services Section Specific Styles */
         #services {
-            background: #f0f5ee;
+            background: #f7f7f7; /* MODIFIED: Lighter gray for better contrast with cards */
         }
 
+        /* Image for Services */
         .service-image {
             width: 100%;
-            max-width: 800px;
+            max-width: 800px;	
             height: auto;
             border-radius: 12px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            margin: 10px auto 30px auto;
+            margin: 20px auto 40px auto;
             display: block;
             object-fit: cover;
         }
-
+        
+        /* Services Grid */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px; /* reduced from 30px */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));	
+            gap: 30px;
             text-align: center;
         }
 
+        /* === SERVICE CARD STYLES === */
         .service-card {
             background: var(--background-light);
-            padding: 25px;
-            border-radius: 10px;
-            border: 1px solid #e0e0e0;
-            border-left: 8px solid var(--primary-color);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+            border-radius: 10px;	
+            border: 1px solid #e0e0e0;	
+            border-left: 8px solid var(--primary-color);	
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);	
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-align: left;
+            text-align: left;	
         }
-
+        
         .service-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 22px rgba(0, 0, 0, 0.12);
-            border-left-color: var(--secondary-color);
+            transform: translateY(-8px);	
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);	
+            border-left-color: var(--secondary-color);	
         }
 
         .service-card h3 {
-            color: var(--text-dark);
-            font-size: 1.4em;
-            margin-bottom: 5px;
-            text-align: left;
+            color: var(--text-dark);	
+            font-size: 1.5em;	
+            margin-bottom: 5px;	
+            text-align: left;	
             position: relative;
-            padding-left: 35px;
+            padding-left: 35px;	
         }
-
+        
         .service-card h3::before {
-            content: '⚡';
+            content: '⚡';	
             position: absolute;
             left: 0;
             top: 50%;
@@ -206,39 +224,41 @@
         }
 
         .service-card > p {
-            text-align: left;
-            font-style: normal;
+            text-align: left;	
+            font-style: normal;	
             font-size: 0.95em;
-            color: #666;
-            margin-bottom: 15px;
-            border-bottom: 1px dashed #eee;
-            padding-bottom: 10px;
+            color: #666;	
+            margin-bottom: 20px;
+            border-bottom: 1px dashed #ddd; /* MODIFIED: Slightly darker dashed line */
+            padding-bottom: 15px;
         }
-
+        
         .service-card ul {
-            list-style-type: none;
-            padding-left: 0;
+            list-style-type: none;	
+            padding-left: 0;	
             font-size: 0.95em;
         }
-
+        
         .service-card li {
-            margin-bottom: 8px;
-            padding-left: 20px;
+            margin-bottom: 10px;
+            padding-left: 20px;	
             position: relative;
             line-height: 1.4;
         }
 
         .service-card li::before {
-            content: '•';
-            color: var(--primary-color);
-            font-weight: bold;
-            display: inline-block;
-            width: 1em;
-            margin-left: -1em;
+            content: '✔';	/* MODIFIED: Changed bullet to a green checkmark */
+            color: var(--primary-color);	
+            font-weight: bold;	
+            display: inline-block;	
+            width: 1em;	
+            margin-left: -1em;	
         }
+        /* === END SERVICE CARD STYLES === */
 
+        /* --- MODIFIED PARTNER/CLIENT SECTION STYLES for Grid Alignment and New Design --- */
         #partners {
-            background: #f8f8f8;
+            background: #f8f8f8; /* Light gray background */
         }
 
         .partner-list {
@@ -246,42 +266,50 @@
             margin: 40px auto;
             padding: 0;
             list-style: none;
+            
+            /* CSS Grid for uniform alignment */
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));	
+            gap: 20px; /* Space between grid items */
         }
-
+        
         .partner-list li {
+            /* Base Style */
             font-size: 1.05em;
-            font-weight: 600;
-            color: var(--primary-color);
-            background: var(--background-light);
-            padding: 15px 20px;
-            border-radius: 8px;
-            border: 2px solid var(--primary-color);
+            font-weight: 600;	
+            color: var(--primary-color); /* Primary color text */
+            background: var(--background-light); /* White background */
+            padding: 15px 20px; /* Increased padding */
+            border-radius: 8px;	
+            border: 2px solid #ddd; /* MODIFIED: Softer border initially */
             text-align: center;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+            transition: all 0.3s ease; /* Smooth transition */
         }
 
         .partner-list li:hover {
-            background-color: var(--primary-color);
-            color: var(--text-light);
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            border-color: var(--secondary-color);
+            /* New Hover Design */
+            background-color: var(--primary-color); /* Dark Green background on hover */
+            color: var(--text-light); /* White text on hover */
+            transform: translateY(-5px); /* Lift up */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+            border-color: var(--secondary-color); /* Yellow border accent on hover */
         }
+        /* --- END MODIFIED PARTNER/CLIENT SECTION STYLES --- */
 
+
+        /* Contact Section Styles for Form */
         #contact {
             background: var(--background-dark);
             color: var(--text-light);
             text-align: center;
         }
-
+        
         #contact h2 {
             color: var(--secondary-color);
         }
-
+        
+        /* Contact Info/Details Grid */
         .contact-info {
             display: flex;
             justify-content: space-around;
@@ -289,22 +317,24 @@
             margin-top: 30px;
             text-align: center;
         }
-
+        
         .contact-item {
             margin: 20px;
-            width: 300px;
+            width: 300px;	
         }
-
+        
         .contact-item h3 {
             color: var(--secondary-color);
             font-size: 1.2em;
         }
-
+        
+        /* Form Button Hover Effect */
         .form-submit-btn:hover {
             background-color: var(--primary-color) !important;
             color: var(--text-light) !important;
         }
 
+        /* Footer */
         #footer {
             background: var(--primary-color);
             color: var(--text-light);
@@ -313,14 +343,65 @@
             font-size: 0.8em;
         }
 
-        @media (max-width: 768px) {
-            .services-grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
+        /* Added style for developer signature */
+        #footer .developer-credit {
+            display: block;
+            margin-top: 5px;
+            font-size: 0.9em;
+            opacity: 0.7;
         }
+        
+        /* Consolidated Form Styles */
+        #contact form input, #contact form textarea {
+            padding: 12px;	
+            border: 1px solid #ccc;	
+            border-radius: 4px;	
+            width: 100%;	
+            color: var(--text-dark);
+            /* MODIFIED: Added placeholder to match contact section style */
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            #header .container {
+                flex-direction: column;
+            }
+
+            #nav ul {
+                padding-top: 15px;
+            }
+            
+            #nav ul li a {
+                padding: 8px 10px;
+            }
+
+            #hero h1 {
+                font-size: 2.5em;
+            }
+
+            #hero p {
+                font-size: 1.2em;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;	
+            }
+            
+            .service-image {
+                max-width: 95%;
+            }
+            
+            .service-card {
+                border-left-width: 5px;	
+            }
+            
+            /* partner-list li rules removed/handled by grid */
+        }
+
     </style>
 </head>
+
 
 <body>
 <!-- SAME HTML CONTENT AS YOUR VERSION BELOW -->
