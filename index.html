@@ -143,6 +143,9 @@
     #hero p {
         font-size: 1.5em;
         font-style: italic;
+        /* IMPROVEMENT 2: Sharper Typography in Hero Section */
+        line-height: 1.3; 
+        font-weight: 300; 
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
     }
 
@@ -154,6 +157,34 @@
 
     #about {
         background: var(--background-light);
+    }
+    
+    /* IMPROVEMENT 3: New About Content Layout */
+    .about-content-flex {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        margin-top: 2em;
+    }
+
+    .about-column {
+        flex: 1; /* Each column takes up equal space */
+        min-width: 300px; /* Ensures stacking on smaller screens */
+    }
+
+    #about ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+    #about ul li {
+        padding-left: 1.5em;
+        text-indent: -1.5em;
+        margin-bottom: 0.5em;
+    }
+    #about ul li::before {
+        content: "✅"; 
+        margin-right: 0.5em;
+        color: var(--primary-color);
     }
 
     /* Services Section Specific Styles */
@@ -331,10 +362,17 @@
         font-size: 1.2em;
     }
     
-    /* Form Button Hover Effect */
+    /* IMPROVEMENT 1: Enhanced Button Style for Contact Form */
+    .form-submit-btn {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+        transition: all 0.3s ease;
+    }
+
     .form-submit-btn:hover {
         background-color: var(--primary-color) !important;
         color: var(--text-light) !important;
+        transform: translateY(-2px); /* Subtle lift on hover */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
     }
 
     /* Footer */
@@ -385,6 +423,12 @@
             padding: 8px 10px; 
             /* REVERTED: Removing 'display: block' */
         }
+        
+        /* Added for About Section Improvement */
+        .about-content-flex {
+            flex-direction: column;
+        }
+
 
         #hero h1 {
             font-size: 2.5em;
@@ -440,24 +484,31 @@
     <section id="about" class="container">
         <h2>About MAES</h2>
         <div style="max-width: 800px; margin: auto;">
-            <p> MAES, is a technology Company dedicated to continuously enhance its competencies in CCTV & Security System, Energy Efficiency to address the pressing needs of consumers to have secured facility, reliable power and to conserve energy. To achieve these objectives, theCompany provides solutions and services utilizing Power Quality, Energy Management, Power
-& Energy Monitoring, Power Automation & SCADA, Power Protection, and Fiber OpticSplicing, Termination, and Testing.</p>
+            <p> MAES, is a technology Company dedicated to continuously enhance its competencies in CCTV & Security System, Energy Efficiency to address the pressing needs of consumers to have secured facility, reliable power and to conserve energy. To achieve these objectives, the Company provides solutions and services utilizing Power Quality, Energy Management, Power
+& Energy Monitoring, Power Automation & SCADA, Power Protection, and Fiber Optic Splicing, Termination, and Testing.</p>
             <p>Our solutions and services are vital to the Oil & Gas, Petrochemical, Power Generation, Industrial, and Commercial sectors across the Kingdom of Saudi Arabia.</p>
             
-            <h3 style="color: var(--primary-color); margin-top: 2em;">Mission & Vision</h3>
-            <p>**Mission:** Our Mission is providing high quality of services at most competitive price without compromising quality, safety and environment. When it comes to our services, we
+            <div class="about-content-flex">
+                <div class="about-column">
+                    <h3 style="color: var(--primary-color);">Mission & Vision</h3>
+                    <p>**Mission:** Our Mission is providing high quality of services at most competitive price without compromising quality, safety and environment. When it comes to our services, we
 make sure that we keep in mind even a minute detail to serve our client better and maintain our good relation with them.</p>
-            <p>**Vision:** Consistently deliver, as per committed Schedules, CCTV & Security System, Power Automation, Energy efficiency & Power Quality Solutions & services that are
+                    <p>**Vision:** Consistently deliver, as per committed Schedules, CCTV & Security System, Power Automation, Energy efficiency & Power Quality Solutions & services that are
 Cost-effective & are of the required Quality in order to successfully satisfy the requirements of our Customers at the Lowest Cost of Ownership with the Highest
 Yield & Uptime, thereby creating value for our Customers, Shareholders, & Employees.</p>
+                </div>
 
-            <h3 style="color: var(--primary-color); margin-top: 2em;">What Sets Us Apart</h3>
-            <ul>
-                <li>We are a **Schneider Electric EcoXpert Critical Power MASTER Certified** company.</li>
-                <li>We offer complete engineering packages or specialized services, acting as a single point of contact for numerous disciplines.</li>
-                <li>Our commitment is to deliver with the highest regard to quality, safety, honesty, integrity, and customer satisfaction.</li>
-                <li>Our staff are highly qualified and experienced, enabling us to execute projects with quality and safety.</li>
-            </ul>
+                <div class="about-column">
+                    <h3 style="color: var(--primary-color);">What Sets Us Apart</h3>
+                    <ul>
+                        <li>We are a **Schneider Electric EcoXpert Critical Power MASTER Certified** company.</li>
+                        <li>We offer complete engineering packages or specialized services, acting as a single point of contact for numerous disciplines.</li>
+                        <li>Our commitment is to deliver with the highest regard to quality, safety, honesty, integrity, and customer satisfaction.</li>
+                        <li>Our staff are highly qualified and experienced, enabling us to execute projects with quality and safety.</li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -530,25 +581,25 @@ Yield & Uptime, thereby creating value for our Customers, Shareholders, & Employ
     </section>
     
     <section id="partners">
-    <div class="container">
-        <h2>Our Trusted Partners & Clients 🤝</h2>
-        <p style="text-align: center; max-width: 800px; margin: auto auto 40px auto;">
-            We are proud to work with leading technology partners and serve major clients across the Kingdom of Saudi Arabia, a testament to our quality and reliability.
-        </p>
-        
-        <ul class="partner-list">
-            <li>Schneider Electric (EcoXpert Master Partner)</li>
-            <li>Saudi Aramco</li>
-            <li>SABIC</li>
-            <li>Major Gas Distribution Companies</li>
-            <li>Large-Scale Petrochemical Complexes</li>
-            <li>Independent Power Generation Plants (IPP)</li>
-            <li>Commercial and Industrial Sector Leaders</li>
-            <li>CLARIOS | MEBCO</li> 
-        </ul>
-        
-    </div>
-</section>
+        <div class="container">
+            <h2>Our Trusted Partners & Clients 🤝</h2>
+            <p style="text-align: center; max-width: 800px; margin: auto auto 40px auto;">
+                We are proud to work with leading technology partners and serve major clients across the Kingdom of Saudi Arabia, a testament to our quality and reliability.
+            </p>
+            
+            <ul class="partner-list">
+                <li>Schneider Electric (EcoXpert Master Partner)</li>
+                <li>Saudi Aramco</li>
+                <li>SABIC</li>
+                <li>Major Gas Distribution Companies</li>
+                <li>Large-Scale Petrochemical Complexes</li>
+                <li>Independent Power Generation Plants (IPP)</li>
+                <li>Commercial and Industrial Sector Leaders</li>
+                <li>MEBCO</li> 
+            </ul>
+            
+        </div>
+    </section>
     <section id="contact">
         <div class="container">
             <h2>Contact M. Advanced Energy Systems</h2>
@@ -571,7 +622,7 @@ Yield & Uptime, thereby creating value for our Customers, Shareholders, & Employ
                     <textarea id="message" name="message" rows="5" required style="resize: vertical;"></textarea>
                     
                     <button type="submit" class="form-submit-btn"
-                                     style="background-color: var(--secondary-color); color: var(--text-dark); border: none; padding: 15px 30px; border-radius: 4px; cursor: pointer; font-size: 1.1em; font-weight: bold; transition: background-color 0.3s;">
+                                            style="background-color: var(--secondary-color); color: var(--text-dark); border: none; padding: 15px 30px; border-radius: 4px; cursor: pointer; font-size: 1.1em; font-weight: bold;">
                         Send Message
                     </button>
                     
