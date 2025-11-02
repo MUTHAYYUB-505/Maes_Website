@@ -1,699 +1,300 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="JX0z_dbTEYiWUO4HueSa1tXcMYhlJR93z_3xcA61te4" />
-    <title>MAES | M. Advanced Energy Systems - Power & Energy Solutions</title>
-    <link rel="icon" type="image/png" href="Maes.png">
-    <style>
-    :root {
-        --primary-color: #38761d; /* Dark Green - from logo */
-        --secondary-color: #f1c232; /* Yellow/Gold - from logo */
-        --text-dark: #333;
-        --text-light: #f4f4f4;
-        --background-light: #ffffff;
-        --background-dark: #222;
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MAES — M. Advanced Energy Systems</title>
+  <meta name="description" content="MAES — power & energy solutions. Modern, responsive corporate website designed by Muthayyub Mohd." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <!-- Tailwind via CDN for quick prototype -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{
+      --maes-green:#0f4b40; /* deep green */
+      --maes-gold:#caa43a;  /* gold */
+      --maes-dark:#08352e;
     }
-
-    /* Base Reset and Typography */
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
+    html,body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;}    
+    /* subtle background texture */
+    .bg-hero{background:linear-gradient(180deg,var(--maes-green) 0%, #0b3f38 60%);}
+    .glass{background:rgba(255,255,255,0.03);backdrop-filter:blur(4px);}
+    .accent{color:var(--maes-gold)}
+    .btn-gold{background:transparent;border:2px solid var(--maes-gold);color:var(--maes-gold)}
+    .btn-gold-filled{background:var(--maes-gold);color:#07231a}
+    /* small rounded laptop mockup image styling */
+    .device{box-shadow:0 20px 40px rgba(2,6,23,0.5);border-radius:10px;overflow:hidden}
+    /* entrance animation */
+    .reveal{opacity:0;transform:translateY(16px);transition:all .6s ease-out}
+    .reveal.visible{opacity:1;transform:none}
+    /* simple grid for projects */
+    .project-img{height:170px;object-fit:cover}
+    @media (min-width:1024px){
+      .project-img{height:200px}
     }
-
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        line-height: 1.6;
-        color: var(--text-dark);
-        background-color: var(--background-light);
-        scroll-behavior: smooth;
-    }
-
-    h1, h2, h3 {
-        margin-bottom: 0.5em;
-        font-weight: 600;
-    }
-    
-    h2 {
-        font-size: 2.2em;
-        color: var(--primary-color);
-        text-align: center;
-        margin-bottom: 1.5em;
-    }
-
-    p {
-        margin-bottom: 1em;
-    }
-
-    .container {
-        width: 90%;
-        max-width: 1200px;
-        margin: auto;
-        overflow: hidden;
-    }
-
-    /* Header & Navigation */
-    #header {
-        background: var(--background-light);
-        color: var(--text-dark);
-        /* MODIFICATION 1: Reduced Vertical Padding for a Tighter Header */
-        padding: 10px 0;
-        border-bottom: 3px solid var(--secondary-color);
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-    }
-
-    #header .container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    #header .logo {
-        font-size: 1.8em;
-        font-weight: bold;
-        color: var(--primary-color);
-        text-transform: uppercase;
-    }
-    
-    #header .logo span {
-        color: var(--secondary-color);
-    }
-
-    #nav ul {
-        list-style: none;
-        display: flex;
-    }
-
-    #nav ul li a {
-        color: var(--text-dark);
-        text-decoration: none;
-        text-transform: uppercase;
-        font-size: 0.9em;
-        /* MODIFICATION 3: Slightly reduced horizontal padding in navigation links */
-        padding: 5px 12px;
-        transition: color 0.3s, border-bottom 0.3s;
-    }
-
-    #nav ul li a:hover {
-        color: var(--primary-color);
-        border-bottom: 2px solid var(--primary-color);
-    }
-
-    /* Hero Section */
-    #hero {
-        background: url('hero_industrial_power.jpg') no-repeat center center/cover; 
-        color: var(--text-light);
-        text-align: center;
-        padding: 80px 20px;
-        min-height: 70vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative; 
-    }
-
-    /* Dark overlay for better text contrast */
-    #hero::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.4); 
-        z-index: 1;
-    }
-    
-    #hero .container {
-        position: relative;
-        z-index: 2;
-    }
-
-    #hero h1 {
-        font-size: 3.5em;
-        margin-bottom: 0.2em;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-    }
-
-    #hero p {
-        font-size: 1.5em;
-        font-style: italic;
-        /* IMPROVEMENT: Sharper Typography in Hero Section */
-        line-height: 1.3; 
-        font-weight: 300; 
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-    }
-
-    /* General Section Styling */
-    section {
-        /* MODIFICATION 4: Slightly reduced section padding to tighten overall page content */
-        padding: 50px 0;
-    }
-
-    #about {
-        background: var(--background-light);
-    }
-    
-    /* IMPROVEMENT: Clean list styling for About section */
-    #about ul {
-        list-style-type: none;
-        padding-left: 0;
-    }
-    #about ul li {
-        padding-left: 1.5em;
-        text-indent: -1.5em;
-        margin-bottom: 0.5em;
-    }
-    #about ul li::before {
-        content: "✅"; 
-        margin-right: 0.5em;
-        color: var(--primary-color);
-    }
-
-    /* Services Section Specific Styles */
-    #services {
-        background: #f0f5ee; /* Light green tone */
-    }
-
-    /* Image for Services */
-    .service-image {
-        width: 100%;
-        max-width: 800px; 
-        height: auto;
-        border-radius: 12px;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        /* MODIFICATION 5: Reduced margin below service image */
-        margin: 20px auto 30px auto;
-        display: block;
-        object-fit: cover;
-    }
-    
-    /* Services Grid */
-    .services-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-        /* MODIFICATION 6: Slightly reduced gap between service cards */
-        gap: 20px;
-        text-align: center;
-    }
-
-    /* === SERVICE CARD STYLES === */
-    .service-card {
-        background: var(--background-light);
-        padding: 30px; 
-        border-radius: 10px; 
-        border: 1px solid #e0e0e0; 
-        border-left: 8px solid var(--primary-color); 
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08); 
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        text-align: left; 
-    }
-    
-    .service-card:hover {
-        transform: translateY(-8px); 
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); 
-        border-left-color: var(--secondary-color); 
-    }
-
-    .service-card h3 {
-        color: var(--text-dark); 
-        font-size: 1.5em; 
-        /* MODIFICATION 7: Reduced margin below service card title for tighter space */
-        margin-bottom: 2px;
-        text-align: left; 
-        position: relative;
-        padding-left: 35px; 
-    }
-    
-    .service-card h3::before {
-        content: '⚡'; 
-        position: absolute;
-        left: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 1.2em;
-        color: var(--primary-color);
-    }
-
-    .service-card > p {
-        text-align: left; 
-        font-style: normal; 
-        font-size: 0.95em;
-        color: #666; 
-        /* MODIFICATION 8: Reduced margin and padding around the description */
-        margin-bottom: 15px;
-        border-bottom: 1px dashed #eee; 
-        padding-bottom: 10px;
-    }
-    
-    .service-card ul {
-        list-style-type: none; 
-        padding-left: 0; 
-        font-size: 0.95em;
-    }
-    
-    .service-card li {
-        /* MODIFICATION 9: Reduced vertical spacing between list items */
-        margin-bottom: 8px;
-        padding-left: 20px; 
-        position: relative;
-        line-height: 1.4;
-    }
-
-    .service-card li::before {
-        content: '•'; 
-        color: var(--primary-color); 
-        font-weight: bold; 
-        display: inline-block; 
-        width: 1em; 
-        margin-left: -1em; 
-    }
-    /* === END SERVICE CARD STYLES === */
-
-    /* --- MODIFIED PARTNER/CLIENT SECTION STYLES --- */
-    #partners {
-        background: #f8f8f8; /* Light gray background */
-    }
-
-    .partner-list {
-        max-width: 1000px;
-        /* MODIFICATION 10: Reduced vertical margin around partner list */
-        margin: 30px auto;
-        padding: 0;
-        list-style: none;
-        
-        /* CSS Grid for uniform alignment */
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-        /* MODIFICATION 11: Reduced gap between partner items */
-        gap: 15px;
-    }
-    
-    .partner-list li {
-        /* Base Style */
-        font-size: 1.05em;
-        font-weight: 600; 
-        color: var(--primary-color); /* Primary color text */
-        background: var(--background-light); /* White background */
-        padding: 15px 20px; 
-        border-radius: 8px; 
-        border: 2px solid var(--primary-color); 
-        text-align: center;
-        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05); 
-        transition: all 0.3s ease; 
-    }
-
-    .partner-list li:hover {
-        /* New Hover Design */
-        background-color: var(--primary-color); 
-        color: var(--text-light); 
-        transform: translateY(-5px); 
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
-        border-color: var(--secondary-color); 
-    }
-    /* --- END MODIFIED PARTNER/CLIENT SECTION STYLES --- */
-
-
-    /* Contact Section Styles for Form */
-    #contact {
-        background: var(--background-dark);
-        color: var(--text-light);
-        text-align: center;
-    }
-    
-    #contact h2 {
-        color: var(--secondary-color);
-    }
-    
-    /* Contact Info/Details Grid */
-    .contact-info {
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        margin-top: 30px;
-        text-align: center;
-    }
-    
-    .contact-item {
-        /* MODIFICATION 12: Reduced margin around contact items */
-        margin: 15px;
-        width: 300px; 
-    }
-    
-    .contact-item h3 {
-        color: var(--secondary-color);
-        font-size: 1.2em;
-    }
-    
-    /* IMPROVEMENT 1: Enhanced Button Style for Contact Form */
-    .form-submit-btn {
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-        transition: all 0.3s ease;
-    }
-
-    .form-submit-btn:hover {
-        background-color: var(--primary-color) !important;
-        color: var(--text-light) !important;
-        transform: translateY(-2px); /* Subtle lift on hover */
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
-    }
-
-    /* Footer */
-    #footer {
-        background: var(--primary-color);
-        color: var(--text-light);
-        text-align: center;
-        /* MODIFICATION 13: Reduced footer padding */
-        padding: 15px 0;
-        font-size: 0.8em;
-    }
-
-    /* Added style for developer signature */
-    #footer .developer-credit {
-        display: block;
-        margin-top: 5px;
-        font-size: 0.9em;
-        opacity: 0.7;
-    }
-    
-    /* Consolidated Form Styles */
-    #contact form input, #contact form textarea {
-        padding: 12px; 
-        border: 1px solid #ccc; 
-        border-radius: 4px; 
-        width: 100%; 
-        color: var(--text-dark);
-    }
-
-    /* Responsiveness */
-    @media (max-width: 768px) {
-        #header .container {
-            /* This still makes the logo stack above the navigation bar */
-            flex-direction: column;
-        }
-
-        #nav ul {
-            padding-top: 15px;
-        }
-        
-        #nav ul li a {
-            /* Reverting padding to save space for horizontal layout */
-            padding: 8px 10px; 
-        }
-
-        #hero h1 {
-            font-size: 2.5em;
-        }
-
-        #hero p {
-            font-size: 1.2em;
-        }
-        
-        .services-grid {
-            grid-template-columns: 1fr; 
-        }
-        
-        .service-image {
-            max-width: 95%;
-        }
-        
-        .service-card {
-            border-left-width: 5px; 
-        }
-    }
-
-</style>
+  </style>
 </head>
-<body>
-
-    <header id="header">
-        <div class="container">
-            <div class="logo">MAES <span>Power & Energy</span></div>
-            <nav id="nav">
-                <ul>
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#partners">Partners</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+<body class="antialiased text-slate-100 bg-slate-900">
+  <!-- NAV -->
+  <header class="w-full py-4 px-6 lg:px-12 fixed top-0 z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="#hero" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-md bg-[var(--maes-green)] flex items-center justify-center ring-1 ring-white/5">
+          <!-- simple star mark -->
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l2.4 5.6L20 10l-5 3.8L16 20l-4-2.5L8 20l1-6.2L4 10l5.6-2.4L12 2z" fill="var(--maes-gold)"/></svg>
         </div>
-    </header>
+        <div class="text-sm leading-4">
+          <div class="font-bold text-white">MAES</div>
+          <div class="text-[11px] text-slate-300">M. Advanced Energy Systems</div>
+        </div>
+      </a>
 
-    <section id="hero">
-        <div class="container">
+      <nav class="hidden md:flex items-center gap-8 text-slate-300">
+        <a href="#about" class="hover:text-white">About</a>
+        <a href="#services" class="hover:text-white">Services</a>
+        <a href="#projects" class="hover:text-white">Projects</a>
+        <a href="#contact" class="hover:text-white">Contact</a>
+        <a href="https://muthayyub-505.github.io/Maes_Website/#hero" target="_blank" class="ml-2 px-4 py-2 rounded btn-gold hover:bg-white/5">Visit live</a>
+      </nav>
+
+      <div class="md:hidden">
+        <button id="menuBtn" aria-label="Open menu" class="p-2 rounded-md glass">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="hero" class="bg-hero pt-28 pb-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      <div class="lg:col-span-6">
+        <div class="reveal" data-reveal>
+          <p class="text-sm text-slate-300 mb-2">Premium — Energy & Power Solutions</p>
+          <h1 class="text-4xl lg:text-5xl font-extrabold leading-tight text-white">MAES — Focused on power & energy solutions</h1>
+          <p class="mt-4 text-slate-200/80 max-w-xl">Designing resilient electrical systems, renewable integrations, and energy-efficient solutions for industrial and commercial clients.</p>
+
+          <div class="mt-6 flex gap-4">
+            <a href="#contact" class="px-5 py-3 rounded-md btn-gold-filled font-semibold shadow">Get in touch</a>
+            <a href="#projects" class="px-5 py-3 rounded-md btn-gold border-transparent font-semibold glass">Our projects</a>
+          </div>
+
+          <div class="mt-6 text-slate-300 text-sm">
+            <strong class="text-white">Built by:</strong> Muthayyub Mohd — <span class="italic">Web Developer</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-6 flex justify-center lg:justify-end">
+        <div class="device w-full max-w-md reveal" data-reveal>
+          <!-- laptop mockup with screenshot area -->
+          <div style="background:var(--maes-dark);padding:28px 28px;">
+            <div style="background:var(--maes-green);border-radius:6px;padding:26px;color:var(--maes-gold)">
+              <div class="flex items-center justify-between mb-6">
+                <div class="font-bold text-lg">MAES</div>
+                <div class="text-sm text-slate-200">Home • About • Services • Contact</div>
+              </div>
+              <h3 class="text-2xl font-bold text-white">Focused on power & <br/>energy solutions</h3>
+              <p class="mt-4 text-slate-200/80">A clean, practical website preview – built with performance and clarity in mind.</p>
+              <div class="mt-5">
+                <a class="inline-block px-4 py-2 rounded-md btn-gold">Get in touch</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-16 lg:py-24 bg-white text-slate-900">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      <div class="lg:col-span-6">
+        <h2 class="text-3xl font-bold">About MAES</h2>
+        <p class="mt-4 text-slate-700">MAES (M. Advanced Energy Systems) provides electrical engineering, renewable integration, and energy management solutions tailored for industrial clients. We optimize for reliability, safety, and long-term cost savings.</p>
+
+        <ul class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3 text-slate-600">
+          <li>• Electrical Design & Consultancy</li>
+          <li>• Renewable Energy Systems</li>
+          <li>• Energy Audits & Optimization</li>
+          <li>• Project Management</li>
+        </ul>
+
+        <div class="mt-6">
+          <a href="#services" class="px-4 py-2 rounded btn-gold">See services</a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-6">
+        <div class="grid grid-cols-2 gap-4">
+          <div class="p-6 bg-gradient-to-br from-white/5 to-white/3 rounded-lg glass">
+            <h4 class="font-semibold">Mission</h4>
+            <p class="mt-2 text-slate-300">Deliver dependable energy systems with modern engineering practices and focus on sustainability.</p>
+          </div>
+          <div class="p-6 bg-gradient-to-br from-white/5 to-white/3 rounded-lg glass">
+            <h4 class="font-semibold">Vision</h4>
+            <p class="mt-2 text-slate-300">Be a trusted partner for energy transition projects in the region.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="py-16 lg:py-20 bg-slate-900 text-slate-100">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="text-center">
+        <h3 class="text-2xl font-bold">Services</h3>
+        <p class="mt-2 text-slate-300 max-w-2xl mx-auto">Comprehensive services from consultancy to full turnkey delivery.</p>
+      </div>
+
+      <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="p-6 rounded-lg glass">
+          <h4 class="font-semibold text-white">Electrical Design</h4>
+          <p class="mt-2 text-slate-300 text-sm">Low/medium voltage designs, protection coordination, single-line diagrams.</p>
+        </div>
+        <div class="p-6 rounded-lg glass">
+          <h4 class="font-semibold text-white">Solar & Renewables</h4>
+          <p class="mt-2 text-slate-300 text-sm">PV system sizing, interconnection studies, battery integration.</p>
+        </div>
+        <div class="p-6 rounded-lg glass">
+          <h4 class="font-semibold text-white">Energy Audits</h4>
+          <p class="mt-2 text-slate-300 text-sm">Site audits, ROI analysis, efficiency recommendations.</p>
+        </div>
+        <div class="p-6 rounded-lg glass">
+          <h4 class="font-semibold text-white">Project Management</h4>
+          <p class="mt-2 text-slate-300 text-sm">Turnkey delivery, documentation, testing & commissioning.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="py-16 bg-white text-slate-900">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="flex items-center justify-between">
+        <h3 class="text-2xl font-bold">Recent Projects</h3>
+        <a href="#" class="text-sm text-slate-500">View all projects</a>
+      </div>
+
+      <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- project card -->
+        <article class="rounded-lg overflow-hidden shadow-sm">
+          <img class="project-img w-full" src="https://picsum.photos/800/600?random=101" alt="Project preview">
+          <div class="p-4">
+            <h4 class="font-semibold">Industrial Solar Integration</h4>
+            <p class="mt-2 text-sm text-slate-600">Design & installation of 250 kW rooftop PV with battery backup.</p>
+          </div>
+        </article>
+
+        <article class="rounded-lg overflow-hidden shadow-sm">
+          <img class="project-img w-full" src="https://picsum.photos/800/600?random=102" alt="Project preview">
+          <div class="p-4">
+            <h4 class="font-semibold">Substation Protection Upgrade</h4>
+            <p class="mt-2 text-sm text-slate-600">Protection coordination study and panel upgrades for a 33kV substation.</p>
+          </div>
+        </article>
+
+        <article class="rounded-lg overflow-hidden shadow-sm">
+          <img class="project-img w-full" src="https://picsum.photos/800/600?random=103" alt="Project preview">
+          <div class="p-4">
+            <h4 class="font-semibold">Energy Audit & Optimization</h4>
+            <p class="mt-2 text-sm text-slate-600">Comprehensive audit and efficiency recommendations for a manufacturing plant.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIENTS -->
+  <section class="py-12 bg-slate-800 text-slate-200">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <h4 class="text-center text-xl font-semibold">Trusted by</h4>
+      <div class="mt-6 grid grid-cols-3 sm:grid-cols-6 gap-6 items-center opacity-80">
+        <div class="flex items-center justify-center"> <img src="" alt="client" class="max-h-10"/></div>
+        <div class="flex items-center justify-center"> <img src="" alt="client" class="max-h-10"/></div>
+        <div class="flex items-center justify-center"> <img src="https://picsum.photos/200/60?random=10" alt="client" class="max-h-10"/></div>
+        <div class="flex items-center justify-center"> <img src="https://picsum.photos/200/60?random=11" alt="client" class="max-h-10"/></div>
+        <div class="flex items-center justify-center"> <img src="https://picsum.photos/200/60?random=12" alt="client" class="max-h-10"/></div>
+        <div class="flex items-center justify-center"> <img src="https://picsum.photos/200/60?random=13" alt="client" class="max-h-10"/></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-16 bg-white text-slate-900">
+    <div class="max-w-5xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div>
+        <h3 class="text-2xl font-bold">Get in touch</h3>
+        <p class="mt-2 text-slate-600">Interested in talking? Send a message and we'll respond within 48 hours.</p>
+
+        <div class="mt-6 space-y-4">
+          <div class="flex items-center gap-3">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M2 12h20" stroke="#0f172a" stroke-width="2" stroke-linecap="round"/></svg>
             <div>
-                <h1>M. Advanced Energy Systems (MAES)</h1>
-                <p>Your Trusted Partner for Critical Power, Automation, and Security Solutions</p>
+              <div class="text-sm text-slate-700">Email</div>
+              <div class="font-semibold">info@maes.example</div>
             </div>
-        </div>
-    </section>
+          </div>
 
-    <section id="about" class="container">
-        <h2>About MAES</h2>
-        <div style="max-width: 800px; margin: auto;">
-            <p> MAES, is a technology Company dedicated to continuously enhance its competencies in CCTV & Security System, Energy Efficiency to address the pressing needs of consumers to have secured facility, reliable power and to conserve energy. To achieve these objectives, the Company provides solutions and services utilizing Power Quality, Energy Management, Power
-& Energy Monitoring, Power Automation & SCADA, Power Protection, and Fiber Optic Splicing, Termination, and Testing.</p>
-            <p>Our solutions and services are vital to the Oil & Gas, Petrochemical, Power Generation, Industrial, and Commercial sectors across the Kingdom of Saudi Arabia.</p>
-            
-            <h3 style="color: var(--primary-color); margin-top: 2em;">Mission & Vision</h3>
-            <p>**Mission:** Our Mission is providing high quality of services at most competitive price without compromising quality, safety and environment. When it comes to our services, we
-make sure that we keep in mind even a minute detail to serve our client better and maintain our good relation with them.</p>
-            <p>**Vision:** Consistently deliver, as per committed Schedules, CCTV & Security System, Power Automation, Energy efficiency & Power Quality Solutions & services that are
-Cost-effective & are of the required Quality in order to successfully satisfy the requirements of our Customers at the Lowest Cost of Ownership with the Highest
-Yield & Uptime, thereby creating value for our Customers, Shareholders, & Employees.</p>
-
-            <h3 style="color: var(--primary-color); margin-top: 2em;">What Sets Us Apart</h3>
-            <ul>
-                <li>We are a **Schneider Electric EcoXpert Critical Power MASTER Certified** company.</li>
-                <li>We offer complete engineering packages or specialized services, acting as a single point of contact for numerous disciplines.</li>
-                <li>Our commitment is to deliver with the highest regard to quality, safety, honesty, integrity, and customer satisfaction.</li>
-                <li>Our staff are highly qualified and experienced, enabling us to execute projects with quality and safety.</li>
-            </ul>
-
-        </div>
-    </section>
-
-    <section id="services">
-        <div class="container">
-            <h2>Our Core Services & Solutions</h2>
-            
-            <img 
-                src="2.jpg" 
-                alt="Complete Automation Solution and Service" 
-                class="service-image" 
-            >
-            
-            <div class="services-grid">
-                
-                <div class="service-card">
-                    <h3>Power Quality Enhancement & Energy Savings</h3>
-                    <p>Specialists in Power Quality and Energy Savings solutions, providing detailed assessments and implementation.</p>
-                    <ul>
-                        <li>Energy & Power Quality Audits, Studies and Analysis.</li>
-                        <li>Power Factor Correction (PFC) Systems.</li>
-                        <li>Harmonics Mitigation/Active & Passive Filters.</li>
-                        <li>Uninterruptible Power Supply (UPS) & Stabilizers.</li>
-                        <li>VFD (Variable Frequency Drives) & Soft Starters.</li>
-                    </ul>
-                </div>
-                
-                <div class="service-card">
-                    <h3>Automation Solution, Metering & Services</h3>
-                    <p>Advanced power monitoring, control systems, and specialized solutions for Aramco and industrial sectors.</p>
-                    <ul>
-                        <li>Power Monitoring Systems (PMS)</li>
-                        <li>Electrical Power Monitoring Systems (EPMS)</li>
-                        <li>Power Systems Automation (PSA) – for Aramco projects</li>
-                        <li>Reduced Power Systems Automation (PSA) - for Aramco projects</li>
-                        <li>Remote Switching & Monitoring Systems (RSMS) – for Aramco projects</li>
-                        <li>SCADA (Supervisory Control and Data Acquisition)</li>
-                        <li>Tariff/Power Metering, PQ & Smart Metering, Power Totalizer</li>
-                        <li>GPRS & Wireless Automation Network</li>
-                        <li>Cloud Computing Communication Technology</li>
-                    </ul>
-                </div>
-                
-                <div class="service-card">
-                    <h3>CCTV, Security & Communication Systems</h3>
-                    <p>Complete trading, design, and commissioning services for critical facility security.</p>
-                    <ul>
-                        <li>CCTV (Surveillance cameras and remote monitoring).</li>
-                        <li>Security Systems (e.g., Paradox security alarm system).</li>
-                        <li>Smart Home Automation.</li>
-                        <li>IP Telephone and Intercom Systems.</li>
-                        <li>Communication & Internet wired & wireless IT system products & Networking.</li>
-                    </ul>
-                </div>
-                
-                <div class="service-card">
-                    <h3>Specialized & Electrical Services</h3>
-                    <p>Comprehensive support for electrical infrastructure and specialized testing services.</p>
-                    <ul>
-                        <li>Supply of Electrical Panels (Distribution, Synchronizing, ATS).</li>
-                        <li>Transformers & Electrical Panels supply.</li>
-                        <li>Fiber Optic Cable Splicing, Termination, and Testing (OTDR and Power Meter testing).</li>
-                        <li>Copper UTP cable termination and testing.</li>
-                        <li>Design, Engineering, and Installation services for all systems.</li>
-                    </ul>
-                </div>
-
+          <div class="flex items-center gap-3">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 5h18v14H3z" stroke="#0f172a" stroke-width="1.5"/></svg>
+            <div>
+              <div class="text-sm text-slate-700">Phone</div>
+              <div class="font-semibold">+966 5X XXX XXXX</div>
             </div>
+          </div>
         </div>
-    </section>
-    
-    <section id="partners">
-        <div class="container">
-            <h2>Our Trusted Partners & Clients 🤝</h2>
-            <p style="text-align: center; max-width: 800px; margin: auto auto 40px auto;">
-                We are proud to work with leading technology partners and serve major clients across the Kingdom of Saudi Arabia, a testament to our quality and reliability.
-            </p>
-            
-            <ul class="partner-list">
-                <li>Schneider Electric (EcoXpert Master Partner)</li>
-                <li>Saudi Aramco</li>
-                <li>SABIC</li>
-                <li>Major Gas Distribution Companies</li>
-                <li>Large-Scale Petrochemical Complexes</li>
-                <li>Independent Power Generation Plants (IPP)</li>
-                <li>Commercial and Industrial Sector Leaders</li>
-                <li>CLARIOS | MEBCO</li> 
-                 <li>GULFPACK</li> 
-            </ul>
-            
+      </div>
+
+      <form class="bg-slate-50 p-6 rounded-lg shadow-sm" onsubmit="handleSubmit(event)">
+        <label class="block text-sm text-slate-700">Your name</label>
+        <input required class="w-full mt-1 p-3 rounded border border-slate-200" placeholder="Muthayyub Mohd" />
+
+        <label class="block text-sm text-slate-700 mt-4">Email</label>
+        <input type="email" required class="w-full mt-1 p-3 rounded border border-slate-200" placeholder="you@example.com" />
+
+        <label class="block text-sm text-slate-700 mt-4">Message</label>
+        <textarea required class="w-full mt-1 p-3 rounded border border-slate-200" rows="4" placeholder="Tell us about your project..."></textarea>
+
+        <div class="mt-4 flex items-center gap-3">
+          <button type="submit" class="px-4 py-2 rounded btn-gold-filled">Send message</button>
+          <a href="https://wa.me/9665XXXXXXXX" target="_blank" class="px-4 py-2 rounded btn-gold">Chat on WhatsApp</a>
         </div>
-    </section>
-    <section id="contact">
-        <div class="container">
-            <h2>Contact M. Advanced Energy Systems</h2>
-            <p>Ready to enhance your power, automation, or security systems? Send us a message, and we'll get back to you promptly.</p>
-            
-            <div class="contact-form-container" style="max-width: 600px; margin: 30px auto 0 auto;">
-                
-                <form id="contactForm" action="https://formspree.io/f/meorprbl" method="POST" style="display: grid; gap: 20px; text-align: left;">
-                    
-                    <label for="name" style="font-weight: bold;">Your Name:</label>
-                    <input type="text" id="name" name="name" required>
-                    
-                    <label for="email" style="font-weight: bold;">Your Email:</label>
-                    <input type="email" id="email" name="_replyto" required>
-                    
-                    <label for="subject" style="font-weight: bold;">Subject:</label>
-                    <input type="text" id="subject" name="subject">
-                    
-                    <label for="message" style="font-weight: bold;">Message:</label>
-                    <textarea id="message" name="message" rows="5" required style="resize: vertical;"></textarea>
-                    
-                    <button type="submit" class="form-submit-btn"
-                                            style="background-color: var(--secondary-color); color: var(--text-dark); border: none; padding: 15px 30px; border-radius: 4px; cursor: pointer; font-size: 1.1em; font-weight: bold;">
-                        Send Message
-                    </button>
-                    
-                </form>
+      </form>
+    </div>
+  </section>
 
-                <div class="contact-info" style="margin-top: 50px;">
-                    <div class="contact-item">
-                        <h3 style="color: var(--secondary-color); font-size: 1.2em;">Head Office</h3>
-                        <p>3rd Floor Al-Mutlaq Complex Bldg.3, Bandariyah, PO Box 2134, Al Khobar 31952, KSA</p>
-                    </div>
-                    <div class="contact-item">
-                        <h3 style="color: var(--secondary-color); font-size: 1.2em;">Call Us</h3>
-                        <p><strong>Phone:</strong> +966 13 817 5786 / 802 2922</p>
-                        <p><strong>Fax:</strong> +966 13 817 5761</p>
-                    </div>
-                    <div class="contact-item">
-                        <h3 style="color: var(--secondary-color); font-size: 1.2em;">Email & Web</h3>
-                        <p><strong>Inquiries:</strong> <a href="mailto:mail@maes-wll.com" style="color: white;">mail@maes-wll.com</a></p>
-                    
-                    </div>
-                </div>
-            </div>
-            <p style="margin-top: 30px; font-size: 0.9em;">Branches also located in: Jubail, Riyadh, Jeddah</p>
-        </div>
-    </section>
+  <footer class="py-8 bg-slate-900 text-slate-400">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="text-sm">© <strong>MAES</strong> — M. Advanced Energy Systems. Designed by Muthayyub Mohd</div>
+      <div class="text-sm">Made with care • <span class="accent">MAES</span></div>
+    </div>
+  </footer>
 
-    <footer id="footer">
-        <div class="container">
-            <p>&copy; 2025 M. Advanced Energy Systems (MAES). All Rights Reserved. | <a href="#" style="color: var(--secondary-color);">Privacy Policy</a></p>
-            <span class="developer-credit">Design & Developed by Mohd_Muthayyub</span>
-        </div>
-    </footer>
+  <script>
+    // simple reveal on scroll
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){e.target.classList.add('visible')}
+      })
+    },{threshold:0.15});
+    document.querySelectorAll('[data-reveal]').forEach(el=>obs.observe(el));
 
-    <script>
-        // IIFE for scope isolation and for better practice (previous JS was already here, just wrapped it)
-        (function() {
-            // Consolidated form input styles into CSS for cleanliness (removed inline styles from HTML for name, email, subject, message)
-            
-            const form = document.getElementById("contactForm");
-            
-            form.addEventListener("submit", async function (event) {
-                // Prevent the default form submission (which causes the redirect)
-                event.preventDefault();
-            
-                // Use the form itself as the container for the status message
-                const container = form; 
-                
-                // Remove any previous status messages
-                const existingStatus = container.querySelector('.form-status');
-                if (existingStatus) existingStatus.remove();
-            
-                const statusMessage = document.createElement("p");
-                statusMessage.classList.add('form-status');
-                statusMessage.style.textAlign = "center";
-                statusMessage.style.fontWeight = "bold";
-                statusMessage.style.marginTop = "15px";
-                statusMessage.style.fontSize = "1.1em"; // Make it a bit more prominent
-            
-                // Show a temporary message while submitting
-                statusMessage.textContent = "Sending message...";
-                statusMessage.style.color = "var(--secondary-color)";
-                
-                // Append the status message directly to the form
-                container.appendChild(statusMessage);
-            
-                try {
-                    const response = await fetch(form.action, {
-                        method: form.method,
-                        body: new FormData(form),
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                    });
-            
-                    if (response.ok) {
-                        // Success! Clear the form and show a success message
-                        form.reset();
-                        statusMessage.textContent = "✅ Message sent successfully! Thank you for reaching out.";
-                        statusMessage.style.color = "var(--secondary-color)";
-                    } else {
-                        // Handle server errors (e.g., failed validation, bad endpoint)
-                        const data = await response.json();
-                        if (data.error) {
-                            statusMessage.textContent = `❌ Error: ${data.error}. Please check the form and try again.`;
-                        } else {
-                            statusMessage.textContent = "❌ Oops! There was a problem submitting your form. Please try again.";
-                        }
-                        statusMessage.style.color = "red";
-                    }
-                } catch (error) {
-                    // Handle network errors (e.g., no internet)
-                    statusMessage.textContent = "❌ Oops! Network error. Please check your connection and try again.";
-                    statusMessage.style.color = "red";
-                }
-            
-                // Make the status message fade out after 8 seconds
-                setTimeout(() => {
-                    const status = container.querySelector('.form-status');
-                    if(status) status.remove();
-                }, 8000);
-            });
-        })();
-    </script>
+    // mobile menu (basic)
+    const menuBtn=document.getElementById('menuBtn');
+    menuBtn?.addEventListener('click',()=>{
+      const nav=document.createElement('div');
+      nav.className='fixed inset-0 bg-black/60 z-50 flex items-start justify-center p-6';
+      nav.innerHTML=`<div class=\"mt-20 w-full max-w-sm bg-white text-slate-900 rounded-lg p-6\"> <button id=\"close\" class=\"mb-4\">Close</button> <nav class=\"flex flex-col gap-3\"> <a href=\"#about\" class=\"font-semibold\">About</a> <a href=\"#services\" class=\"font-semibold\">Services</a> <a href=\"#projects\" class=\"font-semibold\">Projects</a> <a href=\"#contact\" class=\"font-semibold\">Contact</a> </nav></div>`;
+      document.body.appendChild(nav);
+      nav.querySelector('#close').addEventListener('click',()=>nav.remove());
+    });
 
+    function handleSubmit(e){
+      e.preventDefault();
+      alert('Thanks! This is a prototype: if you want the real form hooked up I can connect it to Email/Netlify/SMTP.');
+      e.target.reset?.();
+    }
+  </script>
 </body>
 </html>
