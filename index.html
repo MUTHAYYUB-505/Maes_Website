@@ -5,22 +5,94 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>MAES — M. Advanced Energy Systems</title>
   <meta name="description" content="MAES — power & energy solutions. Modern, responsive corporate website designed by Muthayyub Mohd." />
+  <meta name="google-site-verification" content="JX0z_dbTEYiWUO4HueSa1tXcMYhlJR93z_3xcA61te4" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <!-- Tailwind via CDN for quick prototype -->
+  <link rel="icon" type="image/png" href="fff.png" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root{
       --maes-green:#0f4b40; /* deep green */
-      --maes-gold:#caa43a;  /* gold */
+      --maes-gold:#caa43a;  /* gold (yellow color requested) */
       --maes-dark:#08352e;
+      --maes-light-green:#1a6f62; /* Lighter shade for the mockup box */
     }
     html,body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;}    
-    /* subtle background texture */
-    .bg-hero{background:linear-gradient(180deg,var(--maes-green) 0%, #0b3f38 60%);}
-    .glass{background:rgba(255,255,255,0.03);backdrop-filter:blur(4px);}
+    
+    /* MODIFIED: Lightened Header Background */
+    .bg-header-dynamic{
+        /* Reduced opacity from 0.7 to 0.4 for a lighter image background */
+        background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.4) 100%), url('x.jpg'); 
+        background-size: cover;
+        background-position: center 30%;
+        padding-top: 24px;
+        padding-bottom: 24px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        z-index: 50; 
+        position: sticky;
+        top: 0;
+    }
+    /* Text Shadow for high contrast logo */
+    .logo-text-shadow {
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+    }
+    
+    /* MODIFIED: Increased darkness of the black overlay for maximum white text visibility and contrast. */
+    .bg-hero{
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.7) 100%), url('r.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+    /* Feature Box with xx.jpg background */
+    .feature-box {
+      background: linear-gradient(135deg, rgba(15, 75, 64, 0.8), rgba(8, 53, 46, 0.9)), url('xx.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 40px;
+      border-radius: 12px;
+    }
+
+    /* Glassmorphism for the Device Mockup */
+    .glass-device-inner {
+      background: rgba(15, 75, 64, 0.4); /* MAES green with transparency */
+      backdrop-filter: blur(8px); /* Apply strong blur effect */
+      border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle white border for depth */
+      border-radius: 6px;
+      padding: 26px;
+      color: var(--maes-gold);
+    }
+
+    /* Diagonal Wave Separator (CSS kept but HTML element removed) */
+    .wave-separator {
+        height: 60px;
+        width: 100%;
+        background-color: #fff;
+        position: relative;
+        overflow: hidden;
+    }
+    .wave-separator::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 20" xmlns="http://www.w3.org/2000/svg"><path fill="%230f4b40" d="M0,10 C30,15 70,0 100,5 L100,20 L0,20 Z" /></svg>');
+        background-size: 100% 100%;
+        transform: translateY(-50%);
+        background-color: var(--maes-green); /* Fallback for the wave area */
+    }
+
+    /* Updated glass class for general use and added hover effect */
+    .glass{background:rgba(255,255,255,0.05); backdrop-filter:blur(4px); padding: 8px 12px; border-radius: 6px; transition: background 0.2s;}
+    .glass:hover {background:rgba(255,255,255,0.1);}
+    
     .accent{color:var(--maes-gold)}
     .btn-gold{background:transparent;border:2px solid var(--maes-gold);color:var(--maes-gold)}
-    .btn-gold-filled{background:var(--maes-gold);color:#07231a}
+    /* Button hover animation */
+    .btn-gold-filled{background:var(--maes-gold);color:#07231a; transition: all 0.2s;}
+    .btn-gold-filled:hover {transform: scale(1.05);}
+
     /* small rounded laptop mockup image styling */
     .device{box-shadow:0 20px 40px rgba(2,6,23,0.5);border-radius:10px;overflow:hidden}
     /* entrance animation */
@@ -31,47 +103,52 @@
     @media (min-width:1024px){
       .project-img{height:200px}
     }
+    /* Client Logo Styling removed for full color display */
   </style>
 </head>
 <body class="antialiased text-slate-100 bg-slate-900">
-  <!-- NAV -->
-  <header class="w-full py-4 px-6 lg:px-12 fixed top-0 z-50">
-    <div class="max-w-7xl mx-auto flex items-center justify-between">
-      <a href="#hero" class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-md bg-[var(--maes-green)] flex items-center justify-center ring-1 ring-white/5">
-          <!-- simple star mark -->
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l2.4 5.6L20 10l-5 3.8L16 20l-4-2.5L8 20l1-6.2L4 10l5.6-2.4L12 2z" fill="var(--maes-gold)"/></svg>
+  
+  <div id="top-header" class="bg-header-dynamic w-full">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
+        
+        <a href="#hero" class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-md bg-[var(--maes-green)] flex items-center justify-center ring-1 ring-white/5">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M13 1.01L6 14H11V22.99L18 10H13V1.01Z" fill="var(--maes-gold)"/>
+              </svg>
+            </div>
+            <div class="text-2xl leading-5 font-bold logo-text-shadow">
+                <span style="color:var(--maes-green);">MAES</span>
+                <span style="color:var(--maes-gold);" class="block text-base mt-0.5">Power & Energy</span>
+            </div>
+        </a>
+
+        <div class="flex items-center gap-4">
+            
+            <nav class="hidden md:flex items-center gap-2 text-white">
+                <a href="#hero" class="glass text-white/90 hover:text-white">Home</a>
+                <a href="#about" class="glass text-white/90 hover:text-white">About</a>
+                <a href="#services" class="glass text-white/90 hover:text-white">Services</a>
+                <a href="#projects" class="glass text-white/90 hover:text-white">Projects</a>
+                <a href="#partners" class="glass text-white/90 hover:text-white">Partners</a>
+                <a href="#contact" class="glass text-white/90 hover:text-white">Contact</a>
+            </nav>
+
+            <div class="md:hidden">
+                <button id="menuBtn" aria-label="Open menu" class="p-2 rounded-md glass">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+            </div>
         </div>
-        <div class="text-sm leading-4">
-          <div class="font-bold text-white">MAES</div>
-          <div class="text-[11px] text-slate-300">M. Advanced Energy Systems</div>
         </div>
-      </a>
-
-      <nav class="hidden md:flex items-center gap-8 text-slate-300">
-        <a href="#about" class="hover:text-white">About</a>
-        <a href="#services" class="hover:text-white">Services</a>
-        <a href="#projects" class="hover:text-white">Projects</a>
-        <a href="#contact" class="hover:text-white">Contact</a>
-        <a href="https://muthayyub-505.github.io/Maes_Website/#hero" target="_blank" class="ml-2 px-4 py-2 rounded btn-gold hover:bg-white/5">Visit live</a>
-      </nav>
-
-      <div class="md:hidden">
-        <button id="menuBtn" aria-label="Open menu" class="p-2 rounded-md glass">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <section id="hero" class="bg-hero pt-28 pb-20">
+  </div>
+  <section id="hero" class="bg-hero min-h-[70vh] pt-16 pb-20 flex items-center">
     <div class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
       <div class="lg:col-span-6">
         <div class="reveal" data-reveal>
           <p class="text-sm text-slate-300 mb-2">Premium — Energy & Power Solutions</p>
-          <h1 class="text-4xl lg:text-5xl font-extrabold leading-tight text-white">MAES — Focused on power & energy solutions</h1>
-          <p class="mt-4 text-slate-200/80 max-w-xl">Designing resilient electrical systems, renewable integrations, and energy-efficient solutions for industrial and commercial clients.</p>
+          <h1 class="text-4xl lg:text-5xl font-extrabold leading-tight text-white">M. Advanced Energy Systems (MAES)</h1>
+          <p class="mt-4 text-slate-200/80 max-w-xl">Your Trusted Partner for Critical Power, Automation, and Security Solutions.</p>
 
           <div class="mt-6 flex gap-4">
             <a href="#contact" class="px-5 py-3 rounded-md btn-gold-filled font-semibold shadow">Get in touch</a>
@@ -79,24 +156,23 @@
           </div>
 
           <div class="mt-6 text-slate-300 text-sm">
-            <strong class="text-white">Built by:</strong> Muthayyub Mohd — <span class="italic">Web Developer</span>
+           
           </div>
         </div>
       </div>
 
       <div class="lg:col-span-6 flex justify-center lg:justify-end">
         <div class="device w-full max-w-md reveal" data-reveal>
-          <!-- laptop mockup with screenshot area -->
           <div style="background:var(--maes-dark);padding:28px 28px;">
-            <div style="background:var(--maes-green);border-radius:6px;padding:26px;color:var(--maes-gold)">
+            <div class="glass-device-inner">
               <div class="flex items-center justify-between mb-6">
                 <div class="font-bold text-lg">MAES</div>
-                <div class="text-sm text-slate-200">Home • About • Services • Contact</div>
+                
               </div>
               <h3 class="text-2xl font-bold text-white">Focused on power & <br/>energy solutions</h3>
-              <p class="mt-4 text-slate-200/80">A clean, practical website preview – built with performance and clarity in mind.</p>
+              <p class="mt-4 text-slate-200/80">Designing resilient electrical systems, renewable integrations, and energy-efficient solutions for industrial and commercial clients.</p>
               <div class="mt-5">
-                <a class="inline-block px-4 py-2 rounded-md btn-gold">Get in touch</a>
+               
               </div>
             </div>
           </div>
@@ -105,12 +181,15 @@
     </div>
   </section>
 
-  <!-- ABOUT -->
   <section id="about" class="py-16 lg:py-24 bg-white text-slate-900">
     <div class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
       <div class="lg:col-span-6">
         <h2 class="text-3xl font-bold">About MAES</h2>
-        <p class="mt-4 text-slate-700">MAES (M. Advanced Energy Systems) provides electrical engineering, renewable integration, and energy management solutions tailored for industrial clients. We optimize for reliability, safety, and long-term cost savings.</p>
+        <p class="mt-4 text-slate-700">MAES, is a technology Company dedicated to continuously enhance its competencies in CCTV & Security System, Energy Efficiency to address the pressing needs of consumers to have secured facility, reliable power and to conserve energy. To achieve these objectives, theCompany provides solutions and services utilizing Power Quality, Energy Management, Power & Energy Monitoring, Power Automation & SCADA, Power Protection, and Fiber OpticSplicing, Termination, and Testing.
+
+            Our solutions and services are vital to the Oil & Gas, Petrochemical, Power Generation, Industrial, and Commercial sectors across the Kingdom of Saudi Arabia.
+            
+            </p>
 
         <ul class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3 text-slate-600">
           <li>• Electrical Design & Consultancy</li>
@@ -126,20 +205,21 @@
 
       <div class="lg:col-span-6">
         <div class="grid grid-cols-2 gap-4">
-          <div class="p-6 bg-gradient-to-br from-white/5 to-white/3 rounded-lg glass">
-            <h4 class="font-semibold">Mission</h4>
-            <p class="mt-2 text-slate-300">Deliver dependable energy systems with modern engineering practices and focus on sustainability.</p>
+          <div class="p-6 bg-slate-50 rounded-lg shadow-sm">
+            <h4 class="font-semibold text-slate-900">Mission</h4>
+            <p class="mt-2 text-slate-700">Mission: Our mission is providing high-quality services at the most competitive price without compromising quality, safety, and the environment. When it comes to our services, we make sure that we keep in mind even the smallest detail to serve our clients better and maintain strong, lasting relationships. We strive to continuously innovate and adopt best practices to deliver reliable and sustainable solutions.</p>
           </div>
-          <div class="p-6 bg-gradient-to-br from-white/5 to-white/3 rounded-lg glass">
-            <h4 class="font-semibold">Vision</h4>
-            <p class="mt-2 text-slate-300">Be a trusted partner for energy transition projects in the region.</p>
+          <div class="p-6 bg-slate-50 rounded-lg shadow-sm">
+            <h4 class="font-semibold text-slate-900">Vision</h4>
+            <p class="mt-2 text-slate-700">**Vision:** Consistently deliver, as per committed Schedules, CCTV & Security System, Power Automation, Energy efficiency & Power Quality Solutions & services that are Cost-effective & are of the required Quality in order to successfully satisfy the requirements of our Customers at the Lowest Cost of Ownership with the Highest Yield & Uptime, thereby creating value for our Customers, Shareholders, & Employees.
+
+                Be a trusted partner for energy transition projects in the region.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SERVICES -->
   <section id="services" class="py-16 lg:py-20 bg-slate-900 text-slate-100">
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
       <div class="text-center">
@@ -148,92 +228,133 @@
       </div>
 
       <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
         <div class="p-6 rounded-lg glass">
-          <h4 class="font-semibold text-white">Electrical Design</h4>
-          <p class="mt-2 text-slate-300 text-sm">Low/medium voltage designs, protection coordination, single-line diagrams.</p>
+          <h4 class="font-semibold text-white">Power Quality & Audit</h4>
+          <p class="mt-2 text-slate-300 text-sm">Comprehensive services including Energy and Harmonics Audits, Analysis, and implementation of solutions for power quality improvement.</p>
+          <ul class="mt-3 ml-4 list-disc text-slate-300 text-sm space-y-1">
+            <li>Energy & Power Quality Audits, Studies, and Analysis.</li>
+            <li>Power Factor Correction (PFC) Systems.</li>
+            <li>Harmonics Mitigation (Active & Passive Filters).</li>
+            <li>Uninterruptible Power Supply (UPS) & Stabilizers.</li>
+            <li>VFD (Variable Frequency Drives) & Soft Starters.</li>
+          </ul>
         </div>
+
         <div class="p-6 rounded-lg glass">
-          <h4 class="font-semibold text-white">Solar & Renewables</h4>
-          <p class="mt-2 text-slate-300 text-sm">PV system sizing, interconnection studies, battery integration.</p>
+          <h4 class="font-semibold text-white">Energy Management & Automation</h4>
+          <p class="mt-2 text-slate-300 text-sm">Design, supply, and integration of SCADA and Power Monitoring Systems for control, billing, and automation solutions.</p>
+          <ul class="mt-3 ml-4 list-disc text-slate-300 text-sm space-y-1">
+            <li>Electrical Power Monitoring Systems (EPMS/PMS).</li>
+            <li>SCADA (Supervisory Control and Data Acquisition).</li>
+            <li>Power Systems Automation (PSA/Reduced PSA) for Aramco projects.</li>
+            <li>Remote Switching & Monitoring Systems (RSMS) for Aramco projects.</li>
+          </ul>
         </div>
+
         <div class="p-6 rounded-lg glass">
-          <h4 class="font-semibold text-white">Energy Audits</h4>
-          <p class="mt-2 text-slate-300 text-sm">Site audits, ROI analysis, efficiency recommendations.</p>
+          <h4 class="font-semibold text-white">CCTV, Security & Comms</h4>
+          <p class="mt-2 text-slate-300 text-sm">Full turnkey services for Security Systems, Communication infrastructure, and Smart Home Automation technologies.</p>
+          <ul class="mt-3 ml-4 list-disc text-slate-300 text-sm space-y-1">
+            <li>CCTV (Surveillance cameras and remote monitoring).</li>
+            <li>Security Systems (e.g., Paradox security alarm system).</li>
+            <li>IP Telephone and Intercom Systems.</li>
+            <li>Communication & Internet (wired & wireless IT systems and Networking).</li>
+            <li>Smart Home Automation.</li>
+          </ul>
         </div>
+
         <div class="p-6 rounded-lg glass">
-          <h4 class="font-semibold text-white">Project Management</h4>
-          <p class="mt-2 text-slate-300 text-sm">Turnkey delivery, documentation, testing & commissioning.</p>
+          <h4 class="font-semibold text-white">Electrical Supply & Cabling</h4>
+          <p class="mt-2 text-slate-300 text-sm">Supply of specialized electrical panels and certified services for Fiber Optic and Copper cable splicing, termination, and testing.</p>
+          <ul class="mt-3 ml-4 list-disc text-slate-300 text-sm space-y-1">
+            <li>Supply of Electrical Panels (Distribution, Synchronizing, ATS).</li>
+            <li>Transformers & Electrical Panels supply.</li>
+            <li>Fiber Optic Cable Splicing, Termination, and Testing (OTDR/Power Meter).</li>
+            <li>Design, Engineering, and Installation services for all systems.</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PROJECTS -->
+  <div class="max-w-7xl mx-auto px-6 lg:px-12 py-12">
+    <div class="feature-box grid grid-cols-1 lg:grid-cols-2 gap-8 lg:text-center">
+        <div class="lg:col-start-1 lg:col-end-3">
+            <div class="mb-4 flex flex-col items-center justify-center">
+                <img src="Ecoxpert-logo-certification.jpg" alt="Schneider Electric EcoXpert Logo" class="h-10 w-auto bg-white p-1 rounded">
+                <p class="mt-2 text-sm text-yellow-300 font-semibold">EcoXpert Critical Power MASTER Certified</p>
+            </div>
+            <h3 class="text-3xl font-bold mb-3">Certified Expertise You Can Trust</h3>
+            <p class="text-slate-200 max-w-2xl mx-auto">MAES is certified as a Critical Power MASTER by Schneider Electric's EcoXpert program. This guarantees that our solutions meet the highest global standards for energy reliability and performance.</p>
+            <div class="mt-6">
+                <a href="#contact" class="px-5 py-3 rounded-md bg-white text-slate-900 font-semibold hover:bg-slate-100 transition duration-200">Request Our Full Profile</a>
+            </div>
+        </div>
+    </div>
+  </div>
   <section id="projects" class="py-16 bg-white text-slate-900">
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
       <div class="flex items-center justify-between">
         <h3 class="text-2xl font-bold">Recent Projects</h3>
-        <a href="#" class="text-sm text-slate-500">View all projects</a>
+       
       </div>
 
       <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- project card -->
-        <article class="rounded-lg overflow-hidden shadow-sm">
-          <img class="project-img w-full" src="https://picsum.photos/800/600?random=101" alt="Project preview">
+        <article class="rounded-lg overflow-hidden shadow-lg border border-slate-100 hover:shadow-xl transition duration-300">
+          <img class="project-img w-full" src="aramco.jpg" alt="Project preview">
           <div class="p-4">
-            <h4 class="font-semibold">Industrial Solar Integration</h4>
-            <p class="mt-2 text-sm text-slate-600">Design & installation of 250 kW rooftop PV with battery backup.</p>
+            <h4 class="font-semibold">Electrical Power Monitoring System</h4>
+            <p class="mt-2 text-sm text-slate-600">“Implemented a comprehensive Electrical Power Monitoring System (EPMS) across Aramco facilities to monitor, analyze, and optimize power distribution. Integrated real-time SCADA data from substations and critical equipment for improved reliability and uptime. Enabled predictive maintenance, energy efficiency, and detailed reporting for operational decision-making.”</p>
           </div>
         </article>
 
-        <article class="rounded-lg overflow-hidden shadow-sm">
-          <img class="project-img w-full" src="https://picsum.photos/800/600?random=102" alt="Project preview">
+        <article class="rounded-lg overflow-hidden shadow-lg border border-slate-100 hover:shadow-xl transition duration-300">
+          <img class="project-img w-full" src="web.jpg" alt="Project preview">
           <div class="p-4">
             <h4 class="font-semibold">Substation Protection Upgrade</h4>
-            <p class="mt-2 text-sm text-slate-600">Protection coordination study and panel upgrades for a 33kV substation.</p>
+            <p class="mt-2 text-sm text-slate-600">“Implemented a transformer monitoring system for transformers at Clarios | Mebco, using 3 sensors per transformer to track . The system provides real-time alerts, identifying exactly which transformer trips, enabling rapid response and minimizing downtime.”</p>
           </div>
         </article>
 
-        <article class="rounded-lg overflow-hidden shadow-sm">
-          <img class="project-img w-full" src="https://picsum.photos/800/600?random=103" alt="Project preview">
+        <article class="rounded-lg overflow-hidden shadow-lg border border-slate-100 hover:shadow-xl transition duration-300">
+          <img class="project-img w-full" src="2.jpg" alt="Project preview">
           <div class="p-4">
             <h4 class="font-semibold">Energy Audit & Optimization</h4>
-            <p class="mt-2 text-sm text-slate-600">Comprehensive audit and efficiency recommendations for a manufacturing plant.</p>
+            <p class="mt-2 text-sm text-slate-600">“As part of our electrical upgrade at Gulf Pack, a new advanced power meter has been installed on the control panel. It accurately monitors voltage, current, and energy consumption in real time. This enables precise tracking, improves operational efficiency, and ensures reliable power management for the facility.”.</p>
           </div>
         </article>
       </div>
     </div>
   </section>
 
-<!-- CLIENTS -->
-<section class="py-20 bg-slate-800 text-slate-200">
-  <div class="max-w-7xl mx-auto px-6 lg:px-12">
-    <h4 class="text-center text-3xl font-semibold mb-10">Trusted by Partners And Clients</h4>
-    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-12 items-center justify-center opacity-90">
-      <div class="flex items-center justify-center">
-        <img src="IMG_6324.JPG" alt="client" class="h-32 w-auto object-contain" />
-      </div>
-      <div class="flex items-center justify-center">
-        <img src="SABIC.png" alt="client" class="h-32 w-auto object-contain" />
-      </div>
-      <div class="flex items-center justify-center">
-        <img src="IMG_6326.JPG" alt="client" class="h-32 w-auto object-contain" />
-      </div>
-      <div class="flex items-center justify-center">
-        <img src="IMG_6328.JPG" alt="client" class="h-32 w-auto object-contain" />
-      </div>
-      <div class="flex items-center justify-center">
-        <img src="IMG_6329.JPG" alt="client" class="h-32 w-auto object-contain" />
-      </div>
-      <div class="flex items-center justify-center">
-        <img src="IMG_6330.JPG" alt="client" class="h-32 w-auto object-contain" />
+  <section id="partners" class="py-20 bg-slate-800 text-slate-200">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <h4 class="text-center text-3xl font-semibold mb-10">Trusted by Partners And Clients</h4>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-12 items-center justify-center">
+        <div class="flex items-center justify-center">
+          <img src="IMG_6324.JPG" alt="client" class="h-32 w-auto object-contain" />
+        </div>
+        <div class="flex items-center justify-center">
+          <img src="SABIC.png" alt="client" class="h-32 w-auto object-contain" />
+        </div>
+        <div class="flex items-center justify-center">
+          <img src="IMG_6326.JPG" alt="client" class="h-32 w-auto object-contain" />
+        </div>
+        <div class="flex items-center justify-center">
+          <img src="IMG_6328.JPG" alt="client" class="h-32 w-auto object-contain" />
+        </div>
+        <div class="flex items-center justify-center">
+          <img src="IMG_6329.JPG" alt="client" class="h-32 w-auto object-contain" />
+        </div>
+        <div class="flex items-center justify-center">
+          <img src="IMG_6330.JPG" alt="client" class="h-32 w-auto object-contain" />
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
 
-  <!-- CONTACT -->
   <section id="contact" class="py-16 bg-white text-slate-900">
     <div class="max-w-5xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
       <div>
@@ -259,20 +380,21 @@
         </div>
       </div>
 
-      <form class="bg-slate-50 p-6 rounded-lg shadow-sm" onsubmit="handleSubmit(event)">
+      <form id="contact-form" class="bg-slate-50 p-6 rounded-lg shadow-sm" action="https://formspree.io/f/meorprbl" method="POST">
         <label class="block text-sm text-slate-700">Your name</label>
-        <input required class="w-full mt-1 p-3 rounded border border-slate-200" placeholder="Muthayyub Mohd" />
+        <input required class="w-full mt-1 p-3 rounded border border-slate-200" name="name" />
 
         <label class="block text-sm text-slate-700 mt-4">Email</label>
-        <input type="email" required class="w-full mt-1 p-3 rounded border border-slate-200" placeholder="you@example.com" />
+        <input type="email" required class="w-full mt-1 p-3 rounded border border-slate-200" placeholder="you@example.com" name="email" />
 
         <label class="block text-sm text-slate-700 mt-4">Message</label>
-        <textarea required class="w-full mt-1 p-3 rounded border border-slate-200" rows="4" placeholder="Tell us about your project..."></textarea>
+        <textarea required class="w-full mt-1 p-3 rounded border border-slate-200" rows="4" placeholder="Tell us about your project..." name="message"></textarea>
 
-        <div class="mt-4 flex items-center gap-3">
-          <button type="submit" class="px-4 py-2 rounded btn-gold-filled">Send message</button>
-          <a href="https://wa.me/9665XXXXXXXX" target="_blank" class="px-4 py-2 rounded btn-gold">Chat on WhatsApp</a>
+        <div class="mt-4 flex justify-center">
+         <button type="submit" class="px-4 py-2 rounded btn-gold-filled">Send message</button>
         </div>
+        
+        <p id="form-status" class="mt-4 text-center text-sm font-semibold hidden"></p>
       </form>
     </div>
   </section>
@@ -298,16 +420,61 @@
     menuBtn?.addEventListener('click',()=>{
       const nav=document.createElement('div');
       nav.className='fixed inset-0 bg-black/60 z-50 flex items-start justify-center p-6';
-      nav.innerHTML=`<div class=\"mt-20 w-full max-w-sm bg-white text-slate-900 rounded-lg p-6\"> <button id=\"close\" class=\"mb-4\">Close</button> <nav class=\"flex flex-col gap-3\"> <a href=\"#about\" class=\"font-semibold\">About</a> <a href=\"#services\" class=\"font-semibold\">Services</a> <a href=\"#projects\" class=\"font-semibold\">Projects</a> <a href=\"#contact\" class=\"font-semibold\">Contact</a> </nav></div>`;
+      nav.innerHTML=`<div class=\"mt-20 w-full max-w-sm bg-white text-slate-900 rounded-lg p-6\"> <button id=\"close\" class=\"mb-4\">Close</button> <nav class=\"flex flex-col gap-3\"> <a href=\"#hero\" class=\"font-semibold\">Home</a> <a href=\"#about\" class=\"font-semibold\">About</a> <a href=\"#services\" class=\"font-semibold\">Services</a> <a href=\"#projects\" class=\"font-semibold\">Projects</a> <a href=\"#partners\" class=\"font-semibold\">Partners</a> <a href=\"#contact\" class=\"font-semibold\">Contact</a> </nav></div>`;
       document.body.appendChild(nav);
       nav.querySelector('#close').addEventListener('click',()=>nav.remove());
     });
 
-    function handleSubmit(e){
-      e.preventDefault();
-      alert('Thanks! This is a prototype: if you want the real form hooked up I can connect it to Email/Netlify/SMTP.');
-      e.target.reset?.();
-    }
+    // Formspree AJAX Submission to prevent redirect and display status
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+
+        if (form) {
+            form.addEventListener('submit', async function(event) {
+                event.preventDefault();
+                const formURL = event.target.action;
+                const formData = new FormData(event.target);
+                
+                // Show "Sending..." status
+                formStatus.textContent = 'Sending...';
+                formStatus.classList.remove('hidden', 'text-green-600', 'text-red-600');
+                formStatus.classList.add('block', 'text-slate-600');
+
+                try {
+                    const response = await fetch(formURL, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        formStatus.textContent = 'Message sent successfully.'; 
+                        formStatus.classList.remove('text-red-600', 'text-slate-600');
+                        formStatus.classList.add('text-green-600');
+                        form.reset(); // Clear form on success
+                    } else {
+                        // Handle server-side errors
+                        const data = await response.json();
+                        let errorMessage = 'Oops! There was an error sending your message.';
+                        if (data.errors) {
+                            errorMessage = data.errors.map(error => error.message).join(', ');
+                        } 
+                        formStatus.textContent = errorMessage;
+                        formStatus.classList.remove('text-green-600', 'text-slate-600');
+                        formStatus.classList.add('text-red-600');
+                    }
+                } catch (error) {
+                    // Handle network errors
+                    formStatus.textContent = 'Oops! Network error or server unreachable.';
+                    formStatus.classList.remove('text-green-600', 'text-slate-600');
+                    formStatus.classList.add('text-red-600');
+                }
+            });
+        }
+    });
   </script>
 </body>
 </html>
