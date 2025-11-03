@@ -20,7 +20,6 @@
     
     /* MODIFIED: Lightened Header Background */
     .bg-header-dynamic{
-        /* Reduced opacity from 0.7 to 0.4 for a lighter image background */
         background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.4) 100%), url('x.jpg'); 
         background-size: cover;
         background-position: center 30%;
@@ -31,18 +30,14 @@
         position: sticky;
         top: 0;
     }
-    /* Text Shadow for high contrast logo */
     .logo-text-shadow {
         text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
     }
-    
-    /* MODIFIED: Increased darkness of the black overlay for maximum white text visibility and contrast. */
     .bg-hero{
         background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.7) 100%), url('r.jpg');
         background-size: cover;
         background-position: center;
     }
-    /* Feature Box with xx.jpg background */
     .feature-box {
       background: linear-gradient(135deg, rgba(15, 75, 64, 0.8), rgba(8, 53, 46, 0.9)), url('xx.jpg');
       background-size: cover;
@@ -51,18 +46,14 @@
       padding: 40px;
       border-radius: 12px;
     }
-
-    /* Glassmorphism for the Device Mockup */
     .glass-device-inner {
-      background: rgba(15, 75, 64, 0.4); /* MAES green with transparency */
-      backdrop-filter: blur(8px); /* Apply strong blur effect */
-      border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle white border for depth */
+      background: rgba(15, 75, 64, 0.4);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 6px;
       padding: 26px;
       color: var(--maes-gold);
     }
-
-    /* Diagonal Wave Separator (CSS kept but HTML element removed) */
     .wave-separator {
         height: 60px;
         width: 100%;
@@ -80,37 +71,25 @@
         background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 20" xmlns="http://www.w3.org/2000/svg"><path fill="%230f4b40" d="M0,10 C30,15 70,0 100,5 L100,20 L0,20 Z" /></svg>');
         background-size: 100% 100%;
         transform: translateY(-50%);
-        background-color: var(--maes-green); /* Fallback for the wave area */
+        background-color: var(--maes-green);
     }
-
-    /* Updated glass class for general use and added hover effect */
     .glass{background:rgba(255,255,255,0.05); backdrop-filter:blur(4px); padding: 8px 12px; border-radius: 6px; transition: background 0.2s;}
     .glass:hover {background:rgba(255,255,255,0.1);}
-    
     .accent{color:var(--maes-gold)}
     .btn-gold{background:transparent;border:2px solid var(--maes-gold);color:var(--maes-gold)}
-    /* Button hover animation */
     .btn-gold-filled{background:var(--maes-gold);color:#07231a; transition: all 0.2s;}
     .btn-gold-filled:hover {transform: scale(1.05);}
-
-    /* small rounded laptop mockup image styling */
     .device{box-shadow:0 20px 40px rgba(2,6,23,0.5);border-radius:10px;overflow:hidden}
-    /* entrance animation */
     .reveal{opacity:0;transform:translateY(16px);transition:all .6s ease-out}
     .reveal.visible{opacity:1;transform:none}
-    /* simple grid for projects */
     .project-img{height:170px;object-fit:cover}
-    @media (min-width:1024px){
-      .project-img{height:200px}
-    }
-    /* Client Logo Styling removed for full color display */
+    @media (min-width:1024px){.project-img{height:200px}}
   </style>
 </head>
 <body class="antialiased text-slate-100 bg-slate-900">
   
   <div id="top-header" class="bg-header-dynamic w-full">
     <div class="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
-        
         <a href="#hero" class="flex items-center gap-3">
             <div class="w-10 h-10 rounded-md bg-[var(--maes-green)] flex items-center justify-center ring-1 ring-white/5">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -122,9 +101,7 @@
                 <span style="color:var(--maes-gold);" class="block text-base mt-0.5">Power & Energy</span>
             </div>
         </a>
-
         <div class="flex items-center gap-4">
-            
             <nav class="hidden md:flex items-center gap-2 text-white">
                 <a href="#hero" class="glass text-white/90 hover:text-white">Home</a>
                 <a href="#about" class="glass text-white/90 hover:text-white">About</a>
@@ -133,7 +110,6 @@
                 <a href="#partners" class="glass text-white/90 hover:text-white">Partners</a>
                 <a href="#contact" class="glass text-white/90 hover:text-white">Contact</a>
             </nav>
-
             <div class="md:hidden">
                 <button id="menuBtn" aria-label="Open menu" class="p-2 rounded-md glass">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -142,6 +118,7 @@
         </div>
         </div>
   </div>
+
   <section id="hero" class="bg-hero min-h-[70vh] pt-16 pb-20 flex items-center">
     <div class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
       <div class="lg:col-span-6">
@@ -149,14 +126,9 @@
           <p class="text-sm text-slate-300 mb-2">Premium — Energy & Power Solutions</p>
           <h1 class="text-4xl lg:text-5xl font-extrabold leading-tight text-white">M. Advanced Energy Systems (MAES)</h1>
           <p class="mt-4 text-slate-200/80 max-w-xl">Your Trusted Partner for Critical Power, Automation, and Security Solutions.</p>
-
           <div class="mt-6 flex gap-4">
             <a href="#contact" class="px-5 py-3 rounded-md btn-gold-filled font-semibold shadow">Get in touch</a>
             <a href="#projects" class="px-5 py-3 rounded-md btn-gold border-transparent font-semibold glass">Our projects</a>
-          </div>
-
-          <div class="mt-6 text-slate-300 text-sm">
-           
           </div>
         </div>
       </div>
@@ -167,13 +139,9 @@
             <div class="glass-device-inner">
               <div class="flex items-center justify-between mb-6">
                 <div class="font-bold text-lg">MAES</div>
-                
               </div>
               <h3 class="text-2xl font-bold text-white">Focused on power & <br/>energy solutions</h3>
               <p class="mt-4 text-slate-200/80">Designing resilient electrical systems, renewable integrations, and energy-efficient solutions for industrial and commercial clients.</p>
-              <div class="mt-5">
-               
-              </div>
             </div>
           </div>
         </div>
@@ -228,7 +196,6 @@
       </div>
 
       <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        
         <div class="p-6 rounded-lg glass">
           <h4 class="font-semibold text-white">Power Quality & Audit</h4>
           <p class="mt-2 text-slate-300 text-sm">Comprehensive services including Energy and Harmonics Audits, Analysis, and implementation of solutions for power quality improvement.</p>
@@ -293,13 +260,12 @@
         </div>
     </div>
   </div>
+
   <section id="projects" class="py-16 bg-white text-slate-900">
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
       <div class="flex items-center justify-between">
         <h3 class="text-2xl font-bold">Recent Projects</h3>
-       
       </div>
-
       <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <article class="rounded-lg overflow-hidden shadow-lg border border-slate-100 hover:shadow-xl transition duration-300">
           <img class="project-img w-full" src="aramco.jpg" alt="Project preview">
@@ -354,7 +320,6 @@
     </div>
   </section>
 
-
   <section id="contact" class="py-16 bg-white text-slate-900">
     <div class="max-w-5xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
       <div>
@@ -362,8 +327,11 @@
         <p class="mt-2 text-slate-600">“Have a question or project in mind? Reach out — our team will get back to you soon.”.</p>
 
         <div class="mt-6 space-y-4">
+          <!-- UPDATED ICONS -->
           <div class="flex items-center gap-3">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M2 12h20" stroke="#0f172a" stroke-width="2" stroke-linecap="round"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[var(--maes-green)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12H8m8 0l-4-4m0 8l4-4M21 12c0 4.418-3.582 8-8 8s-8-3.582-8-8 3.582-8 8-8 8 3.582 8 8z" />
+            </svg>
             <div>
               <div class="text-sm text-slate-700">Email</div>
               <div class="font-semibold">mail@maes‐wll.com</div>
@@ -371,7 +339,9 @@
           </div>
 
           <div class="flex items-center gap-3">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 5h18v14H3z" stroke="#0f172a" stroke-width="1.5"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[var(--maes-green)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h2.586a1 1 0 01.707.293l2.414 2.414a1 1 0 00.707.293H17a2 2 0 012 2v4a2 2 0 01-2 2h-1v4a2 2 0 01-2 2h-2a2 2 0 01-2-2v-4H5a2 2 0 01-2-2V5z" />
+            </svg>
             <div>
               <div class="text-sm text-slate-700">Phone</div>
               <div class="font-semibold">+966 13 817 5786</div>
@@ -383,39 +353,30 @@
       <form id="contact-form" class="bg-slate-50 p-6 rounded-lg shadow-sm" action="https://formspree.io/f/meorprbl" method="POST">
         <label class="block text-sm text-slate-700">Your name</label>
         <input required class="w-full mt-1 p-3 rounded border border-slate-200" name="name" />
-
         <label class="block text-sm text-slate-700 mt-4">Email</label>
         <input type="email" required class="w-full mt-1 p-3 rounded border border-slate-200" placeholder="you@example.com" name="email" />
-
         <label class="block text-sm text-slate-700 mt-4">Message</label>
         <textarea required class="w-full mt-1 p-3 rounded border border-slate-200" rows="4" placeholder="Tell us about your project..." name="message"></textarea>
-
         <div class="mt-4 flex justify-center">
          <button type="submit" class="px-4 py-2 rounded btn-gold-filled">Send message</button>
         </div>
-        
         <p id="form-status" class="mt-4 text-center text-sm font-semibold hidden"></p>
       </form>
     </div>
   </section>
-  
-  <!-- ✅ Added Address Details Section Below Contact -->
+
   <section id="address" class="py-12 bg-slate-900 text-slate-100">
     <div class="max-w-5xl mx-auto px-6 text-center">
       <h3 class="text-2xl font-bold mb-6 text-[var(--maes-gold)]">Head Office</h3>
       <p class="text-slate-300">3rd Floor Al-Mutlaq Complex Bldg.3, Bandariyah, PO Box 2134, Al Khobar 31952, KSA</p>
-
       <div class="mt-6">
         <h4 class="font-semibold text-white">Call Us</h4>
         <p class="text-slate-300">Phone: +966 13 817 5786 / 802 2922</p>
         <p class="text-slate-300">Fax: +966 13 817 5761</p>
       </div>
-
-     
       <div class="mt-6">
         <p class="text-slate-300">Branches also located in: Jubail, Riyadh, Jeddah</p>
       </div>
-
       <div class="mt-10 text-sm text-slate-400">
         © 2025 <strong>M. Advanced Energy Systems (MAES)</strong>. All Rights Reserved. | <a href="#" class="text-[var(--maes-gold)] hover:underline">Privacy Policy</a><br/>
         Design & Developed by <span class="text-[var(--maes-gold)] font-semibold">Mohd_Muthayyub</span>
@@ -423,10 +384,7 @@
     </div>
   </section>
 
-
-
   <script>
-    // simple reveal on scroll
     const obs = new IntersectionObserver((entries)=>{
       entries.forEach(e=>{
         if(e.isIntersecting){e.target.classList.add('visible')}
@@ -434,7 +392,6 @@
     },{threshold:0.15});
     document.querySelectorAll('[data-reveal]').forEach(el=>obs.observe(el));
 
-    // mobile menu (updated: closes on outside click and link click)
     const menuBtn=document.getElementById('menuBtn');
     menuBtn?.addEventListener('click',()=>{
       const nav=document.createElement('div');
@@ -452,64 +409,42 @@
           </nav>
         </div>`;
       document.body.appendChild(nav);
-
-      // close when clicking outside the menu box (only if the overlay itself is clicked)
-      nav.addEventListener('click', (e) => {
-        if (e.target === nav) nav.remove();
-      });
-
-      // close button
+      nav.addEventListener('click', (e) => { if (e.target === nav) nav.remove(); });
       nav.querySelector('#close').addEventListener('click', ()=>nav.remove());
-
-      // close when any link is clicked
-      nav.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => nav.remove());
-      });
+      nav.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => nav.remove()); });
     });
 
-    // Formspree AJAX Submission to prevent redirect and display status
     document.addEventListener('DOMContentLoaded', () => {
         const form = document.getElementById('contact-form');
         const formStatus = document.getElementById('form-status');
-
         if (form) {
             form.addEventListener('submit', async function(event) {
                 event.preventDefault();
                 const formURL = event.target.action;
                 const formData = new FormData(event.target);
-                
-                // Show "Sending..." status
                 formStatus.textContent = 'Sending...';
                 formStatus.classList.remove('hidden', 'text-green-600', 'text-red-600');
                 formStatus.classList.add('block', 'text-slate-600');
-
                 try {
                     const response = await fetch(formURL, {
                         method: 'POST',
                         body: formData,
-                        headers: {
-                            'Accept': 'application/json'
-                        }
+                        headers: {'Accept': 'application/json'}
                     });
-
                     if (response.ok) {
                         formStatus.textContent = 'Message sent successfully.'; 
                         formStatus.classList.remove('text-red-600', 'text-slate-600');
                         formStatus.classList.add('text-green-600');
-                        form.reset(); // Clear form on success
+                        form.reset();
                     } else {
-                        // Handle server-side errors
                         const data = await response.json();
                         let errorMessage = 'Oops! There was an error sending your message.';
-                        if (data.errors) {
-                            errorMessage = data.errors.map(error => error.message).join(', ');
-                        } 
+                        if (data.errors) { errorMessage = data.errors.map(error => error.message).join(', '); } 
                         formStatus.textContent = errorMessage;
                         formStatus.classList.remove('text-green-600', 'text-slate-600');
                         formStatus.classList.add('text-red-600');
                     }
                 } catch (error) {
-                    // Handle network errors
                     formStatus.textContent = 'Oops! Network error or server unreachable.';
                     formStatus.classList.remove('text-green-600', 'text-slate-600');
                     formStatus.classList.add('text-red-600');
