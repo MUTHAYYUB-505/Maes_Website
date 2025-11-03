@@ -415,14 +415,37 @@
     },{threshold:0.15});
     document.querySelectorAll('[data-reveal]').forEach(el=>obs.observe(el));
 
-    // mobile menu (basic)
+    // mobile menu (updated: closes on outside click and link click)
     const menuBtn=document.getElementById('menuBtn');
     menuBtn?.addEventListener('click',()=>{
       const nav=document.createElement('div');
       nav.className='fixed inset-0 bg-black/60 z-50 flex items-start justify-center p-6';
-      nav.innerHTML=`<div class=\"mt-20 w-full max-w-sm bg-white text-slate-900 rounded-lg p-6\"> <button id=\"close\" class=\"mb-4\">Close</button> <nav class=\"flex flex-col gap-3\"> <a href=\"#hero\" class=\"font-semibold\">Home</a> <a href=\"#about\" class=\"font-semibold\">About</a> <a href=\"#services\" class=\"font-semibold\">Services</a> <a href=\"#projects\" class=\"font-semibold\">Projects</a> <a href=\"#partners\" class=\"font-semibold\">Partners</a> <a href=\"#contact\" class=\"font-semibold\">Contact</a> </nav></div>`;
+      nav.innerHTML=`
+        <div class="mt-20 w-full max-w-sm bg-white text-slate-900 rounded-lg p-6 relative">
+          <button id="close" class="absolute top-3 right-3 text-slate-600">✕</button>
+          <nav class="flex flex-col gap-3">
+            <a href="#hero" class="font-semibold">Home</a>
+            <a href="#about" class="font-semibold">About</a>
+            <a href="#services" class="font-semibold">Services</a>
+            <a href="#projects" class="font-semibold">Projects</a>
+            <a href="#partners" class="font-semibold">Partners</a>
+            <a href="#contact" class="font-semibold">Contact</a>
+          </nav>
+        </div>`;
       document.body.appendChild(nav);
-      nav.querySelector('#close').addEventListener('click',()=>nav.remove());
+
+      // close when clicking outside the menu box (only if the overlay itself is clicked)
+      nav.addEventListener('click', (e) => {
+        if (e.target === nav) nav.remove();
+      });
+
+      // close button
+      nav.querySelector('#close').addEventListener('click', ()=>nav.remove());
+
+      // close when any link is clicked
+      nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => nav.remove());
+      });
     });
 
     // Formspree AJAX Submission to prevent redirect and display status
