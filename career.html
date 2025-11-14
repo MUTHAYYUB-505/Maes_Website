@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MAES — M. Advanced Energy Systems</title>
+  <meta name="description" content="MAES — power & energy solutions." />
+
+<!-- Open Graph Meta Tags -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="MAES — M. Advanced Energy Systems" />
+<meta property="og:description" content="Your trusted partner for power, automation, and energy solutions across the Kingdom of Saudi Arabia." />
+<meta property="og:image" content="https://muthayyub-505.github.io/Maes_Website/fff.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://muthayyub-505.github.io/Maes_Website/" />
+<meta property="og:site_name" content="MAES" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="MAES — M. Advanced Energy Systems" />
+<meta name="twitter:description" content="Power, Automation, and Energy Solutions by MAES." />
+<meta name="twitter:image" content="https://muthayyub-505.github.io/Maes_Website/fff.png" />
+
+<meta name="google-site-verification" content="JX0z_dbTEYiWUO4HueSa1tXcMYhlJR93z_3xcA61te4" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="fff.png" />
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+    :root{
+      --maes-green:#0f4b40;
+      --maes-gold:#caa43a;
+      --maes-dark:#08352e;
+      --maes-light-green:#1a6f62;
+    }
+    html,body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;}    
+    .bg-header-dynamic{
+        background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.4) 100%), url('x.jpg'); 
+        background-size: cover;
+        background-position: center 30%;
+        padding-top: 24px;
+        padding-bottom: 24px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        z-index: 50; 
+        position: sticky;
+        top: 0;
+    }
+    .logo-text-shadow { text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);}
+    .bg-hero{ background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.7) 100%), url('r.jpg'); background-size: cover; background-position: center;}
+    .feature-box { background: linear-gradient(135deg, rgba(15, 75, 64, 0.8), rgba(8, 53, 46, 0.9)), url('xx.jpg'); background-size: cover; background-position: center; color: white; padding: 40px; border-radius: 12px;}
+    .glass-device-inner { background: rgba(15, 75, 64, 0.4); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 6px; padding: 26px; color: var(--maes-gold);}
+    .wave-separator { height: 60px; width: 100%; background-color: #fff; position: relative; overflow: hidden;}
+    .wave-separator::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 20" xmlns="http://www.w3.org/2000/svg"><path fill="%230f4b40" d="M0,10 C30,15 70,0 100,5 L100,20 L0,20 Z" /></svg>'); background-size: 100% 100%; transform: translateY(-50%); background-color: var(--maes-green);}
+    .glass{background:rgba(255,255,255,0.05); backdrop-filter:blur(4px); padding: 8px 12px; border-radius: 6px; transition: background 0.2s;}
+    .glass:hover {background:rgba(255,255,255,0.1);}
+    .accent{color:var(--maes-gold)}
+    .btn-gold{background:transparent;border:2px solid var(--maes-gold);color:var(--maes-gold)}
+    .btn-gold-filled{background:var(--maes-gold);color:#07231a; transition: all 0.2s;}
+    .btn-gold-filled:hover {transform: scale(1.05);}
+    .device{box-shadow:0 20px 40px rgba(2,6,23,0.5);border-radius:10px;overflow:hidden}
+    .reveal{opacity:0;transform:translateY(16px);transition:all .6s ease-out}
+    .reveal.visible{opacity:1;transform:none}
+    .project-img{height:170px;object-fit:cover}
+    @media (min-width:1024px){.project-img{height:200px}}
+</style>
+</head>
+<body class="antialiased text-slate-100 bg-slate-900">
+
+<!-- HEADER -->
+<div id="top-header" class="bg-header-dynamic w-full">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
+      <a href="#hero" class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-md bg-[var(--maes-green)] flex items-center justify-center ring-1 ring-white/5">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13 1.01L6 14H11V22.99L18 10H13V1.01Z" fill="var(--maes-gold)"/>
+            </svg>
+          </div>
+          <div class="text-2xl leading-5 font-bold logo-text-shadow">
+              <span style="color:var(--maes-green);">MAES</span>
+              <span style="color:var(--maes-gold);" class="block text-base mt-0.5">Power & Energy</span>
+          </div>
+      </a>
+      <div class="flex items-center gap-4">
+          <nav class="hidden md:flex items-center gap-2 text-white">
+              <a href="index.html#hero" class="glass text-white/90 hover:text-white">Home</a>
+              <a href="index.html#about" class="glass text-white/90 hover:text-white">About</a>
+              <a href="index.html#services" class="glass text-white/90 hover:text-white">Services</a>
+              <a href="index.html#projects" class="glass text-white/90 hover:text-white">Projects</a>
+              <a href="index.html#partners" class="glass text-white/90 hover:text-white">Partners</a>
+              <a href="index.html#contact" class="glass text-white/90 hover:text-white">Contact</a>
+              <a href="careers.html" class="glass text-white/90 hover:text-white">Careers</a>
+          </nav>
+          <div class="md:hidden">
+              <button id="menuBtn" aria-label="Open menu" class="p-2 rounded-md glass">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section id="hero" class="bg-hero min-h-[70vh] pt-16 pb-20 flex items-center">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+    <div class="lg:col-span-6">
+      <div class="reveal" data-reveal>
+        <p class="text-sm text-slate-300 mb-2">Premium — Energy & Power Solutions</p>
+        <h1 class="text-4xl lg:text-5xl font-extrabold leading-tight text-white">M. Advanced Energy Systems (MAES)</h1>
+        <p class="mt-4 text-slate-200/80 max-w-xl">Your Trusted Partner for Critical Power, Automation, and Security Solutions.</p>
+        <div class="mt-6 flex gap-4">
+           <a href="index.html#contact" class="px-5 py-3 rounded-md btn-gold-filled font-semibold shadow">Get in touch</a>
+            <a href="index.html#projects" class="px-5 py-3 rounded-md btn-gold border-transparent font-semibold glass">Our projects</a>
+        </div>
+      </div>
+    </div>
+    <div class="lg:col-span-6 flex justify-center lg:justify-end">
+      <div class="device w-full max-w-md reveal" data-reveal>
+        <div style="background:var(--maes-dark);padding:28px 28px;">
+          <div class="glass-device-inner">
+            <div class="flex items-center justify-between mb-6">
+              <div class="font-bold text-lg">MAES</div>
+            </div>
+            <h3 class="text-2xl font-bold text-white">Focused on power & <br/>energy solutions</h3>
+            <p class="mt-4 text-slate-200/80">Designing resilient Automation systems, renewable integrations, and energy-efficient solutions for industrial and commercial clients.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT, SERVICES, PROJECTS, PARTNERS, CONTACT ... [Keep all same as your original code] -->
+
+<!-- CAREERS SECTION -->
+<section id="careers" class="py-20 bg-slate-100 text-slate-900">
+  <div class="max-w-6xl mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold mb-4" style="color:var(--maes-green)">Careers</h2>
+    <p class="text-base text-slate-600 max-w-2xl mx-auto mb-10">
+      Join our team and be part of MAES’s innovation in energy and automation.
+    </p>
+
+    <form id="careers-form" action="https://formspree.io/f/meorprbl" method="POST" class="max-w-2xl mx-auto bg-white p-8 rounded-2xl shadow-md space-y-5">
+      <div>
+        <label class="block text-left font-medium mb-1">Full Name</label>
+        <input type="text" name="name" required class="w-full border border-slate-300 rounded-lg p-3 focus:ring-2 focus:ring-[var(--maes-green)]">
+      </div>
+
+      <div>
+        <label class="block text-left font-medium mb-1">Email</label>
+        <input type="email" name="email" required class="w-full border border-slate-300 rounded-lg p-3 focus:ring-2 focus:ring-[var(--maes-green)]">
+      </div>
+
+      <div>
+        <label class="block text-left font-medium mb-1">Phone Number</label>
+        <input type="tel" name="phone" pattern="[0-9+() -]{8,}" required class="w-full border border-slate-300 rounded-lg p-3 focus:ring-2 focus:ring-[var(--maes-green)]">
+      </div>
+
+      <div>
+        <label class="block text-left font-medium mb-1">Position Interested In</label>
+        <input type="text" name="position" required class="w-full border border-slate-300 rounded-lg p-3 focus:ring-2 focus:ring-[var(--maes-green)]">
+      </div>
+
+      <div>
+        <label class="block text-left font-medium mb-1">Resume Link (Google Drive / Dropbox)</label>
+        <input type="url" name="resume_link" placeholder="https://drive.google.com/..." required class="w-full border border-slate-300 rounded-lg p-3 focus:ring-2 focus:ring-[var(--maes-green)]">
+      </div>
+
+      <div>
+        <label class="block text-left font-medium mb-1">Message / Cover Letter</label>
+        <textarea name="message" rows="4" required class="w-full border border-slate-300 rounded-lg p-3 focus:ring-2 focus:ring-[var(--maes-green)]"></textarea>
+      </div>
+
+      <button type="submit" class="w-full bg-[var(--maes-gold)] text-slate-900 py-3 rounded-lg font-semibold hover:bg-yellow-500 transition">
+        Submit Application
+      </button>
+
+      <p id="careers-form-status" class="hidden mt-4 text-sm font-medium"></p>
+    </form>
+
+     <div class="mt-10 text-sm text-slate-400">
+  © 2025 <strong>M. Advanced Energy Systems (MAES)</strong>. All Rights Reserved. | 
+  <a href="#" class="text-[var(--maes-gold)] hover:underline">Privacy Policy</a>
+</div>
+    
+  </div>
+</section>
+
+<!-- ADDRESS / FOOTER ... [Keep same as your original code] -->
+
+<script>
+const obs = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('visible')}
+  })
+},{threshold:0.15});
+document.querySelectorAll('[data-reveal]').forEach(el=>obs.observe(el));
+
+const menuBtn=document.getElementById('menuBtn');
+menuBtn?.addEventListener('click',()=>{
+  const nav=document.createElement('div');
+  nav.className='fixed inset-0 bg-black/60 z-50 flex items-start justify-center p-6';
+  nav.innerHTML=`
+    <div class="mt-20 w-full max-w-sm bg-white text-slate-900 rounded-lg p-6 relative">
+      <button id="close" class="absolute top-3 right-3 text-slate-600">✕</button>
+      <nav class="flex flex-col gap-3">
+  <a href="index.html#hero" class="font-semibold">Home</a>
+  <a href="index.html#about" class="font-semibold">About</a>
+  <a href="index.html#services" class="font-semibold">Services</a>
+  <a href="index.html#projects" class="font-semibold">Projects</a>
+  <a href="index.html#partners" class="font-semibold">Partners</a>
+  <a href="index.html#contact" class="font-semibold">Contact</a>
+  <a href="careers.html" class="font-semibold">Careers</a>
+</nav>
+
+    </div>`;
+  document.body.appendChild(nav);
+  nav.addEventListener('click', (e) => { if (e.target === nav) nav.remove(); });
+  nav.querySelector('#close').addEventListener('click', ()=>nav.remove());
+  nav.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => nav.remove()); });
+});
+
+// CONTACT FORM
+document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const formURL = event.target.action;
+            const formData = new FormData(event.target);
+            formStatus.textContent = 'Sending...';
+            formStatus.classList.remove('hidden', 'text-green-600', 'text-red-600');
+            formStatus.classList.add('block', 'text-slate-600');
+            try {
+                const response = await fetch(formURL, { method: 'POST', body: formData, headers: {'Accept': 'application/json'} });
+                if (response.ok) {
+                    formStatus.textContent = 'Message sent successfully.'; 
+                    formStatus.classList.remove('text-red-600', 'text-slate-600');
+                    formStatus.classList.add('text-green-600');
+                    contactForm.reset();
+                } else {
+                    const data = await response.json();
+                    let errorMessage = 'Oops! There was an error sending your message.';
+                    if (data.errors) { errorMessage = data.errors.map(error => error.message).join(', '); } 
+                    formStatus.textContent = errorMessage;
+                    formStatus.classList.remove('text-green-600', 'text-slate-600');
+                    formStatus.classList.add('text-red-600');
+                }
+            } catch (error) {
+                formStatus.textContent = 'Oops! Network error or server unreachable.';
+                formStatus.classList.remove('text-green-600', 'text-slate-600');
+                formStatus.classList.add('text-red-600');
+            }
+        });
+    }
+
+    // CAREERS FORM
+    const careersForm = document.getElementById('careers-form');
+    const careersStatus = document.getElementById('careers-form-status');
+    careersForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        careersStatus.textContent = 'Submitting...';
+        careersStatus.classList.remove('hidden', 'text-green-600', 'text-red-600');
+        careersStatus.classList.add('block', 'text-slate-600');
+        const formData = new FormData(careersForm);
+        try {
+            const response = await fetch(careersForm.action, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } });
+            if (response.ok) {
+                careersStatus.textContent = '🎉 Application submitted successfully! We will get back to you soon.';
+                careersStatus.classList.remove('text-red-600', 'text-slate-600');
+                careersStatus.classList.add('text-green-600');
+                careersForm.reset();
+            } else {
+                const data = await response.json();
+                let errorMessage = 'Oops! Something went wrong. Please try again later.';
+                if (data.errors) { errorMessage = data.errors.map(err => err.message).join(', '); }
+                careersStatus.textContent = errorMessage;
+                careersStatus.classList.remove('text-green-600', 'text-slate-600');
+                careersStatus.classList.add('text-red-600');
+            }
+        } catch (err) {
+            careersStatus.textContent = 'Network error. Please check your connection and try again.';
+            careersStatus.classList.remove('text-green-600', 'text-slate-600');
+            careersStatus.classList.add('text-red-600');
+        }
+    });
+});
+</script>
+</body>
+</html>
