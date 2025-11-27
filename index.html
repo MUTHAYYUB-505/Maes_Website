@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>MAES — M. Advanced Energy Systems</title>
+  <title>MAES — M. ENERGY CONTRACTING EST.</title>
   <meta name="description" content="MAES — CCTV & Security System, Power Automation, Energy efficiency & Power Quality Solutions & services" />
 
 <!-- Open Graph Meta Tags -->
 <meta property="og:type" content="website" />
-<meta property="og:title" content="MAES — M. Advanced Energy Systems" />
+<meta property="og:title" content="MAES — M. ENERGY CONTRACTING EST." />
 <meta property="og:description" content="Your trusted partner for power, automation, and energy solutions across the Kingdom of Saudi Arabia." />
 <meta property="og:image" content="https://muthayyub-505.github.io/MAES_final/fff.png" />
 <meta property="og:image:width" content="1200" />
@@ -18,20 +18,18 @@
 
 <!-- For WhatsApp and modern browsers -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="MAES — M. Advanced Energy Systems" />
+<meta name="twitter:title" content="MAES — M. ENERGY CONTRACTING EST." />
 <meta name="twitter:description" content="Power, Automation, and Energy Solutions by MAES." />
 <meta name="twitter:image" content="https://muthayyub-505.github.io/MAES_final/fff.png" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 
   
   <meta name="google-site-verification" content="JX0z_dbTEYiWUO4HueSa1tXcMYhlJR93z_3xcA61te4" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="fff.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/32.png">
-  <link rel="icon" type="image/png" sizes="48x48" href="/48.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/180.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="/192.png">
+  <!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
+  <link rel="icon" type="image/png" href="fff.png" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root{
@@ -41,6 +39,25 @@
       --maes-light-green:#1a6f62; /* Lighter shade for the mockup box */
     }
     html,body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;}    
+
+   /* CSS for image hover effect (Scale and Brightness) */
+   .premium-card .swiper-slide img {
+        transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out; /* Smooth transition for effect */
+        filter: brightness(100%); /* Default brightness */
+    }
+
+    .premium-card .swiper-slide img:hover {
+        transform: scale(1.05); /* Slightly enlarge the image */
+        filter: brightness(115%); /* Make it a bit brighter */
+        cursor: pointer; /* Indicate it's interactive */
+    }
+
+    .swiper-slide {
+        transition: opacity 0.8s ease-in-out !important;
+    }
+    .swiper-wrapper {
+        transition-timing-function: ease-in-out !important;
+    }
     
     /* MODIFIED: Lightened Header Background */
     .bg-header-dynamic{
@@ -149,7 +166,7 @@
       <div class="lg:col-span-6">
         <div class="reveal" data-reveal>
           <p class="text-sm text-slate-300 mb-2">Premium — Energy & Power Solutions</p>
-          <h1 class="text-4xl lg:text-5xl font-extrabold leading-tight text-white">M. Advanced Energy Systems (MAES)</h1>
+          <h1 class="text-4xl lg:text-5xl font-extrabold leading-tight text-white">M. ENERGY CONTRACTING EST. (MAES)</h1>
           <p class="mt-4 text-slate-200/80 max-w-xl">Your Trusted Partner for Critical Power, Automation, and Security Solutions.</p>
           <div class="mt-6 flex gap-4">
             <a href="#contact" class="px-5 py-3 rounded-md btn-gold-filled font-semibold shadow">Get in touch</a>
@@ -174,117 +191,535 @@
     </div>
   </section>
 
-  <section id="about" class="py-16 lg:py-24 bg-white text-slate-900">
-    <div class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+  <section id="about" class="py-20 bg-white text-slate-900">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+  
+      <!-- Left Content -->
       <div class="lg:col-span-6">
-        <h2 class="text-3xl font-bold">About MAES</h2>
-        <p class="mt-4 text-slate-700">MAES, is a technology Company dedicated to continuously enhance its competencies in CCTV & Security System, Energy Efficiency to address the pressing needs of consumers to have secured facility, reliable power and to conserve energy. To achieve these objectives, theCompany provides solutions and services utilizing Power Quality, Energy Management, Power & Energy Monitoring, Power Automation & SCADA, Power Protection, and Fiber OpticSplicing, Termination, and Testing.
+        <h2 class="text-4xl font-extrabold text-slate-900">About MAES</h2>
+  
+        <p class="mt-5 text-slate-700 leading-relaxed">
+          MAES is a technology-driven company focused on delivering advanced
+          <span class="font-semibold text-slate-900">Energy Efficiency, Power Quality, and Security</span>
+          solutions. We enable our clients to operate safer, smarter, and more
+          sustainably by applying modern engineering practices and intelligent systems.
+        </p>
+  
+        <p class="mt-4 text-slate-700 leading-relaxed">
+          From industrial facilities to mission-critical infrastructures, we deliver
+          end-to-end solutions in Power Automation, SCADA, Energy Monitoring, and
+          Fiber Optic networks — ensuring reliable power, enhanced security, and
+          optimized performance.
+        </p>
+  
+        <!-- Key capabilities -->
+        <ul class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-y-2 text-slate-700">
+          <li class="flex items-center gap-2">
+            ✔ Industrial Automation Solutions
+          </li>
+          <li class="flex items-center gap-2">
+            ✔ PLC / DCS / SCADA Engineering
+          </li>
+          <li class="flex items-center gap-2">
+            ✔ System Integration & Commissioning
+          </li>
+          <li class="flex items-center gap-2">
+            ✔ Process Monitoring & Optimization
+          </li>
+        </ul>
+  
+        <div class="mt-8">
+          <a href="#services"
+             class="px-5 py-3 rounded-lg bg-[var(--maes-gold)] text-white font-semibold shadow hover:opacity-90 transition">
+            Explore Services
+          </a>
+        </div>
+      </div>
+  
+      <!-- Mission / Vision Cards -->
+      <div class="lg:col-span-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+  
+          <!-- Mission -->
+          <div class="p-6 bg-slate-50 rounded-xl shadow-sm hover:shadow-lg transition">
+            <h4 class="font-semibold text-xl text-slate-900">Mission</h4>
+            <p class="mt-3 text-slate-700 leading-relaxed">
+              To deliver high-quality engineering services and solutions that
+              prioritize reliability, safety, and sustainability. We build strong,
+              long-term partnerships by focusing on details, innovation, and
+              continuous improvement.
+            </p>
+          </div>
+  
+          <!-- Vision -->
+          <div class="p-6 bg-slate-50 rounded-xl shadow-sm hover:shadow-lg transition">
+            <h4 class="font-semibold text-xl text-slate-900">Vision</h4>
+            <p class="mt-3 text-slate-700 leading-relaxed">
+              To be the trusted partner in Power Automation, Energy Efficiency,
+              and Security Technologies — delivering cost-effective solutions with
+              maximum uptime, performance, and customer value across the Kingdom
+              of Saudi Arabia and the region.
+            </p>
+          </div>
+  
+        </div>
+      </div>
+  
+    </div>
+  </section>
+  
+  
+  
+  <section id="technical-scope"
+  class="relative py-28 text-slate-100 bg-slate-900/90 overflow-hidden">
 
-            Our solutions and services are vital to the Oil & Gas, Petrochemical, Power Generation, Industrial, and Commercial sectors across the Kingdom of Saudi Arabia.
-            
+  <!-- 🔥 Fullscreen industrial background -->
+  <div class="absolute inset-0">
+    <img src="bg3.webp" class="w-full h-full object-cover opacity-100">
+  </div>
+
+  <!-- Neon gradient overlay -->
+  <div class="absolute inset-0 bg-gradient-to-br from-slate-900/80 via-slate-800/60 to-slate-900/90"></div>
+
+  <!-- Grid overlay for futuristic style -->
+  <div class="absolute inset-0 bg-[url('/grid.svg')] opacity-[0.06] pointer-events-none"></div>
+
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-12">
+    
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <h3 class="text-4xl font-extrabold tracking-wide">
+        <span class="bg-gradient-to-r from-green-400 to-yellow-400 bg-clip-text text-transparent">
+          Technical Scope of Work
+        </span>
+      </h3>
+      <p class="mt-4 max-w-3xl mx-auto text-sm md:text-base text-slate-300">
+        Futuristic energy automation solutions with intelligent diagnostics, IEC 61850 systems,
+        SA cyber-fabric integration & monitoring.
+      </p>
+    </div>
+
+    <!-- 3 Icon Chips -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+      <div class="group p-5 rounded-2xl backdrop-blur-xl bg-white/10 border border-white/20 hover:bg-white/20 hover:scale-105 hover:shadow-[0_0_20px_rgba(15,179,74,0.6)] transition-transform transition-shadow duration-300">
+        <p class="text-white font-semibold text-sm">Design & Digital Architecture</p>
+        <p class="text-slate-300 text-xs mt-1">System topologies, SCADA/UI logic, IEC standards</p>
+      </div>
+      <div class="group p-5 rounded-2xl backdrop-blur-xl bg-white/10 border border-white/20 hover:bg-white/20 hover:scale-105 hover:shadow-[0_0_20px_rgba(15,179,74,0.6)] transition-transform transition-shadow duration-300">
+        <p class="text-white font-semibold text-sm">Hardware + IED Ecosystem</p>
+        <p class="text-slate-300 text-xs mt-1">Relays, Fiber, Panels, Switchgear, Redundancy</p>
+      </div>
+      <div class="group p-5 rounded-2xl backdrop-blur-xl bg-white/10 border border-white/20 hover:bg-white/20 hover:scale-105 hover:shadow-[0_0_20px_rgba(15,179,74,0.6)] transition-transform transition-shadow duration-300">
+        <p class="text-white font-semibold text-sm">Field Deployment + O&M</p>
+        <p class="text-slate-300 text-xs mt-1">FAT/SAT, OT security, commissioning, lifecycle analytics</p>
+      </div>
+    </div>
+
+    <!-- Scope A -->
+    <h4 class="text-2xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-green-400 bg-clip-text text-transparent">
+      A. Energy Automation Products
+    </h4>
+
+    <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+      
+      <!-- CARD -->
+      <div class="group backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl p-8 relative overflow-hidden hover:border-green-400 hover:scale-105 hover:shadow-[0_0_20px_rgba(15,179,74,0.6)] transition-transform transition-shadow duration-300">
+        <div class="absolute inset-0 opacity-10 bg-gradient-to-br from-green-400 via-transparent to-yellow-400 blur-xl group-hover:opacity-30 group-hover:scale-110 transition-all duration-300 ease-in-out"></div>
+        <div class="relative">
+          <p class="text-xl font-bold">Power Monitoring (EPMS/SCADA)</p>
+          <p class="mt-2 text-slate-300 text-sm">
+            Real-time electrical visibility with autonomous power event analytics.
+          </p>
+          <ul class="mt-4 text-sm text-slate-300 space-y-1">
+            <li>IEC 61850 SAS / GOOSE / MMS / PRP-HSR</li>
+            <li>SOE, relay comms, breaker logic</li>
+            <li>Waveform capture + Harmonics AI</li>
+            <li>Central dashboards + historian</li>
+            <li>ISO/NERC alarms w/ notifications</li>
+          </ul>
+          <p class="text-xs mt-4 text-slate-400 italic">Schneider • COPA-DATA • Surveilant Tech</p>
+        </div>
+      </div>
+
+      <!-- CARD -->
+      <div class="group backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl p-8 relative overflow-hidden hover:border-green-400 hover:scale-105 hover:shadow-[0_0_20px_rgba(255,215,0,0.4)] transition-transform transition-shadow duration-300">
+        <div class="absolute inset-0 opacity-10 bg-gradient-to-br from-green-400 via-transparent to-yellow-400 blur-xl group-hover:opacity-30 group-hover:scale-110 transition-all duration-300 ease-in-out"></div>
+        <div class="relative">
+          <p class="text-xl font-bold">Power Quality Correction & Protection</p>
+          <p class="mt-2 text-slate-300 text-sm">
+            Edge-based harmonic mitigation & loss reduction for industrial grids.
+          </p>
+          <ul class="mt-4 text-sm text-slate-300 space-y-1">
+            <li>Active Harmonic Filters (AHF)</li>
+            <li>SVG/SVC Ultra-fast VAR agents</li>
+            <li>APFC intelligent banks</li>
+            <li>Tuned/Detuned filters for VFD/UPS</li>
+            <li>UPS • Stabilizers • Isolation</li>
+            <li>IEC-61643 lightning protection</li>
+          </ul>
+          <p class="text-xs mt-4 text-slate-400 italic">Schneider • </p>
+        </div>
+      </div>
+
+      <!-- CARD -->
+      <div class="group backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl p-8 relative overflow-hidden hover:border-green-400 hover:scale-105 hover:shadow-[0_0_20px_rgba(255,215,0,0.4)] transition-transform transition-shadow duration-300">
+        <div class="absolute inset-0 opacity-10 bg-gradient-to-br from-green-400 via-transparent to-yellow-400 blur-xl group-hover:opacity-30 group-hover:scale-110 transition-all duration-300 ease-in-out"></div>
+        <div class="relative">
+          <p class="text-xl font-bold">Industrial Controls & Comms</p>
+          <p class="mt-2 text-slate-300 text-sm">
+            Cyber-secure automation fabrics for Oil/Gas, Utilities & Manufacturing.
+          </p>
+          <ul class="mt-4 text-sm text-slate-300 space-y-1">
+            <li>Redundant PLC cores</li>
+            <li>RTUs & edge gateways</li>
+            <li>Managed fiber networks</li>
+            <li>IIoT Cloud + MQTT/OPC UA</li>
+            <li>LoRaWAN Mesh / 5GHz Wireless</li>
+          </ul>
+          <p class="text-xs mt-4 text-slate-400 italic">Beckhoff • Moxa • Advantech • Brodersen</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PANELS -->
+    <div class="mt-20 pt-12 border-t border-white/20">
+      <h4 class="text-2xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-green-400 bg-clip-text text-transparent">
+        Specialized Panel & Integrated Supply
+      </h4>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="group rounded-2xl p-6 backdrop-blur-xl bg-white/10 border border-white/20 hover:scale-105 hover:shadow-[0_0_20px_rgba(15,179,74,0.6)] transition-transform transition-shadow duration-300">
+          <p class="font-semibold text-lg">Custom Panels</p>
+          <ul class="mt-3 text-sm text-slate-300 space-y-1">
+            <li>MCC / PCC / ATS</li>
+            <li>Synchronizing Cabinets</li>
+            <li>Marshalling & Relay Panels</li>
+            <li>SCADA Operation Consoles</li>
+          </ul>
+        </div>
+
+        <div class="group rounded-2xl p-6 backdrop-blur-xl bg-white/10 border border-white/20 hover:scale-105 hover:shadow-[0_0_20px_rgba(15,179,74,0.6)] transition-transform transition-shadow duration-300">
+          <p class="font-semibold text-lg">Transformers & EM Systems</p>
+          <ul class="mt-3 text-sm text-slate-300 space-y-1">
+            <li>Dry / Oil Transformers</li>
+            <li>Switchgear & Motors</li>
+            <li>CT/PT Metering Infrastructure</li>
+          </ul>
+        </div>
+
+        <div class="group rounded-2xl p-6 backdrop-blur-xl bg-white/10 border border-white/20 hover:scale-105 hover:shadow-[0_0_20px_rgba(15,179,74,0.6)] transition-transform transition-shadow duration-300">
+          <p class="font-semibold text-lg">Industrial Materials</p>
+          <ul class="mt-3 text-sm text-slate-300 space-y-1">
+            <li>Cable trays • Glands</li>
+            <li>Earthing & Surge Mesh</li>
+            <li>EPDM / PVC Specialized Sheets</li>
+            <li>Insulation Coatings Tech</li>
+          </ul>
+        </div>
+      </div>
+    
+
+  
+  
+    
+   
+  
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 mt-20">
+        <h2 class="text-center text-[var(--maes-gold)] font-extrabold text-4xl tracking-wide drop-shadow-lg mb-12">
+            Premium Product Showcase
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+            <div class="premium-card bg-slate-900/40 backdrop-blur-xl rounded-2xl border border-[var(--maes-light-green)] shadow-lg hover:shadow-2xl transition-all duration-500 p-4">
+                <div class="swiper swiper-one rounded-xl overflow-hidden border-2 border-[var(--maes-gold)] shadow-md">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="20.jpg" class="w-full h-60 object-contain"></div>
+                        <div class="swiper-slide"><img src="21.jpg" class="w-full h-60 object-contain"></div>
+                        <div class="swiper-slide"><img src="25.jpg" class="w-full h-60 object-contain"></div>
+                        <div class="swiper-slide"><img src="26.jpg" class="w-full h-60 object-contain"></div>
+                        <div class="swiper-slide"><img src="27.jpg" class="w-full h-60 object-contain"></div>
+                        <div class="swiper-slide"><img src="28.jpg" class="w-full h-60 object-contain"></div>
+                        <div class="swiper-slide"><img src="29.jpg" class="w-full h-60 object-contain"></div>
+                        <div class="swiper-slide"><img src="30.jpg" class="w-full h-60 object-contain"></div>
+                        <div class="swiper-slide"><img src="32.jpg" class="w-full h-60 object-contain"></div>
+                        <div class="swiper-slide"><img src="33.jpg" class="w-full h-60 object-contain"></div>
+                        <div class="swiper-slide"><img src="34.jpg" class="w-full h-60 object-contain"></div>
+                      
+                    </div>
+                    <div class="swiper-pagination swiper-pagination-one"></div>
+                </div>
+                <h4 class="text-center text-[var(--maes-gold)] mt-4 text-lg font-semibold tracking-wide">
+                    Power & Automation Gallery
+                </h4>
+            </div>
+
+            <div class="premium-card bg-slate-900/40 backdrop-blur-xl rounded-2xl border border-[var(--maes-light-green)] shadow-lg hover:shadow-2xl transition-all duration-500 p-4">
+                <div class="swiper swiper-two rounded-xl overflow-hidden border-2 border-[var(--maes-gold)] shadow-md">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="c.webp" class="w-full h-60 object-contain"></div>
+                        <div class="swiper-slide"><img src="b.webp" class="w-full h-60 object-contain"></div>
+                        <div class="swiper-slide"><img src="a.jpg" class="w-full h-60 object-contain"></div>
+                        <div class="swiper-slide"><img src="d.jpeg" class="w-full h-60 object-contain"></div>
+                        <div class="swiper-slide"><img src="e.jpg" class="w-full h-60 object-contain"></div>
+                    </div>
+                    <div class="swiper-pagination swiper-pagination-two"></div>
+                </div>
+                <h4 class="text-center text-[var(--maes-gold)] mt-4 text-lg font-semibold tracking-wide">
+                    Industrial Material Showcase
+                </h4>
+            </div>
+
+            <div class="premium-card bg-slate-900/40 backdrop-blur-xl rounded-2xl border border-[var(--maes-light-green)] shadow-lg hover:shadow-2xl transition-all duration-500 p-4">
+                <div class="swiper swiper-three rounded-xl overflow-hidden border-2 border-[var(--maes-gold)] shadow-md">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="banniere_6103.jpg" class="w-full h-60 object-contain"></div>
+                        <div class="swiper-slide"><img src="Brodersen-Logo-Embedded-768x389.jpg" class="w-full h-60 object-contain"></div>
+                        <div class="swiper-slide"><img src="images (1).png" class="w-full h-60 object-contain"></div>
+                        <div class="swiper-slide"><img src="images (2).png" class="w-full h-60 object-contain"></div>
+                        <div class="swiper-slide"><img src="images (3).png" class="w-full h-60 object-contain"></div>
+                        <div class="swiper-slide"><img src="images.png" class="w-full h-60 object-contain"></div>
+                        <div class="swiper-slide"><img src="moxa-logo-open-graph.png" class="w-full h-60 object-contain"></div>
+                        <div class="swiper-slide"><img src="logo.png" class="w-full h-60 object-contain"></div>
+                        <div class="swiper-slide"><img src="beck.png" class="w-full h-60 object-contain"></div>
+                        
+                        
+                    </div>
+                    <div class="swiper-pagination swiper-pagination-three"></div>
+                </div>
+                <h4 class="text-center text-[var(--maes-gold)] mt-4 text-lg font-semibold tracking-wide">
+                  Principals & Products
+                </h4>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+    <script>
+        const swiperOne = new Swiper(".swiper-one", {
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 10,
+            speed: 400,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true // Enables pause on hover
+            },
+            pagination: {
+                el: ".swiper-pagination-one",
+                clickable: true
+            }
+        });
+
+        const swiperTwo = new Swiper(".swiper-two", {
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 10,
+            speed: 400,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true // Enables pause on hover
+            },
+            pagination: {
+                el: ".swiper-pagination-two",
+                clickable: true
+            }
+        });
+
+        const swiperThree = new Swiper(".swiper-three", {
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 10,
+            speed: 400,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true // Enables pause on hover
+            },
+            pagination: {
+                el: ".swiper-pagination-three",
+                clickable: true
+            }
+        });
+    </script>
+</section>
+
+<section id="services" class="py-20 bg-slate-900 text-slate-100">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+    <!-- HEADER -->
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <h3 class="text-4xl font-bold tracking-wider text-white">
+        Our Core Services
+      </h3>
+      <p class="mt-3 text-lg text-slate-300">
+        High-performance engineering services tailored for industrial, commercial and utility sectors.
+      </p>
+    </div>
+
+    <div class="space-y-10">
+
+      <!-- SERVICE ITEM -->
+      <div class="group p-8 rounded-xl border border-slate-800 bg-slate-800/40 
+        hover:bg-slate-800 hover:border-[#0FB34A] hover:scale-105 hover:shadow-[0_0_20px_rgba(15,179,74,0.5)] 
+        transition-transform transition-shadow duration-300">
+        <div class="flex flex-col md:flex-row gap-6">
+          
+          <!-- ICON -->
+          <div class="w-16 h-16 rounded-xl flex items-center justify-center bg-[var(--maes-green)]/15 border border-[var(--maes-green)] text-[var(--maes-green)] text-2xl font-bold">
+            PQ
+          </div>
+
+          <!-- CONTENT -->
+          <div class="space-y-3">
+            <h4 class="text-2xl font-semibold text-white">
+              Power Quality & Energy Audit
+            </h4>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              Improve reliability, minimize losses, and optimize system performance through root-cause 
+              analysis and standards-driven power quality management.
             </p>
 
-        <ul class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3 text-slate-600">
-          <li>• Industrial Automation Solutions</li>
-          <li>• PLC & SCADA System Design</li>
-          <li>• System Integration & Commissioning</li>
-          <li>• Process Monitoring & Optimization</li>
-        </ul>
-
-        <div class="mt-6">
-          <a href="#services" class="px-4 py-2 rounded btn-gold">See services</a>
-        </div>
-      </div>
-
-      <div class="lg:col-span-6">
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div class="p-6 bg-slate-50 rounded-lg shadow-sm">
-            <h4 class="font-semibold text-slate-900">Mission</h4>
-            <p class="mt-2 text-slate-700">Mission: Our mission is providing high-quality services at the most competitive price without compromising quality, safety, and the environment. When it comes to our services, we make sure that we keep in mind even the smallest detail to serve our clients better and maintain strong, lasting relationships. We strive to continuously innovate and adopt best practices to deliver reliable and sustainable solutions.</p>
-          </div>
-          <div class="p-6 bg-slate-50 rounded-lg shadow-sm">
-            <h4 class="font-semibold text-slate-900">Vision</h4>
-            <p class="mt-2 text-slate-700">**Vision:** Consistently deliver, as per committed Schedules, CCTV & Security System, Power Automation, Energy efficiency & Power Quality Solutions & services that are Cost-effective & are of the required Quality in order to successfully satisfy the requirements of our Customers at the Lowest Cost of Ownership with the Highest Yield & Uptime, thereby creating value for our Customers, Shareholders, & Employees.
-
-                Be a trusted partner for energy transition projects in the region.</p>
+            <!-- Tags -->
+            <div class="flex flex-wrap gap-2 text-xs font-medium">
+              <span class="px-3 py-1 rounded-md bg-slate-700 text-slate-300">Energy Audit</span>
+              <span class="px-3 py-1 rounded-md bg-slate-700 text-slate-300">APFC / APF</span>
+              <span class="px-3 py-1 rounded-md bg-slate-700 text-slate-300">Harmonics</span>
+              <span class="px-3 py-1 rounded-md bg-slate-700 text-slate-300">UPS & Stabilizers</span>
+              <span class="px-3 py-1 rounded-md bg-slate-700 text-slate-300">VFD / Soft Starters</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <section id="services" class="py-16 lg:py-20 bg-slate-900 text-slate-100">
-    <div class="max-w-7xl mx-auto px-6 lg:px-12">
-      <div class="text-center">
-        <h3 class="text-2xl font-bold">Services</h3>
-        <p class="mt-2 text-slate-300 max-w-2xl mx-auto">Comprehensive services from consultancy to full turnkey delivery.</p>
+      <!-- Repeat same for all other service items -->
+      <div class="group p-8 rounded-xl border border-slate-800 bg-slate-800/40 
+        hover:bg-slate-800 hover:border-[#0FB34A] hover:scale-105 hover:shadow-[0_0_20px_rgba(15,179,74,0.5)] 
+        transition-transform transition-shadow duration-300">
+        <div class="flex flex-col md:flex-row gap-6">
+          <div class="w-16 h-16 rounded-xl flex items-center justify-center bg-[var(--maes-gold)]/15 border border-[var(--maes-gold)] text-[var(--maes-gold)] text-2xl font-bold">
+            EMS
+          </div>
+
+          <div class="space-y-3">
+            <h4 class="text-2xl font-semibold text-white">
+              Energy Management & Automation
+            </h4>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              Fully engineered SCADA and EPMS platforms with IEC-61850 integration for 
+              intelligent control, high-accuracy metering and enterprise automation.
+            </p>
+
+            <div class="flex flex-wrap gap-2 text-xs font-medium">
+              <span class="px-3 py-1 rounded-md bg-slate-700 text-slate-300">EPMS / PMS</span>
+              <span class="px-3 py-1 rounded-md bg-slate-700 text-slate-300">SCADA</span>
+              <span class="px-3 py-1 rounded-md bg-slate-700 text-slate-300">PSA / R-PSA (Aramco)</span>
+              <span class="px-3 py-1 rounded-md bg-slate-700 text-slate-300">RSMS</span>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="p-6 rounded-lg glass">
-          <h4 class="font-semibold text-white">Power Quality & Audit</h4>
-          <p class="mt-2 text-slate-300 text-sm">Comprehensive services including Energy and Harmonics Audits, Analysis, and implementation of solutions for power quality improvement.</p>
-          <ul class="mt-3 ml-4 list-disc text-slate-300 text-sm space-y-1">
-            <li>Energy & Power Quality Audits, Studies, and Analysis.</li>
-            <li>Power Factor Correction (PFC) Systems.</li>
-            <li>Harmonics Mitigation (Active & Passive Filters).</li>
-            <li>Uninterruptible Power Supply (UPS) & Stabilizers.</li>
-            <li>VFD (Variable Frequency Drives) & Soft Starters.</li>
-          </ul>
-        </div>
+      <!-- Repeat for SEC -->
+      <div class="group p-8 rounded-xl border border-slate-800 bg-slate-800/40 
+        hover:bg-slate-800 hover:border-[#0FB34A] hover:scale-105 hover:shadow-[0_0_20px_rgba(15,179,74,0.5)] 
+        transition-transform transition-shadow duration-300">
+        <div class="flex flex-col md:flex-row gap-6">
+          <div class="w-16 h-16 rounded-xl flex items-center justify-center bg-blue-500/10 border border-blue-500 text-blue-400 text-2xl font-bold">
+            SEC
+          </div>
 
-        <div class="p-6 rounded-lg glass">
-          <h4 class="font-semibold text-white">Energy Management & Automation</h4>
-          <p class="mt-2 text-slate-300 text-sm">Design, supply, and integration of SCADA and Power Monitoring Systems for control, billing, and automation solutions.</p>
-          <ul class="mt-3 ml-4 list-disc text-slate-300 text-sm space-y-1">
-            <li>Electrical Power Monitoring Systems (EPMS/PMS).</li>
-            <li>SCADA (Supervisory Control and Data Acquisition).</li>
-            <li>Power Systems Automation (PSA/Reduced PSA) for Aramco projects.</li>
-            <li>Remote Switching & Monitoring Systems (RSMS) for Aramco projects.</li>
-          </ul>
-        </div>
+          <div class="space-y-3">
+            <h4 class="text-2xl font-semibold text-white">
+              CCTV, Security & Communication Systems
+            </h4>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              Enterprise-grade surveillance and smart automation systems with secure
+              communication infrastructure for critical sites and facilities.
+            </p>
 
-        <div class="p-6 rounded-lg glass">
-          <h4 class="font-semibold text-white">CCTV, Security & Comms</h4>
-          <p class="mt-2 text-slate-300 text-sm">Full turnkey services for Security Systems, Communication infrastructure, and Smart Home Automation technologies.</p>
-          <ul class="mt-3 ml-4 list-disc text-slate-300 text-sm space-y-1">
-            <li>CCTV (Surveillance cameras and remote monitoring).</li>
-            <li>Security Systems (e.g., Paradox security alarm system).</li>
-            <li>IP Telephone and Intercom Systems.</li>
-            <li>Communication & Internet (wired & wireless IT systems and Networking).</li>
-            <li>Smart Home Automation.</li>
-          </ul>
-        </div>
-
-        <div class="p-6 rounded-lg glass">
-          <h4 class="font-semibold text-white">Electrical Supply & Cabling</h4>
-          <p class="mt-2 text-slate-300 text-sm">Supply of specialized electrical panels and certified services for Fiber Optic and Copper cable splicing, termination, and testing.</p>
-          <ul class="mt-3 ml-4 list-disc text-slate-300 text-sm space-y-1">
-            <li>Supply of Electrical Panels (Distribution, Synchronizing, ATS).</li>
-            <li>Transformers & Electrical Panels supply.</li>
-            <li>Fiber Optic Cable Splicing, Termination, and Testing (OTDR/Power Meter).</li>
-            <li>Design, Engineering, and Installation services for all systems.</li>
-          </ul>
+            <div class="flex flex-wrap gap-2 text-xs font-medium">
+              <span class="px-3 py-1 rounded-md bg-slate-700 text-slate-300">CCTV</span>
+              <span class="px-3 py-1 rounded-md bg-slate-700 text-slate-300">Intrusion Systems</span>
+              <span class="px-3 py-1 rounded-md bg-slate-700 text-slate-300">IP Telephony</span>
+              <span class="px-3 py-1 rounded-md bg-slate-700 text-slate-300">Networking / Wi-Fi</span>
+              <span class="px-3 py-1 rounded-md bg-slate-700 text-slate-300">Smart Home</span>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <div class="max-w-7xl mx-auto px-6 lg:px-12 py-12">
-    <div class="feature-box grid grid-cols-1 lg:grid-cols-2 gap-8 lg:text-center">
-        <div class="lg:col-start-1 lg:col-end-3">
-            <div class="mb-4 flex flex-col items-center justify-center">
-                <img src="Ecoxpert-logo-certification.jpg" alt="Schneider Electric EcoXpert Logo" class="h-10 w-auto bg-white p-1 rounded">
-                <p class="mt-2 text-sm text-yellow-300 font-semibold">Schneider Electric EcoXpert Critical Power MASTER Certified</p>
+      <!-- Repeat for ELV -->
+      <div class="group p-8 rounded-xl border border-slate-800 bg-slate-800/40 
+        hover:bg-slate-800 hover:border-[#0FB34A] hover:scale-105 hover:shadow-[0_0_20px_rgba(15,179,74,0.5)] 
+        transition-transform transition-shadow duration-300">
+        <div class="flex flex-col md:flex-row gap-6">
+          <div class="w-16 h-16 rounded-xl flex items-center justify-center bg-emerald-500/10 border border-emerald-500 text-emerald-400 text-2xl font-bold">
+            ELV
+          </div>
+
+          <div class="space-y-3">
+            <h4 class="text-2xl font-semibold text-white">
+              Electrical Supply & Fiber Cabling
+            </h4>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              Certified panel manufacturing, fiber splicing and termination services delivered to 
+              industrial and mission-critical standards.
+            </p>
+
+            <div class="flex flex-wrap gap-2 text-xs font-medium">
+              <span class="px-3 py-1 rounded-md bg-slate-700 text-slate-300">LV Panels (ATS / Sync)</span>
+              <span class="px-3 py-1 rounded-md bg-slate-700 text-slate-300">Transformers</span>
+              <span class="px-3 py-1 rounded-md bg-slate-700 text-slate-300">Fiber Splicing</span>
+              <span class="px-3 py-1 rounded-md bg-slate-700 text-slate-300">OTDR Testing</span>
+              <span class="px-3 py-1 rounded-md bg-slate-700 text-slate-300">Engineering</span>
             </div>
-            <h3 class="text-3xl font-bold mb-3">Certified Expertise You Can Trust</h3>
-            <p class="text-slate-200 max-w-2xl mx-auto">MAES is certified as a Critical Power MASTER by Schneider Electric's EcoXpert program. This guarantees that our solutions meet the highest global standards for energy reliability and performance.</p>
-            <div class="mt-6">
-                <a href="#contact" class="px-5 py-3 rounded-md bg-white text-slate-900 font-semibold hover:bg-slate-100 transition duration-200">Request Our Full Profile</a>
-            </div>
+          </div>
         </div>
+      </div>
+
     </div>
   </div>
+</section>
+
+
+
+
+<div class="max-w-7xl mx-auto px-6 lg:px-12 py-12">
+  <div class="feature-box 
+              grid grid-cols-1 lg:grid-cols-2 gap-8 lg:text-center 
+              p-8 rounded-xl border border-slate-700 bg-slate-900/40 
+              hover:border-[#FFD700] 
+              hover:shadow-[0_0_20px_rgba(255,215,0,0.5)] 
+              hover:scale-105 
+              transition-transform transition-shadow duration-300">
+
+    <div class="lg:col-start-1 lg:col-end-3">
+      <div class="mb-4 flex flex-col items-center justify-center">
+        <img src="Ecoxpert-logo-certification.jpg" alt="Schneider Electric EcoXpert Logo" class="h-10 w-auto bg-white p-1 rounded">
+        <p class="mt-2 text-sm text-yellow-300 font-semibold">Schneider Electric EcoXpert Critical Power MASTER Certified</p>
+      </div>
+      <h3 class="text-3xl font-bold mb-3">Certified Expertise You Can Trust</h3>
+      <p class="text-slate-200 max-w-2xl mx-auto">
+        MAES is certified as a Critical Power MASTER by Schneider Electric's EcoXpert program. 
+        This guarantees that our solutions meet the highest global standards for energy reliability and performance.
+      </p>
+      <div class="mt-6">
+        <a href="#contact" class="px-5 py-3 rounded-md bg-white text-slate-900 font-semibold hover:bg-slate-100 transition duration-200">
+          Request Our Full Profile
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 
   <section id="projects" class="py-16 bg-white text-slate-900">
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
@@ -292,83 +727,115 @@
         <h3 class="text-2xl font-bold">Recent Projects</h3>
       </div>
       <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <article class="rounded-lg overflow-hidden shadow-lg border border-slate-100 hover:shadow-xl transition duration-300">
+  
+        <article class="rounded-lg overflow-hidden shadow-lg border border-slate-200 
+          transition duration-300
+          hover:border-[#0FB34A] 
+          hover:shadow-[0_0_12px_#1E90FF,0_0_25px_#1E90FF]">
           <img class="project-img w-full" src="aramco.jpg" alt="Project preview">
           <div class="p-4">
             <h4 class="font-semibold">Electrical Power Monitoring System</h4>
             <p class="mt-2 text-sm text-slate-600">“Implemented a comprehensive Electrical Power Monitoring System (EPMS) across Aramco facilities to monitor, analyze, and optimize power distribution. Integrated real-time SCADA data from substations and critical equipment for improved reliability and uptime. Enabled predictive maintenance, energy efficiency, and detailed reporting for operational decision-making.”</p>
           </div>
         </article>
-
-        <article class="rounded-lg overflow-hidden shadow-lg border border-slate-100 hover:shadow-xl transition duration-300">
+  
+        <article class="rounded-lg overflow-hidden shadow-lg border border-slate-200 
+          transition duration-300
+          hover:border-[#0FB34A] 
+          hover:shadow-[0_0_12px_#1E90FF,0_0_25px_#1E90FF]">
           <img class="project-img w-full" src="web.jpg" alt="Project preview">
           <div class="p-4">
             <h4 class="font-semibold">Substation Protection Upgrade</h4>
             <p class="mt-2 text-sm text-slate-600">“Implemented a transformer monitoring system for transformers at Clarios | Mebco, using 3 sensors per transformer to track . The system provides real-time alerts, identifying exactly which transformer trips, enabling rapid response and minimizing downtime.”</p>
           </div>
         </article>
-
-        <article class="rounded-lg overflow-hidden shadow-lg border border-slate-100 hover:shadow-xl transition duration-300">
+  
+        <article class="rounded-lg overflow-hidden shadow-lg border border-slate-200 
+          transition duration-300
+          hover:border-[#FFD700]
+          hover:shadow-[0_0_12px_#1E90FF,0_0_25px_#1E90FF]">
           <img class="project-img w-full" src="2.jpg" alt="Project preview">
           <div class="p-4">
             <h4 class="font-semibold">Energy Audit & Optimization</h4>
             <p class="mt-2 text-sm text-slate-600">“As part of our electrical upgrade at Gulf Pack, a new advanced power meter has been installed on the control panel. It accurately monitors voltage, current, and energy consumption in real time. This enables precise tracking, improves operational efficiency, and ensures reliable power management for the facility.”.</p>
           </div>
         </article>
+  
       </div>
     </div>
   </section>
-
+  
   <section id="partners" class="py-20 bg-slate-800 text-slate-200">
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
       <h4 class="text-center text-3xl font-semibold mb-10">Trusted by Partners And Clients</h4>
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-12 items-center justify-center">
+  
+        <!-- Logo item -->
         <div class="flex items-center justify-center">
-          <img src="IMG_6324.JPG" alt="client" class="h-32 w-auto object-contain" />
+          <img src="IMG_6324.JPG" alt="client" 
+               class="h-32 w-auto object-contain transform transition-transform duration-300 hover:scale-110 hover:shadow-[0_0_15px_rgba(255,215,0,0.5)] hover:rotate-1"/>
         </div>
+  
         <div class="flex items-center justify-center">
-          <img src="SABIC.png" alt="client" class="h-32 w-auto object-contain" />
+          <img src="SABIC.png" alt="client" 
+               class="h-32 w-auto object-contain transform transition-transform duration-300 hover:scale-110 hover:shadow-[0_0_15px_rgba(255,215,0,0.5)] hover:rotate-1"/>
         </div>
+  
         <div class="flex items-center justify-center">
-          <img src="IMG_6326.JPG" alt="client" class="h-32 w-auto object-contain" />
+          <img src="IMG_6326.JPG" alt="client" 
+               class="h-32 w-auto object-contain transform transition-transform duration-300 hover:scale-110 hover:shadow-[0_0_15px_rgba(255,215,0,0.5)] hover:rotate-1"/>
         </div>
+  
         <div class="flex items-center justify-center">
-          <img src="IMG_6328.JPG" alt="client" class="h-32 w-auto object-contain" />
+          <img src="IMG_6328.JPG" alt="client" 
+               class="h-32 w-auto object-contain transform transition-transform duration-300 hover:scale-110 hover:shadow-[0_0_15px_rgba(255,215,0,0.5)] hover:rotate-1"/>
         </div>
+  
         <div class="flex items-center justify-center">
-          <img src="IMG_6329.JPG" alt="client" class="h-32 w-auto object-contain" />
+          <img src="IMG_6329.JPG" alt="client" 
+               class="h-32 w-auto object-contain transform transition-transform duration-300 hover:scale-110 hover:shadow-[0_0_15px_rgba(255,215,0,0.5)] hover:rotate-1"/>
         </div>
+  
         <div class="flex items-center justify-center">
-          <img src="IMG_6330.JPG" alt="client" class="h-32 w-auto object-contain" />
+          <img src="IMG_6330.JPG" alt="client" 
+               class="h-32 w-auto object-contain transform transition-transform duration-300 hover:scale-110 hover:shadow-[0_0_15px_rgba(255,215,0,0.5)] hover:rotate-1"/>
         </div>
-
-         <div class="flex items-center justify-center">
-          <img src="kfupm.png" alt="client" class="h-32 w-auto object-contain" />
-        </div>
-
+  
+        <!-- Continue the rest logos in same pattern -->
         <div class="flex items-center justify-center">
-          <img src="maden.png" alt="client" class="h-32 w-auto object-contain" />
+          <img src="sec.jpg" alt="client" 
+               class="h-32 w-auto object-contain transform transition-transform duration-300 hover:scale-110 hover:shadow-[0_0_15px_rgba(255,215,0,0.5)] hover:rotate-1"/>
         </div>
-
+  
         <div class="flex items-center justify-center">
-          <img src="petro.png" alt="client" class="h-32 w-auto object-contain" />
+          <img src="petro.png" alt="client" 
+               class="h-32 w-auto object-contain transform transition-transform duration-300 hover:scale-110 hover:shadow-[0_0_15px_rgba(255,215,0,0.5)] hover:rotate-1"/>
         </div>
-
+  
         <div class="flex items-center justify-center">
-          <img src="royal.png" alt="client" class="h-32 w-auto object-contain" />
+          <img src="royal.png" alt="client" 
+               class="h-32 w-auto object-contain transform transition-transform duration-300 hover:scale-110 hover:shadow-[0_0_15px_rgba(255,215,0,0.5)] hover:rotate-1"/>
         </div>
-
+  
         <div class="flex items-center justify-center">
-          <img src="sac.jpg" alt="client" class="h-32 w-auto object-contain" />
+          <img src="maden.png" alt="client" 
+               class="h-32 w-auto object-contain transform transition-transform duration-300 hover:scale-110 hover:shadow-[0_0_15px_rgba(255,215,0,0.5)] hover:rotate-1"/>
         </div>
-
+  
         <div class="flex items-center justify-center">
-          <img src="sec.jpg" alt="client" class="h-32 w-auto object-contain" />
+          <img src="kfupm.png" alt="client" 
+               class="h-32 w-auto object-contain transform transition-transform duration-300 hover:scale-110 hover:shadow-[0_0_15px_rgba(255,215,0,0.5)] hover:rotate-1"/>
         </div>
-        
+  
+        <div class="flex items-center justify-center">
+          <img src="sac.jpg" alt="client" 
+               class="h-32 w-auto object-contain transform transition-transform duration-300 hover:scale-110 hover:shadow-[0_0_15px_rgba(255,215,0,0.5)] hover:rotate-1"/>
+        </div>
+  
       </div>
     </div>
   </section>
+  
 
   <section id="contact" class="py-16 bg-white text-slate-900">
     <div class="max-w-5xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -466,8 +933,10 @@
       </div>
     </div>
   </section>
-
+  
   <script>
+ 
+
     const obs = new IntersectionObserver((entries)=>{
       entries.forEach(e=>{
         if(e.isIntersecting){e.target.classList.add('visible')}
@@ -537,5 +1006,8 @@
         }
     });
   </script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 </body>
 </html>
